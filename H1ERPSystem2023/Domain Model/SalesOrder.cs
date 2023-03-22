@@ -24,12 +24,22 @@ namespace H1_ERP_System_2023.Domain_Model
         public Condition Condition { get; set; }
         public List<OrderLine> OrderLines { get; }
 
-    }
-    public class OrderSum
-    {
-        public double Sum { get; set; }
+        /// <summary>
+        /// Gives a sum of Product
+        /// </summary>
+        /// <returns>The sum of all the product chosen</returns>
+        public double Sum()
+        {
+            double sum = 0;
+            foreach (OrderLine line in OrderLines)
+            {
 
+                sum = sum + line.Product.Saleprice;
+            }
+            return sum;
+        }
     }
+
 
 }
 
