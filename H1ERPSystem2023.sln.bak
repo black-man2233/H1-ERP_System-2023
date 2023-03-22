@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBoisBot", "TheBoisBot\TheBoisBot.csproj", "{20674A61-6DAE-4F89-861C-DC5EDC058C3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "exes", "exes", "{930C99D1-D3ED-4B90-98CB-30F3716F6C0B}"
+	ProjectSection(SolutionItems) = preProject
+		exes\TheBoisBot.exe = exes\TheBoisBot.exe
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighJinBot", "HighJinBot\HighJinBot.csproj", "{083BB87E-5F28-4DC3-BE0C-68F39D006BD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20674A61-6DAE-4F89-861C-DC5EDC058C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20674A61-6DAE-4F89-861C-DC5EDC058C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20674A61-6DAE-4F89-861C-DC5EDC058C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20674A61-6DAE-4F89-861C-DC5EDC058C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{083BB87E-5F28-4DC3-BE0C-68F39D006BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{083BB87E-5F28-4DC3-BE0C-68F39D006BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{083BB87E-5F28-4DC3-BE0C-68F39D006BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{083BB87E-5F28-4DC3-BE0C-68F39D006BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67AF4F06-D2C5-41FE-B24D-8A23CA4440C6}
+	EndGlobalSection
+EndGlobal
