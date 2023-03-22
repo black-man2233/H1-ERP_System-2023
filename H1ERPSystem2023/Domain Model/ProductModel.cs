@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H1_ERP_System_2023.Domain_Model
 {
-    internal class ProductModel
+    public class ProductModel
     {
         public string ItemNumber { get; set; }
         public string Name { get; set; }

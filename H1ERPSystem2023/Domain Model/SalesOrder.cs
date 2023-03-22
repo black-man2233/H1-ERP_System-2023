@@ -22,7 +22,7 @@ namespace H1_ERP_System_2023.Domain_Model
         public DateTime CompleteDate { get; set; }
         public int CustomerID { get; set; }
         public Condition Condition { get; set; }
-
+        public List<OrderLine> OrderLines { get; }
 
     }
     public class OrderSum
