@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace H1_ERP_System_2023.Database
+namespace H1ERPSystem2023.Database
 {
     internal class B1
     {

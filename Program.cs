@@ -1,4 +1,4 @@
-﻿namespace H1_ERP_System_2023
+﻿namespace H1ERPSystem2023
 {
     internal class Program
     {
