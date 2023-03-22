@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain Model\" />
     <Folder Include="Costumer\" />
     <Folder Include="Database\" />
     <Folder Include="Company\" />
