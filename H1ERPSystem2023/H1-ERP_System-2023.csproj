@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -12,8 +12,8 @@
     <Folder Include="Costumer\" />
     <Folder Include="Database\" />
     <Folder Include="Company\" />
+    <Folder Include="product\" />
     <Folder Include="Sales\" />
-    <Folder Include="Product\" />
   </ItemGroup>
 
   <ItemGroup>

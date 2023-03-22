@@ -8,7 +8,7 @@ namespace H1_ERP_System_2023.Domain_Model
 {
     public class ProductModel
     {
-        public string ItemNumber { get; set; }
+        public string ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Saleprice { get; set; }
@@ -32,5 +32,10 @@ namespace H1_ERP_System_2023.Domain_Model
             return a;
 
         }
+    
+        
+
+
+
     }
 }
