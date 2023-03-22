@@ -8,4 +8,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Domain Model\" />
+    <Folder Include="Produkt\" />
+  </ItemGroup>
+
 </Project>
