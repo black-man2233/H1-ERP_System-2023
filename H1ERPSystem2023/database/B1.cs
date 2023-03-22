@@ -13,9 +13,9 @@ namespace H1ERPSystem2023.Database
         {
             SqlConnectionStringBuilder sb = new();
             sb.DataSource = "docker.data.techcollege.dk";
-            sb.InitialCatalog = "H1PD021123_Gruppe4";
-            sb.UserID = "H1PD021123_Gruppe4";
-            sb.Password = "H1PD021123_Gruppe4";
+            sb.InitialCatalog = "H1PD021123_Gruppe5";
+            sb.UserID = "H1PD021123_Gruppe5";
+            sb.Password = "H1PD021123_Gruppe5";
             string connectionString = sb.ToString();
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
