@@ -13,7 +13,7 @@ namespace H1_ERP_System_2023.Database
         
         public CompanyModel GetCompany()
         {
-            return Company;
+            throw new NotImplementedException();
         }
         public List<CompanyModel> GetAllCompanyModels() { //foreach?
 

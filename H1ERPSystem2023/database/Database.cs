@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace H1ERPSystem2023.Database
 {
-    internal class B1
+    internal partial class Database
     {
         private SqlConnection getConnection()
         {
@@ -20,5 +21,6 @@ namespace H1ERPSystem2023.Database
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
         }
+
     }
 }
