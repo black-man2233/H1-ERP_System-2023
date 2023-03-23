@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace H1ERPSystem2023.Database
 {
     internal partial class Database
-    { 
+    {
         public static Database Instance { get; }
 
-        private static Database()
-        { 
-            Instance = new Database(); 
-        }
+        static Database()
+        {
+            Instance = new Database();
+        }// !!Hvis jeg sætter metoden til privat får jeg fejl!!
 
         private SqlConnection getConnection()
         {
