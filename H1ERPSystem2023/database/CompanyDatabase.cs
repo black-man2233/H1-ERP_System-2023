@@ -1,6 +1,7 @@
 ﻿using H1_ERP_System_2023.Domain_Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace H1_ERP_System_2023.Database
 {
     internal partial class Database
     {
+        string a
         public string Company { get; set; }
 
         List<CompanyModel> Companies = new List();
@@ -19,29 +21,42 @@ namespace H1_ERP_System_2023.Database
             
         public CompanyModel GetCompany(int ID)
         {
-            if ID == List.Find(Companies).ID == 0)
+            if Company.ID == List.Find(Companies).ID == 0)
                 return ID
         }
         public List<CompanyModel> GetAllCompanyModels()
         {
-            foreach ID in Companies {
-
+            foreach CompanyModel Company in Companies {
+                return Companies 
             }
                 SqlConnection SQLConn = getConnection();
 
         }
         public List<CompanyModel> AddCompany() {
-            Companies.Add(new Companies() { });
+            Companies.Add(new Companies())
+            {
+            }
+            
         }
-        public CompanyModel UpdateCompany()
+        public CompanyModel UpdateCompany(string a, string b, string c, string d, string e)
         {
-            throw new NotImplementedException();
+            if Company.ID == List.Find(Companies).ID == 0) {
+                Company.CompanyName = a
+                    Company.Street = b
+                    Company.PostalCode = c
+                    Company.City = d
+                    Company.Country = e 
+                    }
+
+
 
         }
         public List<CompanyModel> RemoveCompany()
-
-        {Companies.Remove(Companies)
-
+        {
+            Companies.Remove(Companies())
+                {
+            }
+        }
 
     }
     }
