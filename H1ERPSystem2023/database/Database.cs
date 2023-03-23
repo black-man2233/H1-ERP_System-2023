@@ -9,7 +9,14 @@ using System.Threading.Tasks;
 namespace H1ERPSystem2023.Database
 {
     internal partial class Database
-    {
+    { 
+        public static Database Instance { get; }
+
+        private static Database()
+        { 
+            Instance = new Database(); 
+        }
+
         private SqlConnection getConnection()
         {
             SqlConnectionStringBuilder sb = new();
