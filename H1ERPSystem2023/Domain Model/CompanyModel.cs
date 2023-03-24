@@ -28,8 +28,8 @@ namespace H1_ERP_System_2023.Domain_Model
             this.PostalCode = postalCode;
             City = city;
             Country = country;
-
-        }
+            
+        } // Missing Currency in Company Model
 
     }
 }
