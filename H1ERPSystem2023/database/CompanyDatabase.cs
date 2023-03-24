@@ -32,15 +32,19 @@ namespace H1_ERP_System_2023.Database
             _addCompanies();
         }
 
-        //public CompanyModel GetCompany(int ID)
-        //{
-        //    if (Company.ID == List.Find(Companies).ID == 0)
-        //    {
-        //        return ID;
-        //    }
-        //    else throw new Exception("Id findes Ikke");
-        //}
+        public CompanyModel GetCompany(int ID)
+        {
+            foreach (CompanyModel company in Companies)
+            {
+                if (company.ID == ID)
+                {
+                    return company;
+                }
+            }
 
+            Console.WriteLine("Id findes Ikke");
+            return null;
+        }
         public List<CompanyModel> GetAllCompanyModels()
         {
             List<CompanyModel> _allComanies = new();
@@ -61,13 +65,12 @@ namespace H1_ERP_System_2023.Database
 
         }
 
-        public CompanyModel UpdateCompany(int ID, string companyName, string street, string streetNumber, string postalCode, string city, string country)
+        public void UpdateCompany(int ID, string companyName, string street, string streetNumber, string postalCode, string city, string country)
         {
             foreach (CompanyModel company in Companies)
             {
                 if (company.ID == ID)
                 {
-                   
                     company.CompanyName = companyName;
                     company.Street = street;
                     company.StreetNumber = streetNumber;
@@ -75,22 +78,23 @@ namespace H1_ERP_System_2023.Database
                     company.City = city;
                     company.Country = country;
 
-                    return company;
                 }
             }
-            
         }
 
-        public void RemoveCompany()
+        public void RemoveCompany(int ID)
         {
-
-            Companies.Remove(company);
+            foreach (CompanyModel company in Companies)
+            {
+                if (company.ID == ID)
                 {
+                    Companies.Remove(company);
+                    break;
+
+                }
             }
         }
-
     }
+
 }
-
-
 
