@@ -10,6 +10,13 @@ namespace H1ERPSystem2023.Database
 {
     internal partial class Database
     {
+        public static Database Instance { get; }
+
+        static Database()
+        {
+            Instance = new Database();
+        }// !!Hvis jeg sætter metoden til privat får jeg fejl!!
+
         private SqlConnection getConnection()
         {
             SqlConnectionStringBuilder sb = new();
