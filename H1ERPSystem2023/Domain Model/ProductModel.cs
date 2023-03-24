@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace H1_ERP_System_2023.Domain_Model
 {
+
+    public enum Measure { Meter, Liter }
     public class ProductModel
     {
 
@@ -16,9 +19,9 @@ namespace H1_ERP_System_2023.Domain_Model
         public int BuyPrice { get; set; }
         public string Location { get; set; } // nummer på 4 bogstaver, 
         public int Quantity { get; set; }
-        public string Measure { get; set; }
+        public Measure Measure { get; set; }
 
-        public ProductModel(int id, string productName, string description, int salePrice, int buyPrice, string location, int quantity, string measure)
+        public ProductModel(int id, string productName, string description, int salePrice, int buyPrice, string location, int quantity, Measure measure)
         {
             ID = id;
             ProductName = productName;
@@ -31,13 +34,13 @@ namespace H1_ERP_System_2023.Domain_Model
         }
 
 
-        static int Profit(int a, int b, int c, int d)
+        public int Profit(int a, int b, int c, int d)
         {
             a = (b + c) * d;
 
             return a;
         }
-        static int Avance(int a, int b, int c)
+        public int Avance(int a, int b, int c)
         {
             a = b / c * 100;
 

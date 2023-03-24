@@ -23,9 +23,9 @@ namespace H1_ERP_System_2023.Database
 //about them
         void _addCompanies()
         {
-            Companies.Add(new CompanyModel(1, "Virksomhed", "Vejej", "Nummer", "9900", "Aalborg,", "Denmark"));
+            Companies.Add(new CompanyModel(1, "Virksomhed", "Vejej", "Nummer", "9900", "Aalborg,", "Denmark", Currency.DKK)); //Might be able to do Player selected by Currency currency, test later
 
-            Companies.Add(new CompanyModel(2, "Virksomhed2", "Rørdalsvej", "Nummer2", "9999", "København", " Denmark"));
+            Companies.Add(new CompanyModel(2, "Virksomhed2", "Rørdalsvej", "Nummer2", "94114", "San Francisco", " America", Currency.USD)); //Might be able to do Player selected by Currency currency, test later
         }
 //Constructor used for AddCompany
         public CompanyDatabase()
@@ -66,7 +66,7 @@ namespace H1_ERP_System_2023.Database
         //It uses the parameters given of ID, CompanyName, etc, 
         public void AddCompany(int id, string companyName, string street, string streetNumber, string postalCode, string city, string country)
         {
-            Companies.Add(new CompanyModel(id, companyName, street, streetNumber, postalCode, city, country));
+            Companies.Add(new CompanyModel(id, companyName, street, streetNumber, postalCode, city, country, Currency.DKK));
 
         }
         //UpdateCompany uses foreach and if to Identity the company, then updates it, 
@@ -83,6 +83,7 @@ namespace H1_ERP_System_2023.Database
                     company.PostalCode = postalCode;
                     company.City = city;
                     company.Country = country;
+                    company.Currency = Currency.DKK;
 
                 }
             }
@@ -102,6 +103,38 @@ namespace H1_ERP_System_2023.Database
                 }
             }
         }
+        // /// //// ///// //// /// // /// //// ///// //// /// // /// //// ///// //// /// // /// //// ///// //// /// //
+        /* SQL Update VERSION af Lærke, skal gerne bruges på et senere tidspunkt sammen med SQL
+     
+        public void AddCompany(CompanyModel company)
+        {
+            Companies.Add(company);
+       // Denne er et reference til SQL, og ikke Direkte kode -> sql = "insert into(name, adress) values (company.name, company.adress)"
+
+        }
+          
+        public void UpdateCompany(CompanyModel companyToUpdate)
+        {
+            foreach (CompanyModel company in Companies)
+            {
+                if (company.ID == ID)
+                {
+                    company.CompanyName = companyName;
+                    company.Street = street;
+                    company.StreetNumber = streetNumber;
+                    company.PostalCode = postalCode;
+                    company.City = city;
+                    company.Country = country;
+                    company.Currency = Currency.
+
+
+
+
+
+
+
+
+        */
     }
 
 }

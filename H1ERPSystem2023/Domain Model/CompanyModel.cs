@@ -19,7 +19,7 @@ namespace H1_ERP_System_2023.Domain_Model
         public string Country { get; set; }
         public Currency Currency { get; set; }
 
-        public CompanyModel(int id, string companyName, string street, string streetNumber, string postalCode, string city, string country)
+        public CompanyModel(int id, string companyName, string street, string streetNumber, string postalCode, string city, string country, Currency currency)
         {
             ID = id;
             CompanyName = companyName;
@@ -28,8 +28,13 @@ namespace H1_ERP_System_2023.Domain_Model
             this.PostalCode = postalCode;
             City = city;
             Country = country;
-            
-        } // Missing Currency in Company Model
+            Currency = currency;
+
+
+        } // Missing Currency Selection (might be able to do Currency currency instead of currency.DKK/USD, Test Later
+         //Measure from Product Database is same as above!!
+          // Missing SQL setup (Check bottom Company database)
 
     }
 }
+

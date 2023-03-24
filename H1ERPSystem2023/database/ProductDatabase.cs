@@ -11,9 +11,9 @@ namespace H1_ERP_System_2023.Domain_Model
         //about them
         void _addProducts()
         {
-            Products.Add(new ProductModel(1, "Nesquick", "Chokolade Poo", 26, 18, "Lokation", 265, "Measure"));
+            Products.Add(new ProductModel(1, "Nesquick", "Chokolade Poo", 26, 18, "Lokation", 265, Measure.Liter));
 
-            Products.Add(new ProductModel(2, "Virksomhed", "Vejej", 200, 18, "Aalborg,", 108, "Meter"));
+            Products.Add(new ProductModel(2, "Virksomhed", "Vejej", 200, 18, "Aalborg,", 108, Measure.Meter));
         }
         //Constructor used for Addproduct
         public ProductDatabase()
@@ -49,14 +49,14 @@ namespace H1_ERP_System_2023.Domain_Model
         }
         //AddProduct essentially takes User Input and uses that to add it to the product list.
         //It uses the Parameters given of ID, ProductName, etc, 
-        public void AddProduct(int id, string productName, string description, int salePrice, int buyPrice, string location, int quantity, string measure)
+        public void AddProduct(int id, string productName, string description, int salePrice, int buyPrice, string location, int quantity, Measure measure)
         {
-            Products.Add(new ProductModel(id, productName, description, salePrice, buyPrice, location, quantity, measure));
+            Products.Add(new ProductModel(id, productName, description, salePrice, buyPrice, location, quantity, Measure.Meter));
 
         }
         //UpdateProduct uses foreach and If to Identity the product, then updates it, 
         //Void is used to avoid method wanting a return
-        public void UpdateProduct(int ID, string productName, string description, int salePrice, int buyPrice, string location, int quantity, string measure)
+        public void UpdateProduct(int ID, string productName, string description, int salePrice, int buyPrice, string location, int quantity, Measure measure)
         {
             foreach (ProductModel product in Products)
             {
