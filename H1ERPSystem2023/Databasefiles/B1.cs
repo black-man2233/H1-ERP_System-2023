@@ -1,11 +1,12 @@
-﻿using System;
+﻿using H1_ERP_System_2023.Domain_Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace H1ERPSystem2023.Database
+namespace H1ERPSystem2023.Databasefiles
 {
     internal class B1
     {
@@ -20,5 +21,7 @@ namespace H1ERPSystem2023.Database
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
         }
+
+
     }
 }

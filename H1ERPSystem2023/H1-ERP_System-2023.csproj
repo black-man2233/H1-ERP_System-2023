@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Costumer\" />
-    <Folder Include="Database\" />
     <Folder Include="Company\" />
     <Folder Include="product\" />
     <Folder Include="Sales\" />
