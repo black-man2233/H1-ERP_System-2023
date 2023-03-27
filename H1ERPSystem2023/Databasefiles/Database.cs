@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace H1ERPSystem2023.Database
+namespace H1ERPSystem2023.Databasefiles
 {
     internal partial class Database
     {
