@@ -9,7 +9,6 @@ namespace H1_ERP_System_2023.Domain_Model
     public enum Currency { DKK, USD }
     public class CompanyModel
     {
-
         public int ID { get; set; }
         public string CompanyName { get; set; }
         public string Street { get; set; }
@@ -25,7 +24,7 @@ namespace H1_ERP_System_2023.Domain_Model
             CompanyName = companyName;
             Street = street;
             StreetNumber = streetNumber;
-            this.PostalCode = postalCode;
+            PostalCode = postalCode;
             City = city;
             Country = country;
             Currency = currency;

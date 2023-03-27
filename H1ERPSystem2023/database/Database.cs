@@ -17,15 +17,17 @@ namespace H1ERPSystem2023.Database
             Instance = new Database();
         }// !!Hvis jeg sætter metoden til privat får jeg fejl!!
 
-        private SqlConnection getConnection()
+        private static SqlConnection GetConnection()
         {
-            SqlConnectionStringBuilder sb = new();
-            sb.DataSource = "docker.data.techcollege.dk";
-            sb.InitialCatalog = "H1PD021123_Gruppe5";
-            sb.UserID = "H1PD021123_Gruppe5";
-            sb.Password = "H1PD021123_Gruppe5";
+            SqlConnectionStringBuilder sb = new()
+            {
+                DataSource = "docker.data.techcollege.dk",
+                InitialCatalog = "H1PD021123_Gruppe5",
+                UserID = "H1PD021123_Gruppe5",
+                Password = "H1PD021123_Gruppe5"
+            };
             string connectionString = sb.ToString();
-            SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new(connectionString);
             return connection;
         }
 
