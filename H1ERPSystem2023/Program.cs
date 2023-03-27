@@ -27,8 +27,6 @@ namespace H1ERPSystem2023
             o.CustomerID = 12;
 
             d.UpdateSalesOrders(o);
-
-
         }
     }
 }
