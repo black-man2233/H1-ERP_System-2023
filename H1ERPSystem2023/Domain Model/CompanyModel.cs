@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace H1ERPSystem2023.DomainModel
+﻿namespace H1ERPSystem2023.DomainModel
 {
     public enum Currency { DKK, USD }
     public class CompanyModel
@@ -31,7 +25,7 @@ namespace H1ERPSystem2023.DomainModel
 
 
         } // Missing Currency Selection (might be able to do Currency currency instead of currency.DKK/USD, Test Later
-         //Measure from Product Database is same as above!!
+          //Measure from Product Database is same as above!!
           // Missing SQL setup (Check bottom Company database)
 
     }
