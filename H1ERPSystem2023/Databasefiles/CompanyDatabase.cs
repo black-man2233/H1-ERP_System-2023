@@ -1,4 +1,4 @@
-﻿using H1ERPSystem2023.Domain_Model;
+﻿using H1ERPSystem2023.DomainModel;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -18,13 +18,12 @@ namespace H1ERPSystem2023.Databasefiles
 
         public string Company { get; set; }
 
-        private List<CompanyModel> Companies = new List<CompanyModel>();
+        public List<CompanyModel> Companies = new List<CompanyModel>();
 //AddCompany uses the company List above, and gives us 2 companies to work with along with a lot of information
 //about them
         void _addCompanies()
         {
             Companies.Add(new CompanyModel(1, "Virksomhed", "Vejej", "Nummer", "9900", "Aalborg,", "Denmark", Currency.DKK)); //Might be able to do Player selected by Currency currency, test later
-
             Companies.Add(new CompanyModel(2, "Virksomhed2", "Rørdalsvej", "Nummer2", "94114", "San Francisco", " America", Currency.USD)); //Might be able to do Player selected by Currency currency, test later
         }
 //Constructor used for AddCompany

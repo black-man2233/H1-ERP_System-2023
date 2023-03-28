@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace H1ERPSystem2023.Domain_Model
+namespace H1ERPSystem2023.DomainModel
 {
 
     public enum Measure { Meter, Liter }
