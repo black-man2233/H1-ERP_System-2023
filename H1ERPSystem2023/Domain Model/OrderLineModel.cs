@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace H1ERPSystem2023.Domain_Model
 {
-    public class OrderLine
+    public class OrderLineModel
     {
+        // Gets all the proberties from the ProductModel
         public ProductModel Product { get; set; }
 
     }

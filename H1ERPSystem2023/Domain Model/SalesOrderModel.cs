@@ -15,14 +15,14 @@ namespace H1ERPSystem2023.Domain_Model
         Packed,
         Done
     }
-    public class SalesOrder
+    public class SalesOrderModel
     {
         public int OrderNumber { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime CompleteDate { get; set; }
         public int CustomerID { get; set; }
         public Condition Condition { get; set; }
-        public List<OrderLine> OrderLines { get; }
+        public List<OrderLineModel> OrderLines { get; }
 
         /// <summary>
         /// Gives a sum of Product
@@ -31,10 +31,10 @@ namespace H1ERPSystem2023.Domain_Model
         public double Sum()
         {
             double sum = 0;
-            foreach (OrderLine line in OrderLines)
+            foreach (OrderLineModel line in OrderLines)
             {
 
-                sum = sum + line.Product.Saleprice;
+                sum = sum + line.Product.SalePrice;
             }
             return sum;
         }

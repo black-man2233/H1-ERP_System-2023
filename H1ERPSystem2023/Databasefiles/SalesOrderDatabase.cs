@@ -1,23 +1,28 @@
 ﻿using H1ERPSystem2023.Domain_Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        static List<SalesOrder> _salesOrders = new List<SalesOrder>();
+        static List<SalesOrderModel> SalesOrders = new List<SalesOrderModel>();
 
-        public List<SalesOrder> GetSalesOrder()
+        /// <summary>
+        /// Runs down the whole list and returns it
+        /// </summary>
+        /// <returns>The whole list of "SaleOrders"</returns>
+        public List<SalesOrderModel> GetSalesOrder()
         {
-            return _salesOrders;
+            return SalesOrders;
         }
-        public SalesOrder GetOrderID(int ID)
+
+        /// <summary>
+        /// Checkes the given input is an ID from the SaleOrder list
+        /// </summary>
+        /// <param name="ID">The ID you want to check that has an SaleOrder</param>
+        /// <returns>The whole SaleOrder from the given ID</returns>
+        public SalesOrderModel GetOrderID(int ID)
         {
-            foreach (SalesOrder saleOrder in _salesOrders)
+            foreach (SalesOrderModel saleOrder in SalesOrders)
             {
                 if (saleOrder.OrderNumber == ID)
                 {
@@ -27,17 +32,25 @@ namespace H1ERPSystem2023.Databasefiles
             return null;
         }
 
-        public void AddSaleOrder(SalesOrder salesOrder)
+        /// <summary>
+        /// Add's the given order to the SaleOrder list
+        /// </summary>
+        /// <param name="salesOrder">The SaleOrder you want to add</param>
+        public void AddSaleOrder(SalesOrderModel salesOrder)
         {
             if (salesOrder != null)
             {
-                _salesOrders.Add(salesOrder);
+                SalesOrders.Add(salesOrder);
             }
         }
 
-        public void UpdateSalesOrders(SalesOrder updateOrder)
+        /// <summary>
+        /// Updates a already existing SaleOrder, in the list with the new assigned values
+        /// </summary>
+        /// <param name="updateOrder">The new values for a already existing order</param>
+        public void UpdateSalesOrders(SalesOrderModel updateOrder)
         {
-            SalesOrder salesOrder = GetOrderID(updateOrder.OrderNumber);
+            SalesOrderModel salesOrder = GetOrderID(updateOrder.OrderNumber);
             if (salesOrder != null)
             {
                 salesOrder.CreationDate = updateOrder.CreationDate;
@@ -47,13 +60,18 @@ namespace H1ERPSystem2023.Databasefiles
             }
 
         }
+
+        /// <summary>
+        /// Deletes a Order in the SaleOrder list, with the assigned ID
+        /// </summary>
+        /// <param name="ID">The ID of the Order you want to delete</param>
         public void DeleteSaleOrder(int ID)
         {
-            foreach (SalesOrder saleOrder in _salesOrders)
+            foreach (SalesOrderModel saleOrder in SalesOrders)
             {
                 if (saleOrder.OrderNumber == ID)
                 {
-                    _salesOrders.Remove(saleOrder);
+                    SalesOrders.Remove(saleOrder);
                 }
             }
         }
