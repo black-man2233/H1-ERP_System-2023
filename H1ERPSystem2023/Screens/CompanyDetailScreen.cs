@@ -1,10 +1,5 @@
 ﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TECHCOOL.UI;
 
 namespace H1ERPSystem2023
@@ -21,10 +16,10 @@ namespace H1ERPSystem2023
             CompanyDatabase compDB = new();
 
             //Loops through the Company Database and matches the ID with the selected company ID
-            for(int i = 0; i < compDB.Companies.Count; i++)
-                if(compDB.Companies[i].ID == CompaniesListScreen.SelectedCompany.ID)
+            for (int i = 0; i < compDB.Companies.Count; i++)
+                if (compDB.Companies[i].ID == CompaniesListScreen.SelectedCompany.ID)
                     compList.Add(compDB.Companies[i]);
-            
+
 
             compList.AddColumn("Name", "CompanyName");
             compList.AddColumn("Street", "Street");

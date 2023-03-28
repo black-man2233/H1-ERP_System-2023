@@ -1,11 +1,13 @@
-﻿namespace H1ERPSystem2023.Databasefiles
+﻿using H1ERPSystem2023.DomainModel;
+
+namespace H1ERPSystem2023.Databasefiles
 {
     public partial class CompanyDatabase
     {
 
         public string Company { get; set; }
 
-        private List<CompanyModel> Companies = new List<CompanyModel>();
+        public List<CompanyModel> Companies = new List<CompanyModel>();
         //AddCompany uses the company List above, and gives us 2 companies to work with along with a lot of information
         //about them
         void _addCompanies()
