@@ -1,12 +1,18 @@
-﻿using H1ERPSystem2023.Databasefiles;
+﻿using H1_ERP_System_2023.Databasefiles;
+using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.Domain_Model;
+using TECHCOOL.UI;
 
 namespace H1ERPSystem2023
 {
     internal class Program
     {
-        static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
+            MyFirstScreen firstScreen = new MyFirstScreen();
+            Screen.Display(firstScreen);
+
             //Console.WriteLine("Hello, World!");
             //Database db = new Database();
             //SalesOrder salesOrder = new SalesOrder()

@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Costumer\" />
     <Folder Include="Company\" />
     <Folder Include="product\" />
     <Folder Include="Sales\" />
