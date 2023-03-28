@@ -1,4 +1,4 @@
-﻿using H1ERPSystem2023.Domain_Model;
+﻿using H1ERPSystem2023.DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

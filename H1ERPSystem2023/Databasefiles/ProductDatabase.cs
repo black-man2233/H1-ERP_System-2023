@@ -1,5 +1,5 @@
 ﻿using System;
-using H1ERPSystem2023.Domain_Model;
+using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {
