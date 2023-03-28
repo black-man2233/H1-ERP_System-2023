@@ -1,6 +1,4 @@
-﻿using H1ERPSystem2023.Domain_Model;
-
-namespace H1ERPSystem2023.Databasefiles
+﻿namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {

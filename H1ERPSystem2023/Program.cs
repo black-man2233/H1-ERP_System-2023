@@ -1,11 +1,8 @@
-﻿using H1ERPSystem2023.Databasefiles;
-using H1ERPSystem2023.Domain_Model;
-
-namespace H1ERPSystem2023
+﻿namespace H1ERPSystem2023
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Hello, World!");
             Database db = new Database();
@@ -18,6 +15,8 @@ namespace H1ERPSystem2023
                 Condition = Condition.Created
             };
             db.AddSaleOrder(salesOrder);
+            //Screen Related
+            Screen.Display(new MenuScreen());
 
 
 

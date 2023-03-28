@@ -1,17 +1,4 @@
-﻿using H1ERPSystem2023.Domain_Model;
-using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.ComponentModel;
-using System.Data.SqlClient;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace H1ERPSystem2023.Databasefiles
+﻿namespace H1ERPSystem2023.Databasefiles
 {
     public partial class CompanyDatabase
     {
@@ -24,7 +11,6 @@ namespace H1ERPSystem2023.Databasefiles
         void _addCompanies()
         {
             Companies.Add(new CompanyModel(1, "Virksomhed", "Vejej", "Nummer", "9900", "Aalborg,", "Denmark", Currency.DKK)); //Might be able to do Player selected by Currency currency, test later
-
             Companies.Add(new CompanyModel(2, "Virksomhed2", "Rørdalsvej", "Nummer2", "94114", "San Francisco", " America", Currency.USD)); //Might be able to do Player selected by Currency currency, test later
         }
         //Constructor used for AddCompany
