@@ -3,12 +3,12 @@
     internal class Customer : Person
     {
         public string CustomerNumber { get; set; }
-        public DateTime LastPurchaseDate { get; set; }
+        public DateTime? LastPurchaseDate { get; set; }
 
         /// <summary>
         /// Creates a new Customer With a Person Parameters
         /// </summary>
-        public Customer(int personId, string firstName, string lastName, Address address, string phoneNumber, string emailAddress, string customerNumber, DateTime lastPurchaseDate) : base(personId, firstName, lastName, address, phoneNumber, emailAddress)
+        public Customer(int personId, string firstName, string lastName, Address? address, string phoneNumber, string emailAddress, string customerNumber, DateTime? lastPurchaseDate) : base(personId, firstName, lastName, address, phoneNumber, emailAddress)
         {
             #region Person
             this.PersonId = personId;

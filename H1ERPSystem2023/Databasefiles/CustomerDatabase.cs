@@ -14,17 +14,18 @@ namespace H1_ERP_System_2023.Databasefiles
 
         void _addCompanies()
         {
-            Customers.Add(new Customer(1, "FirstName", "LastName", "12345678", "12345678", "Email@Email.com", "1", ));
+            Customers.Add(new Customer(1, "FirstName", "LastName", null, "12345678", "Email@Email.com", "1", null));
         }
 
         public CustomerDatabase()
         {
+
             _addCompanies();
         }
     }
 
 
-public class MyFirstScreen : Screen
+    public class MyFirstScreen : Screen
     {
         public override string Title { get; set; } = "My first screen";
         protected override void Draw()
@@ -34,4 +35,3 @@ public class MyFirstScreen : Screen
         }
     }
 }
-
