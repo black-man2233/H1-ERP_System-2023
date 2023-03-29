@@ -10,8 +10,10 @@ namespace H1ERPSystem2023
 
         public static void Main(string[] args)
         {
+            TodoListScreen ListScreen = new TodoListScreen();
             MyFirstScreen firstScreen = new MyFirstScreen();
-            Screen.Display(firstScreen);
+            Screen.Display(ListScreen);
+            
 
             //Console.WriteLine("Hello, World!");
             //Database db = new Database();
