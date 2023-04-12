@@ -2,7 +2,6 @@
 using H1ERPSystem2023.DomainModel;
 using H1ERPSystem2023.Screens;
 using TECHCOOL.UI;
-using static H1ERPSystem2023.Databasefiles.Database;
 
 namespace H1ERPSystem2023
 {
@@ -17,8 +16,7 @@ namespace H1ERPSystem2023
             TodoListScreen ListScreen = new TodoListScreen();
             MyFirstScreen firstScreen = new MyFirstScreen();
             Screen.Display(ListScreen);
-
-
+            
 
             //Console.WriteLine("Hello, World!");
             //Database db = new Database();
@@ -33,7 +31,7 @@ namespace H1ERPSystem2023
             //db.AddSaleOrder(salesOrder);
 
 
-
+           
 
 
         }
