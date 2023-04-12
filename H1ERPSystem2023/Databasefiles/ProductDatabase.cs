@@ -1,9 +1,8 @@
-﻿using System;
-using H1ERPSystem2023.Domain_Model;
+﻿using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {
-    public partial class ProductDatabase
+    public partial class Database
     {
         private List<ProductModel> Products = new List<ProductModel>();
         //AddProduct uses the product List above, and gives us 2 products to work with along with a lot of information
@@ -15,7 +14,7 @@ namespace H1ERPSystem2023.Databasefiles
             Products.Add(new ProductModel(2, "Virksomhed", "Vejej", 200, 18, "Aalborg,", 108, Measure.Meter));
         }
         //Constructor used for Addproduct
-        public ProductDatabase()
+        public Database()
         {
             _addProducts();
         }

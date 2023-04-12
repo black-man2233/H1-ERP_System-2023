@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace H1ERPSystem2023.Databasefiles
 {
-    internal partial class Database
+    public partial class Database
     {
         public static Database Instance { get; }
 

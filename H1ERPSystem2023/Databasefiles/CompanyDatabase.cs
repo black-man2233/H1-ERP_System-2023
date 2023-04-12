@@ -1,40 +1,26 @@
-﻿using H1ERPSystem2023.Domain_Model;
-using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.ComponentModel;
-using System.Data.SqlClient;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {
-    public partial class CompanyDatabase
+    public partial class Database
     {
 
-        public string Company { get; set; }
-
-        private List<CompanyModel> Companies = new List<CompanyModel>();
-//AddCompany uses the company List above, and gives us 2 companies to work with along with a lot of information
-//about them
+        public List<CompanyModel> Companies = new List<CompanyModel>();
+        //AddCompany uses the company List above, and gives us 2 companies to work with along with a lot of information
+        //about them
         void _addCompanies()
         {
             Companies.Add(new CompanyModel(1, "Virksomhed", "Vejej", "Nummer", "9900", "Aalborg,", "Denmark", Currency.DKK)); //Might be able to do Player selected by Currency currency, test later
-
             Companies.Add(new CompanyModel(2, "Virksomhed2", "Rørdalsvej", "Nummer2", "94114", "San Francisco", " America", Currency.USD)); //Might be able to do Player selected by Currency currency, test later
         }
-//Constructor used for AddCompany
-        public CompanyDatabase()
+        //Constructor used for AddCompany
+        public Database()
         {
             _addCompanies();
         }
 
         //GetCompany Gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
-       //and check whichever one has a matching ID, so it can return the information.
+        //and check whichever one has a matching ID, so it can return the information.
         public CompanyModel GetCompany(int ID)
         {
             foreach (CompanyModel company in Companies)
@@ -44,7 +30,7 @@ namespace H1ERPSystem2023.Databasefiles
                     return company;
                 }
             }
-//If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
+            //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
             Console.WriteLine("Id findes Ikke");
             return null;
         }
@@ -70,7 +56,7 @@ namespace H1ERPSystem2023.Databasefiles
 
         }
         //UpdateCompany uses foreach and if to Identity the company, then updates it, 
-//Void is used to avoid method wanting a return
+        //Void is used to avoid method wanting a return
         public void UpdateCompany(int ID, string companyName, string street, string streetNumber, string postalCode, string city, string country)
         {
             foreach (CompanyModel company in Companies)

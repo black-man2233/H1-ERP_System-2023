@@ -1,32 +1,30 @@
 ﻿using H1ERPSystem2023.Databasefiles;
-using H1ERPSystem2023.Domain_Model;
+using H1ERPSystem2023.DomainModel;
+using H1ERPSystem2023.Screens;
+using TECHCOOL.UI;
 
 namespace H1ERPSystem2023
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            //Console.WriteLine("Hello, World!");
-            //Database db = new Database();
-            //SalesOrder salesOrder = new SalesOrder()
-            //{
-            //    OrderNumber = 1,
-            //    CreationDate = new DateTime(),
-            //    CompleteDate = new DateTime(),
-            //    CustomerID = 1,
-            //    Condition = Condition.Created
-            //};
-            //db.AddSaleOrder(salesOrder);
+            Console.WriteLine("Hello, World!");
+            Database db = new Database();
+            SalesOrderModel salesOrder = new()
+            {
+                OrderNumber = 1,
+                CreationDate = new DateTime(),
+                CompleteDate = new DateTime(),
+                CustomerID = 1,
+                Condition = Condition.Created
+            };
+            db.AddSaleOrder(salesOrder);
+            //Screen Related
+            Screen.Display(new MenuScreen());
 
 
-            Database d = new();
 
-            SalesOrder o = new();
-            o.OrderNumber = 1;
-            o.CustomerID = 12;
-
-            d.UpdateSalesOrders(o);
         }
     }
 }
