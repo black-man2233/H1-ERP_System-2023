@@ -1,4 +1,5 @@
 ﻿using H1ERPSystem2023.Domain_Model;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,24 +7,24 @@ using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
 
-namespace H1_ERP_System_2023.Databasefiles
+namespace H1ERPSystem2023.Databasefiles
 {
-    public partial class CustomerDatabase
+    public partial class Database
     {
         private List<Customer> Customers = new List<Customer>();
 
-        void _addCompanies()
+        public void _addCustomers()
         {
             Customers.Add(new Customer(1, "FirstName", "LastName", null, "12345678", "Email@Email.com", "1", null));
         }
 
-        public CustomerDatabase()
+        public Database()
         {
 
-            _addCompanies();
+            _addCustomers();
         }
     }
-
+    
 
     public class MyFirstScreen : Screen
     {
@@ -48,25 +49,26 @@ namespace H1_ERP_System_2023.Databasefiles
     }
     public class TodoListScreen : Screen
     {
-        public override string Title { get; set; } = "List of tasks to do";
+        public override string Title { get; set; } = "Customer List";
         protected override void Draw()
         {
             do
             {
                 //Clear(this); //Clean the screen
                              //Gonna draw a list page here
-                ListPage<Todo> listPage = new ListPage<Todo>();
-                listPage.Add(new Todo("Kundeliste", 1));
-                listPage.Add(new Todo("Beep boop", 2));
-                listPage.Add(new Todo("Extra", 3));
+                ListPage<Customer> listPage = new ListPage<Customer>();
+                listPage.AddColumn("personId", "PersonId");
+                listPage.AddColumn("FirstName", "FirstName");
+                listPage.AddColumn("LastName", "LastName");
+                listPage.AddColumn("PhoneNumber", "phoneNumber");
+                listPage.AddColumn("EmailAddress", "emailAddress");
 
-                listPage.AddColumn("Todo", "Title");
 
-                Todo selected = listPage.Select();
+                Customer selected = listPage.Select();
                 if (selected != null)
                 {
                     Screen.Display(new TodoListScreen());
-                        }
+                }
                 else
                 {
                     Quit();

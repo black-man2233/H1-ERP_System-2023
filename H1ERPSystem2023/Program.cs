@@ -1,5 +1,4 @@
-﻿using H1_ERP_System_2023.Databasefiles;
-using H1ERPSystem2023.Databasefiles;
+﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.Domain_Model;
 using TECHCOOL.UI;
 
@@ -10,6 +9,9 @@ namespace H1ERPSystem2023
 
         public static void Main(string[] args)
         {
+            Database d = new();
+            d._addCustomers();
+
             TodoListScreen ListScreen = new TodoListScreen();
             MyFirstScreen firstScreen = new MyFirstScreen();
             Screen.Display(ListScreen);
@@ -28,7 +30,7 @@ namespace H1ERPSystem2023
             //db.AddSaleOrder(salesOrder);
 
 
-            Database d = new();
+           
 
             SalesOrder o = new();
             o.OrderNumber = 1;
