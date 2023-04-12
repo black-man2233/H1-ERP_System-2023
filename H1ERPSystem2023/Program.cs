@@ -10,7 +10,7 @@ namespace H1ERPSystem2023
         static void Main()
         {
             Console.WriteLine("Hello, World!");
-            Database db = new Database();
+            //Database db = new Database();
             SalesOrderModel salesOrder = new()
             {
                 OrderNumber = 1,
@@ -19,7 +19,7 @@ namespace H1ERPSystem2023
                 CustomerID = 1,
                 Condition = Condition.Created
             };
-            db.AddSaleOrder(salesOrder);
+            Database.Instance.AddSaleOrder(salesOrder);
             //Screen Related
             Screen.Display(new MenuScreen());
 
