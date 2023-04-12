@@ -15,15 +15,14 @@ namespace H1ERPSystem2023.Screens
 
             ListPage<CompanyModel> compList = new();
             Form<CompanyModel> editor = new();
-            Database compDB = new();
             CompanyModel company;
 
-            foreach (CompanyModel compModel in compDB.Companies)
+            foreach (CompanyModel compModel in Database.Instance.Companies)
                 compList.Add(compModel);
             compList.AddColumn("navn", "CompanyName");
             //compList.AddColumn("");
             company = compList.Select();
-           
+
             editor.TextBox("Company Name", "CompanyName");
             editor.TextBox("Street", "Street");
             editor.TextBox("StreetNumber", "StreetNumber");

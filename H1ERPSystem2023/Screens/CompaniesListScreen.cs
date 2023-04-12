@@ -17,11 +17,9 @@ namespace H1ERPSystem2023
             {
                 //Clear the screen at the start to avoid other text
                 Clear(this);
-
-                Database compDB = new();
                 ListPage<CompanyModel> compList = new();
 
-                foreach (CompanyModel compModel in compDB.Companies)
+                foreach (CompanyModel compModel in Database.Instance.Companies)
                     compList.Add(compModel);
 
                 compList.AddColumn("Name", "CompanyName");

@@ -14,10 +14,10 @@ namespace H1ERPSystem2023.Databasefiles
             Products.Add(new ProductModel(2, "Virksomhed", "Vejej", 200, 18, "Aalborg,", 108, Measure.Meter));
         }
         //Constructor used for Addproduct
-        public Database()
-        {
-            _addProducts();
-        }
+        //public Database()
+        //{
+        //    _addProducts();
+        //}
         // GetProduct gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
         //and check whichever one has a matching ID, so it can return the information.
 
@@ -74,7 +74,7 @@ namespace H1ERPSystem2023.Databasefiles
         //RemoveProduct uses the if and foreach to identify the right product, then uses remove product.
         // Break is used due to the product going back to product afterwards and
         //crashes due to ID not existing anymore.
-        public void RemoveCompany(int ID)
+        public void RemoveProduct(int ID)
         {
             foreach (ProductModel product in Products)
             {
