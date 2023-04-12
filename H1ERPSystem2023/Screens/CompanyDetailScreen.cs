@@ -13,7 +13,7 @@ namespace H1ERPSystem2023
             Clear(this);
 
             ListPage<CompanyModel> compList = new();
-            CompanyDatabase compDB = new();
+            Database compDB = new();
 
             //Loops through the Company Database and matches the ID with the selected company ID
             for (int i = 0; i < compDB.Companies.Count; i++)
@@ -28,7 +28,6 @@ namespace H1ERPSystem2023
             compList.AddColumn("City", "City");
             compList.AddColumn("Country", "Country");
             compList.AddColumn("Currency", "Currency");
-
 
             compList.Draw();
         }

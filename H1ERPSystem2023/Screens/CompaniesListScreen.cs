@@ -1,7 +1,6 @@
 ﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
 using TECHCOOL.UI;
-
 namespace H1ERPSystem2023
 {
     public class CompaniesListScreen : Screen
@@ -19,7 +18,7 @@ namespace H1ERPSystem2023
                 //Clear the screen at the start to avoid other text
                 Clear(this);
 
-                CompanyDatabase compDB = new();
+                Database compDB = new();
                 ListPage<CompanyModel> compList = new();
 
                 foreach (CompanyModel compModel in compDB.Companies)
@@ -35,7 +34,6 @@ namespace H1ERPSystem2023
                     Screen.Display(new CompanyDetailScreen());
                 else
                 { Quit(); return; }
-
                 compList.Draw();
             } while (Show);
         }

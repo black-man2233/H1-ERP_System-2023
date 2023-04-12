@@ -2,10 +2,8 @@
 
 namespace H1ERPSystem2023.Databasefiles
 {
-    public partial class CompanyDatabase
+    public partial class Database
     {
-
-        public string Company { get; set; }
 
         public List<CompanyModel> Companies = new List<CompanyModel>();
         //AddCompany uses the company List above, and gives us 2 companies to work with along with a lot of information
@@ -16,7 +14,7 @@ namespace H1ERPSystem2023.Databasefiles
             Companies.Add(new CompanyModel(2, "Virksomhed2", "Rørdalsvej", "Nummer2", "94114", "San Francisco", " America", Currency.USD)); //Might be able to do Player selected by Currency currency, test later
         }
         //Constructor used for AddCompany
-        public CompanyDatabase()
+        public Database()
         {
             _addCompanies();
         }
