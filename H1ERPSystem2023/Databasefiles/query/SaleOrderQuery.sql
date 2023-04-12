@@ -1,9 +1,9 @@
---DROP TABLE SaleOrder;
---DROP TABLE OrderLines;
+DROP TABLE SaleOrder;
+DROP TABLE OrderLines;
 
 -- Create SaleOrder table (we gonna use the table in "SaleOrder")
 CREATE Table OrderLines(
-        ID int IDENTITY(1,1) Primary Key Not NULL,
+        ID int IDENTITY(1,1) Primary Key,
         ProductName text,
         Descriptions text,
         SalePrice int,
@@ -26,10 +26,10 @@ Create Table SaleOrder(
 --these two ""
 INSERT INTO dbo.OrderLines(ProductName, Descriptions, SalePrice, BuyPrice, Locations, Quantity, Measure)
 Values
-('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 30),
-('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 30),
-('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 30),
-('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 30);
+('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter'),
+('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter'),
+('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter'),
+('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter');
 
 
 INSERT INTO SaleOrder(CreationDate, CompleteDate, CustomerID, Condition, OrderLineId)
@@ -47,4 +47,4 @@ INNER JOIN dbo.Customer ON SaleOrder.CustomerID= dbo.Customer.CustomerNumber;
 
 
 
-Select * From Customer
+--Select * From Customer
