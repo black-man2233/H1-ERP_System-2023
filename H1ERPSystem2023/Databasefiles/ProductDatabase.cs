@@ -74,7 +74,7 @@ namespace H1ERPSystem2023.Databasefiles
         //RemoveProduct uses the if and foreach to identify the right product, then uses remove product.
         // Break is used due to the product going back to product afterwards and
         //crashes due to ID not existing anymore.
-        public void RemoveCompany(int ID)
+        public void RemoveProduct(int ID)
         {
             foreach (ProductModel product in Products)
             {
