@@ -16,6 +16,7 @@ namespace H1ERPSystem2023.Databasefiles
         public void _addCustomers()
         {
             Customers.Add(new Customer(1, "FirstName", "LastName", null, "12345678", "Email@Email.com", "1", null));
+            Customers.Add(new Customer(2, "AnotherGuy", "fafaf", null, "87654321", "AG@mail.com", "2", null));
         }
 
         public Database()
@@ -24,9 +25,9 @@ namespace H1ERPSystem2023.Databasefiles
             _addCustomers();
         }
     }
-    
 
-    public class MyFirstScreen : Screen
+
+public class MyFirstScreen : Screen
     {
         public override string Title { get; set; } = "My first screen";
         protected override void Draw()
@@ -34,7 +35,7 @@ namespace H1ERPSystem2023.Databasefiles
             Clear(this);
             Console.WriteLine("My first screen!");
         }
-   }
+        }
     public class Todo
     {
         public enum TodoState { Todo, Started, Done }
@@ -45,8 +46,8 @@ namespace H1ERPSystem2023.Databasefiles
         {
             Title = title;
             Priority = priority;
-        }
     }
+}
     public class TodoListScreen : Screen
     {
         public override string Title { get; set; } = "Customer List";

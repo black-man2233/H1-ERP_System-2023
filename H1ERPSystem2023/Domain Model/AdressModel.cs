@@ -1,6 +1,6 @@
-﻿namespace H1ERPSystem2023.Domain_Model
+﻿namespace H1ERPSystem2023.DomainModel
 {
-    public class Address
+    public class AddressModel
     {
         #region Properties
         private int AdressId { get; set; }
@@ -11,7 +11,7 @@
         #endregion
 
         #region Constructor
-        public Address(string street, string city, string postalCode, string country)
+        public AddressModel(string street, string city, string postalCode, string country)
         {
             this.Street = street;
             this.City = city;
