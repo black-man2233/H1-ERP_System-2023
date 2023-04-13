@@ -13,12 +13,12 @@ namespace H1ERPSystem2023
             Clear(this);
 
             ListPage<CompanyModel> compList = new();
-            Database compDB = new();
+            //Database compDB = new();
 
             //Loops through the Company Database and matches the ID with the selected company ID
-            for (int i = 0; i < compDB.Companies.Count; i++)
-                if (compDB.Companies[i].ID == CompaniesListScreen.SelectedCompany.ID)
-                    compList.Add(compDB.Companies[i]);
+            for (int i = 0; i < Database.Instance.Companies.Count; i++)
+                if (Database.Instance.Companies[i].ID == CompaniesListScreen.SelectedCompany.ID)
+                    compList.Add(Database.Instance.Companies[i]);
 
 
             compList.AddColumn("Name", "CompanyName");
