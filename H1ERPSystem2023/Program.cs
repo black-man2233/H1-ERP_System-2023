@@ -7,22 +7,11 @@ namespace H1ERPSystem2023
 {
     internal class Program
     {
-        static void Main()
-        {
-            Console.WriteLine("Hello, World!");
-            //Database db = new Database();
-            SalesOrderModel salesOrder = new()
-            {
-                OrderNumber = 1,
-                CreationDate = new DateTime(),
-                CompleteDate = new DateTime(),
-                CustomerID = 1,
-                Condition = Condition.Created
-            };
-            Database.Instance.AddSaleOrder(salesOrder);
-            //Screen Related
-            Screen.Display(new MenuScreen());
 
+        public static void Main(string[] args)
+        {
+
+           
 
 
         }

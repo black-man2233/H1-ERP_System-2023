@@ -9,7 +9,7 @@ namespace H1ERPSystem2023.Databasefiles
         //about them
         void _addProducts()
         {
-            Products.Add(new ProductModel(1, "Nesquick", "Chokolade Poo", 26, 18, "Lokation", 265, Measure.Liter));
+            Products.Add(new ProductModel(1, "PositivtProduktNavn", "JegErSulten", 26, 18, "Lokation", 265, Measure.Liter));
 
             Products.Add(new ProductModel(2, "Virksomhed", "Vejej", 200, 18, "Aalborg,", 108, Measure.Meter));
         }
