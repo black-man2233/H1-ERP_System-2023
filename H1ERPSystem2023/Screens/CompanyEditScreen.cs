@@ -1,5 +1,4 @@
-﻿using H1ERPSystem2023.Databasefiles;
-using H1ERPSystem2023.DomainModel;
+﻿using H1ERPSystem2023.DomainModel;
 using TECHCOOL.UI;
 
 namespace H1ERPSystem2023.Screens
@@ -8,20 +7,26 @@ namespace H1ERPSystem2023.Screens
     {
 
         public override string Title { get; set; } = "Edit Company";
+        public CompanyModel Company { get; set; }
+
+        public CompanyEditScreen(CompanyModel company)
+        {
+            this.Company = new(company);
+        }
 
         protected override void Draw()
         {
             Clear(this);
 
-            ListPage<CompanyModel> compList = new();
             Form<CompanyModel> editor = new();
-            CompanyModel company;
+            //ListPage<CompanyModel> compList = new();
+            //CompanyModel company;
 
-            foreach (CompanyModel compModel in Database.Instance.Companies)
-                compList.Add(compModel);
-            compList.AddColumn("navn", "CompanyName");
-            //compList.AddColumn("");
-            company = compList.Select();
+            //foreach (CompanyModel compModel in Database.Instance.Companies)
+            //    compList.Add(compModel);
+            //compList.AddColumn("navn", "CompanyName");
+            ////compList.AddColumn("");
+            //company = compList.Select();
 
             editor.TextBox("Company Name", "CompanyName");
             editor.TextBox("Street", "Street");
@@ -32,7 +37,7 @@ namespace H1ERPSystem2023.Screens
 
 
 
-            editor.Edit(company);
+            editor.Edit(Company);
             Console.ReadLine();
             //Use Company Database ^
         }

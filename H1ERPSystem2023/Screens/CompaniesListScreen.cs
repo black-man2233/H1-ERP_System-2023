@@ -1,5 +1,6 @@
 ﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
+using H1ERPSystem2023.Screens;
 using TECHCOOL.UI;
 namespace H1ERPSystem2023
 {
@@ -27,13 +28,21 @@ namespace H1ERPSystem2023
                 compList.AddColumn("Currency", "Currency");
 
                 //Gives the user the option to Select between the companies when called, make sure to check for not null. That will tell it's been selected with enter
+                compList.AddKey(ConsoleKey.F1, Edit);
                 SelectedCompany = compList.Select();
                 if (SelectedCompany != null)
                     Screen.Display(new CompanyDetailScreen());
                 else
                 { Quit(); return; }
                 compList.Draw();
+
             } while (Show);
+
+        }
+        void Edit(CompanyModel _input)
+        {
+            if (_input is CompanyModel company)
+                Screen.Display(new CompanyEditScreen(company));
         }
     }
 }
