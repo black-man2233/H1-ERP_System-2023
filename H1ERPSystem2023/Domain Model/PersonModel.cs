@@ -1,6 +1,6 @@
 ﻿namespace H1ERPSystem2023.DomainModel
 {
-    internal abstract class PersonModel
+    public abstract class PersonModel
     {
         public int PersonId { get; set; }
         public string FirstName { get; set; }
@@ -11,14 +11,12 @@
 
         public string FullName
         {
-            get
-            {
-                return $"{FirstName} {LastName}";
-            }
+            get { return $"{FirstName} {LastName}"; }
         }
 
 
-        public PersonModel(int personId, string firstName, string lastName, AddressModel address, string phoneNumber, string emailAddress)
+        public PersonModel(int personId, string firstName, string lastName, AddressModel address, string phoneNumber,
+            string emailAddress)
         {
             this.PersonId = personId;
             this.FirstName = firstName;
