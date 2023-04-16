@@ -3,13 +3,13 @@
     public class CustomerModel : PersonModel
     {
         public string CustomerNumber { get; set; }
-        public DateTime LastPurchaseDate { get; set; }
+        public DateTime? LastPurchaseDate { get; set; }
 
         /// <summary>
         /// Creates a new Customer With a Person Parameters
         /// </summary>
         public CustomerModel(int personId, string firstName, string lastName, AddressModel address, string phoneNumber,
-            string emailAddress, string customerNumber, DateTime lastPurchaseDate) : base(personId, firstName, lastName,
+            string emailAddress, string customerNumber, DateTime? lastPurchaseDate) : base(personId, firstName, lastName,
             address, phoneNumber, emailAddress)
         {
             #region Person
