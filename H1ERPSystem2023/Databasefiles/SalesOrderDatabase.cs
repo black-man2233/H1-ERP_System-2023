@@ -1,10 +1,11 @@
-﻿using H1ERPSystem2023.DomainModel;
+﻿using System.Globalization;
+using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        static List<SalesOrderModel> SalesOrders = new List<SalesOrderModel>();
+        public List<SalesOrderModel> SalesOrders = new List<SalesOrderModel>();
 
         /// <summary>
         /// Runs down the whole list and returns it
@@ -14,6 +15,28 @@ namespace H1ERPSystem2023.Databasefiles
         {
             return SalesOrders;
         }
+
+
+        #region Methods
+
+        /// <summary>
+        /// Generates random orders
+        /// </summary>
+        private void _addSalesOrder()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Random r = new Random();
+                int rOrderNumber = r.Next(1000, 1000);
+                int rCustomerNumber = r.Next(1, 6);
+
+                SalesOrderModel? saleOrder =
+                    new SalesOrderModel(rOrderNumber, $"{rCustomerNumber}", Condition.Confirmed, null);
+
+                SalesOrders.Add(saleOrder);
+            }
+        }
+
 
         /// <summary>
         /// Checkes the given input is an ID from the SaleOrder list
@@ -29,6 +52,7 @@ namespace H1ERPSystem2023.Databasefiles
                     return saleOrder;
                 }
             }
+
             return null;
         }
 
@@ -58,7 +82,6 @@ namespace H1ERPSystem2023.Databasefiles
                 salesOrder.CustomerID = updateOrder.CustomerID;
                 salesOrder.Condition = updateOrder.Condition;
             }
-
         }
 
         /// <summary>
@@ -76,5 +99,6 @@ namespace H1ERPSystem2023.Databasefiles
             }
         }
 
+        #endregion
     }
 }
