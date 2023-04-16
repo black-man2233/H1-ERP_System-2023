@@ -16,7 +16,7 @@ namespace H1ERPSystem2023
                 OrderNumber = 1,
                 CreationDate = new DateTime(),
                 CompleteDate = new DateTime(),
-                CustomerID = 1,
+                CustomerID = "1",
                 Condition = Condition.Created
             };
             Database.Instance.AddSaleOrder(salesOrder);
