@@ -23,7 +23,7 @@ namespace H1_ERP_System_2023.Screens
 
                 ListPage<SalesOrderModel?> salesOrderList = new();
 
-                foreach (SalesOrderModel saleOrder in Database.Instance.SalesOrders)
+                foreach (SalesOrderModel saleOrder in Database.Instance.GetSalesOrder())
                     salesOrderList.Add(saleOrder);
 
                 salesOrderList.AddColumn("Order Number", "OrderNumber");
@@ -32,8 +32,6 @@ namespace H1_ERP_System_2023.Screens
                 salesOrderList.AddColumn("First and Last Name", "");
                 salesOrderList.AddColumn("Amount", "Amount");
 
-                
-                
 
                 //Gives the user the option to Select between the companies when called, make sure to check for not null. That will tell it's been selected with enter
                 SelectedSaleOrder = salesOrderList.Select();
