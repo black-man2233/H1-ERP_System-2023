@@ -32,7 +32,7 @@ namespace H1ERPSystem2023.DomainModel
                     }
                 }
 
-                return null;
+                return null!;
             }
         }
 
@@ -50,12 +50,6 @@ namespace H1ERPSystem2023.DomainModel
         /// <returns>The sum of all the product chosen</returns>
 
         #region Constructors
-
-        public SalesOrderModel()
-        {
-            //used to create a sale order, with no data
-        }
-
         public SalesOrderModel(int orderNumber, string customerId, Condition condition, List<OrderLineModel> orderLines)
         {
             this.OrderNumber = orderNumber;
