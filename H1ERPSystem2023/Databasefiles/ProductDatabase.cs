@@ -28,7 +28,7 @@ namespace H1ERPSystem2023.Databasefiles
             }
             //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
             Console.WriteLine("Id findes Ikke");
-            return null;
+            return null!;
         }
         // GetAllProductModels Uses a foreach to take all products, and _AllProducts is used to display said companies. 
         public List<ProductModel> GetAllProductModels()
