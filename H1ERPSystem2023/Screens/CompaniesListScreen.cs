@@ -1,6 +1,7 @@
 ﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
 using TECHCOOL.UI;
+#pragma warning disable
 namespace H1ERPSystem2023
 {
     public class CompaniesListScreen : Screen

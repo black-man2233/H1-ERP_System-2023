@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
-
+#pragma warning disable
 namespace H1_ERP_System_2023.Screens
 {
     public class CustomerListScreen : Screen
