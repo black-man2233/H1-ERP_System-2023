@@ -1,6 +1,6 @@
 ﻿namespace H1ERPSystem2023.DomainModel
 {
-    internal class CustomerModel : PersonModel
+    public class CustomerModel : PersonModel
     {
         public string CustomerNumber { get; set; }
         public DateTime? LastPurchaseDate { get; set; }

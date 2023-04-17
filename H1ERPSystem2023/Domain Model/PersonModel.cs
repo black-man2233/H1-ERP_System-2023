@@ -1,6 +1,6 @@
 ﻿namespace H1ERPSystem2023.DomainModel
 {
-    internal abstract class PersonModel
+    public abstract class PersonModel
     {
         public int PersonId { get; set; }
         public string FirstName { get; set; }

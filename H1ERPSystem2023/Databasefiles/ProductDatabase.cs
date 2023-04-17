@@ -2,7 +2,7 @@
 
 namespace H1ERPSystem2023.Databasefiles
 {
-    public partial class Database
+    public partial class ProductDatabase
     {
         private List<ProductModel> Products = new List<ProductModel>();
         //AddProduct uses the product List above, and gives us 2 products to work with along with a lot of information
@@ -13,11 +13,7 @@ namespace H1ERPSystem2023.Databasefiles
 
             Products.Add(new ProductModel(2, "Virksomhed", "Vejej", 200, 18, "Aalborg,", 108, Measure.Meter));
         }
-        //Constructor used for Addproduct
-        //public Database()
-        //{
-        //    _addProducts();
-        //}
+      
         // GetProduct gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
         //and check whichever one has a matching ID, so it can return the information.
 
