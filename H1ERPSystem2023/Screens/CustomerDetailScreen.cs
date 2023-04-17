@@ -20,27 +20,24 @@ namespace H1_ERP_System_2023.Screens
             Clear(this);
 
             ListPage<CompanyModel> customerList = new();
-            Database customerDB = new();
 
 
             for (int i = 0; i < Database.Instance.Customers.Count; i++)
-                if (Database.Instance.Customers[i].PersonId == CustomerListScreen.SelectedCustomer.PersonId)
-                {
-                    customerList.Add(customerDB.Companies[i]);
+                if (Database.Instance.Customers[i].PersonID == CustomerListScreen.SelectedCustomer.PersonID)
+                { 
+                    customerList.Add(Database.Instance.Companies[i]);
                 }
 
-            ListPage<CustomerModel> listPage = new ListPage<CustomerModel>();
 
-
-            listPage.AddColumn("person Id", "PersonId");
-            listPage.AddColumn("First Name", "FirstName");
-            listPage.AddColumn("Middle Name", "MiddleName");
-            listPage.AddColumn("Last Name", "LastName");
-            listPage.AddColumn("Phone Number", "phoneNumber");
-            listPage.AddColumn("Email Address", "emailAddress");
-            listPage.AddColumn("Address", "Address");
-            listPage.AddColumn("Purchase Date", "PurchaseDate");
+            customerList.AddColumn("person Id", "PersonID");
+            customerList.AddColumn("Name", "CustomerFullName");
+            customerList.AddColumn("Phone Number", "PhoneNumber");
+            customerList.AddColumn("Email Address", "EmailAddress");
+            customerList.AddColumn("Address", "Address");
+            customerList.AddColumn("Purchase Date", "PurchaseDate");
             // listPage.AddKey(Console
+
+            customerList.Draw();
         }
     }
 }

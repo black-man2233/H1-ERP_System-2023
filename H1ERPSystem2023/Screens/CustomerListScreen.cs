@@ -37,7 +37,7 @@ namespace H1_ERP_System_2023.Screens
 
                 SelectedCustomer = customerList.Select();
                 if (SelectedCustomer != null)
-                    Screen.Display(new CompanyDetailScreen());
+                    Screen.Display(new CustomerDetailScreen());
                 else
                 { Quit(); return; }
                 customerList.Draw();

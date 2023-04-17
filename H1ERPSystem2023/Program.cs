@@ -12,10 +12,12 @@ namespace H1ERPSystem2023
 
         public static void Main(string[] args)
         {
-            CompaniesListScreen Screen2 = new CompaniesListScreen();
-            CustomerListScreen Screen1 = new CustomerListScreen();
+            CompaniesListScreen CLT = new CompaniesListScreen();
+            CompanyDetailScreen CDT = new CompanyDetailScreen();
+            CustomerListScreen CL = new CustomerListScreen();
+            CustomerDetailScreen CD = new CustomerDetailScreen();
 
-            Screen.Display(Screen1);
+            Screen.Display(CL);
             
         }
     }
