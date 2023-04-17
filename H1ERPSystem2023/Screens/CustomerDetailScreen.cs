@@ -14,6 +14,7 @@ namespace H1_ERP_System_2023.Screens
     {
         public override string Title { get; set; } = "¨Customers";
 
+
         protected override void Draw()
         {
             Clear(this);
@@ -22,9 +23,11 @@ namespace H1_ERP_System_2023.Screens
             Database customerDB = new();
 
 
-            for (int i = 0; i < customerDB.Customers.Count; i++)
-                if (customerDB.Customers[i].PersonId == CompaniesListScreen.SelectedCompany.ID)
-                   customerList.Add(customerDB.Companies[i]);
+            for (int i = 0; i < Database.Instance.Customers.Count; i++)
+                if (Database.Instance.Customers[i].PersonId == CustomerListScreen.SelectedCustomer.PersonId)
+                {
+                    customerList.Add(customerDB.Companies[i]);
+                }
 
             ListPage<CustomerModel> listPage = new ListPage<CustomerModel>();
 

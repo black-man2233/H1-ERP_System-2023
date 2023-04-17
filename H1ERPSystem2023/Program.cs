@@ -1,4 +1,5 @@
-﻿using H1ERPSystem2023.Databasefiles;
+﻿using H1_ERP_System_2023.Screens;
+using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
 using H1ERPSystem2023.Screens;
 using TECHCOOL.UI;
@@ -11,29 +12,11 @@ namespace H1ERPSystem2023
 
         public static void Main(string[] args)
         {
-            Database d = new();
-    //        d._addCustomers();
-
             CompaniesListScreen Screen2 = new CompaniesListScreen();
-            Screen.Display(Screen2);
+            CustomerListScreen Screen1 = new CustomerListScreen();
 
-
-            //Console.WriteLine("Hello, World!");
-            //Database db = new Database();
-            //SalesOrder salesOrder = new SalesOrder()
-            //{
-            //    OrderNumber = 1,
-            //    CreationDate = new DateTime(),
-            //    CompleteDate = new DateTime(),
-            //    CustomerID = 1,
-            //    Condition = Condition.Created
-            //};
-            //db.AddSaleOrder(salesOrder);
-
-
-
-
-
+            Screen.Display(Screen1);
+            
         }
     }
 }
