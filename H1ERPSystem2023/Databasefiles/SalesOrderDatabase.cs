@@ -4,7 +4,7 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        static List<SalesOrderModel> SalesOrders = new List<SalesOrderModel>();
+       public static List<SalesOrderModel> SalesOrders = new List<SalesOrderModel>();
 
         /// <summary>
         /// Runs down the whole list and returns it
