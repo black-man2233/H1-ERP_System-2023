@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
 #pragma warning disable
-namespace H1_ERP_System_2023.Screens
+namespace H1ERPSystem2023.Screens
 {
     public class CustomerListScreen : Screen
     {
@@ -27,10 +27,10 @@ namespace H1_ERP_System_2023.Screens
                     customerList.Add(customerModel);
 
 
-                customerList.AddColumn("personId", "PersonID");
+                customerList.AddColumn("PersonId", "PersonID");
                 customerList.AddColumn("Name", "CustomerFullName");
                 customerList.AddColumn("Phone Number", "PhoneNumber");
-                customerList.AddColumn("EmailAddress", "EmailAddress");
+                customerList.AddColumn("Email Address", "EmailAddress");
 
                 
 
