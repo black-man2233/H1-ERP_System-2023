@@ -32,8 +32,11 @@ namespace H1ERPSystem2023.Screens
 
 
 
-            editor.Edit(company);
-            Console.ReadLine();
+            if (company != null) 
+                editor.Edit(company);
+            else
+            { Quit(); return; }
+            Clear(this);
             //Use Company Database ^
         }
     }
