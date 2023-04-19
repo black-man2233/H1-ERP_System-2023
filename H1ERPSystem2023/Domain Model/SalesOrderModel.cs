@@ -1,5 +1,7 @@
 using H1ERPSystem2023.Databasefiles;
+using Org.BouncyCastle.Asn1.Esf;
 
+#pragma warning disable
 namespace H1ERPSystem2023.DomainModel
 {
     public enum Condition
@@ -37,12 +39,13 @@ namespace H1ERPSystem2023.DomainModel
         }
 
         public Condition Condition { get; set; }
-        public List<OrderLineModel> OrderLines { get; }
+        public List<OrderLineModel>? OrderLines { get; }
 
         public decimal Amount
         {
             get => sum();
         }
+
 
         /// <summary>
         /// Gives a sum of Product
@@ -50,7 +53,19 @@ namespace H1ERPSystem2023.DomainModel
         /// <returns>The sum of all the product chosen</returns>
 
         #region Constructors
-        public SalesOrderModel(int orderNumber, string customerId, Condition condition, List<OrderLineModel> orderLines)
+
+        public SalesOrderModel(SalesOrderModel salesOrder)
+        {
+            this.OrderNumber = salesOrder.OrderNumber;
+            this.CreationDate = salesOrder.CreationDate;
+            this.CompleteDate = salesOrder.CompleteDate;
+            this.CustomerID = salesOrder.CustomerID;
+            this.Condition = salesOrder.Condition;
+            this.OrderLines = salesOrder.OrderLines;
+        }
+
+        public SalesOrderModel(int orderNumber, string customerId, Condition condition,
+            List<OrderLineModel>? orderLines)
         {
             this.OrderNumber = orderNumber;
             this.CreationDate = DateTime.Today;
@@ -64,13 +79,20 @@ namespace H1ERPSystem2023.DomainModel
 
         private decimal sum()
         {
-            decimal sum = 0;
-            foreach (OrderLineModel line in OrderLines)
+            if (OrderLines is not null)
             {
-                sum += line.Product.SalePrice;
+                decimal sum = 0;
+                foreach (OrderLineModel line in OrderLines)
+                {
+                    sum += line.Product.SalePrice;
+                }
+
+                return sum;
             }
 
-            return sum;
+
+            //returns 0 if the Orderlines is either empty or null
+            return 0;
         }
     }
 }
