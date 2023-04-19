@@ -17,14 +17,6 @@ namespace H1ERPSystem2023.Databasefiles
                 " America", Currency.DKK));
         }
 
-        //Constructor used for AddCompany
-        public Database()
-        {
-            _addCompanies();
-            _addProducts();
-            _addCustomers();
-        }
-
         //GetCompany Gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
         //and check whichever one has a matching ID, so it can return the information.
         public CompanyModel GetCompany(string ID)
