@@ -4,7 +4,33 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        static List<SalesOrderModel> SalesOrders = new List<SalesOrderModel>();
+        private List<SalesOrderModel> SalesOrders = new();
+
+        /// <summary>
+        /// Adds temporary random sales orders
+        /// </summary>
+        private void _addSalesOrders()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                //random Orderid
+                Random random = new Random();
+                int randomOrderId = random.Next();
+
+                //random Orderid
+                int randomCustommerId = random.Next(1, 3);
+
+                //orderlines list
+                List<OrderLineModel> orderLines = new();
+                for (int j = 0; j < Instance.Products.Count - 1; j++)
+                {
+                    orderLines.Add(new(Instance.Products[j]));
+                }
+
+                // adds the randomised data to salesordersList
+                SalesOrders.Add(new SalesOrderModel(randomOrderId, $"{randomCustommerId}", Condition.Done, orderLines));
+            }
+        }
 
         /// <summary>
         /// Runs down the whole list and returns it
@@ -29,6 +55,7 @@ namespace H1ERPSystem2023.Databasefiles
                     return saleOrder;
                 }
             }
+
             return null!;
         }
 
@@ -58,7 +85,6 @@ namespace H1ERPSystem2023.Databasefiles
                 salesOrder.CustomerID = updateOrder.CustomerID;
                 salesOrder.Condition = updateOrder.Condition;
             }
-
         }
 
         /// <summary>
@@ -75,6 +101,5 @@ namespace H1ERPSystem2023.Databasefiles
                 }
             }
         }
-
     }
 }
