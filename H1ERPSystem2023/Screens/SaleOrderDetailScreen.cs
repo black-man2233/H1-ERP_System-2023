@@ -2,18 +2,21 @@
 using TECHCOOL.UI;
 
 namespace H1_ERP_System_2023.Screens;
-
+#pragma warning disable
+/// <summary>
+/// This screem displays the details of the selected saleorder from the Header
+/// </summary>
 public class SaleOrderDetailScreen : Screen
 {
     public override string Title { get; set; } = "Sale Order Detail";
 
-    public SalesOrderModel SaleOrder { get; set; }
-    
+    private SalesOrderModel saleOrder { get; set; }
+
     public SaleOrderDetailScreen(SalesOrderModel salesOrder)
     {
-        this.SaleOrder = new(salesOrder);
+        this.saleOrder = new(salesOrder);
     }
-    
+
     protected override void Draw()
     {
         //Make sure to put in loop so user can always select
@@ -22,16 +25,17 @@ public class SaleOrderDetailScreen : Screen
             //Clear the screen at the start to avoid other text
             Clear(this);
 
-            ListPage<SalesOrderModel?> salesOrderList = new();
-            
-            // foreach (SalesOrderModel saleOrder in Database.Instance.GetSalesOrder()) salesOrderList.Add(saleOrder);
-            
-            
-            salesOrderList.AddColumn("Order Number", "OrderNumber");
-            salesOrderList.AddColumn("Date", "CreationDate");
-            salesOrderList.AddColumn("Customer Number", "CustomerID");
-            salesOrderList.AddColumn("Customer Name", "CustomerName");
-            
+            ListPage<DetailScreenModel> OrderDetail = new();
+            OrderDetail.Add(new DetailScreenModel($"Creation Date : {saleOrder.CreationDate}"));
+            OrderDetail.Add(new DetailScreenModel($"Completed Date : {saleOrder.CompleteDate}"));
+            OrderDetail.Add(new DetailScreenModel($"Costumer Number : {saleOrder.CustomerID}"));
+            OrderDetail.Add(new DetailScreenModel($"Costumer Name : {saleOrder.CustomerName}"));
+
+            OrderDetail.AddColumn($"Order Number : {saleOrder.OrderNumber} ", "Title"); //Add column to the list
+
+            OrderDetail.Draw();
+
+            Console.ReadLine();
         } while (Show);
     }
 }
