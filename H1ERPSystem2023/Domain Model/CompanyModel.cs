@@ -40,6 +40,11 @@
             this.Currency = company.Currency;
 
         }
+        public CompanyModel()
+        {
+
+        }
+
     }
 }
 
