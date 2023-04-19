@@ -33,8 +33,6 @@ namespace H1ERPSystem2023.Screens
             customerList.AddColumn("Name", "CustomerFullName");
             customerList.AddColumn("Address", "Address");
             customerList.AddColumn("Purchase Date", "LastPurchaseDate");
-           
-
             customerList.Draw();
         }
     }

@@ -1,4 +1,6 @@
 ﻿#pragma warning disable
+using Org.BouncyCastle.Asn1.Mozilla;
+
 namespace H1ERPSystem2023.DomainModel
 {
     public enum Condition
@@ -12,6 +14,16 @@ namespace H1ERPSystem2023.DomainModel
 
     public class SalesOrderModel
     {
+        public string Name { get; set; }
+        public string Lastname { get; set; }
+        public string Road { get; set; }
+        public string HouseNumber { get; set; }
+        public string ZipCode { get; set; }
+        public string City { get; set; }
+        public string PhoneNumber { get; set; }
+        public string EmailAddress { get; set; }
+
+
         public int OrderNumber { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime CompleteDate { get; set; }

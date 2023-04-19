@@ -12,7 +12,7 @@ namespace H1ERPSystem2023
        
         public static void Main(string[] args)
         {
-            CompanyEditScreen SC1 = new CompanyEditScreen();
+            MenuScreen SC1 = new MenuScreen();
             Screen.Display(SC1);
 
         }
