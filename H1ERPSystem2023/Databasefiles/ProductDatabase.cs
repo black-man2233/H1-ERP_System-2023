@@ -9,15 +9,11 @@ namespace H1ERPSystem2023.Databasefiles
         //about them
         void _addProducts()
         {
-            Products.Add(new ProductModel(1, "Nesquick", "Chokolade Poo", 26, 18, "Lokation", 265, Measure.Liter));
+            Products.Add(new ProductModel(1, "PositivtProduktNavn", "JegErSulten", 26, 18, "Lokation", 265, Measure.Liter));
 
             Products.Add(new ProductModel(2, "Virksomhed", "Vejej", 200, 18, "Aalborg,", 108, Measure.Meter));
         }
-        //Constructor used for Addproduct
-        //public Database()
-        //{
-        //    _addProducts();
-        //}
+      
         // GetProduct gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
         //and check whichever one has a matching ID, so it can return the information.
 
@@ -32,7 +28,7 @@ namespace H1ERPSystem2023.Databasefiles
             }
             //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
             Console.WriteLine("Id findes Ikke");
-            return null;
+            return null!;
         }
         // GetAllProductModels Uses a foreach to take all products, and _AllProducts is used to display said companies. 
         public List<ProductModel> GetAllProductModels()

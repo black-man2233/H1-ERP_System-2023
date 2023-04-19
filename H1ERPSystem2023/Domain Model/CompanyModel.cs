@@ -3,7 +3,7 @@
     public enum Currency { DKK, USD }
     public class CompanyModel
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string CompanyName { get; set; }
         public string Street { get; set; }
         public string StreetNumber { get; set; }
@@ -12,7 +12,7 @@
         public string Country { get; set; }
         public Currency Currency { get; set; }
 
-        public CompanyModel(int id, string companyName, string street, string streetNumber, string postalCode, string city, string country, Currency currency)
+        public CompanyModel(string id, string companyName, string street, string streetNumber, string postalCode, string city, string country, Currency currency)
         {
             ID = id;
             CompanyName = companyName;
@@ -24,8 +24,7 @@
             Currency = currency;
 
 
-        } // Missing Currency Selection (might be able to do Currency currency instead of currency.DKK/USD, Test Later
-          //Measure from Product Database is same as above!!
+        } 
           // Missing SQL setup (Check bottom Company database)
 
         public CompanyModel(CompanyModel company)

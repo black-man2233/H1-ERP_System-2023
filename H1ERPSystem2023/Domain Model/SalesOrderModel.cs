@@ -1,6 +1,6 @@
-﻿namespace H1ERPSystem2023.DomainModel
+﻿#pragma warning disable
+namespace H1ERPSystem2023.DomainModel
 {
-
     public enum Condition
     {
         None,
@@ -9,6 +9,7 @@
         Packed,
         Done
     }
+
     public class SalesOrderModel
     {
         public int OrderNumber { get; set; }
@@ -27,13 +28,10 @@
             double sum = 0;
             foreach (OrderLineModel line in OrderLines)
             {
-
-                sum = sum + line.Product.SalePrice;
+                sum += line.Product.SalePrice;
             }
+
             return sum;
         }
     }
-
-
 }
-

@@ -1,8 +1,8 @@
 ﻿namespace H1ERPSystem2023.DomainModel
 {
-    internal abstract class PersonModel
+    public abstract class PersonModel
     {
-        public int PersonId { get; set; }
+        public string PersonId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public AddressModel Address { get; set; }
@@ -18,7 +18,7 @@
         }
 
 
-        public PersonModel(int personId, string firstName, string lastName, AddressModel address, string phoneNumber, string emailAddress)
+        public PersonModel(string personId, string firstName, string lastName, AddressModel address, string phoneNumber, string emailAddress)
         {
             this.PersonId = personId;
             this.FirstName = firstName;

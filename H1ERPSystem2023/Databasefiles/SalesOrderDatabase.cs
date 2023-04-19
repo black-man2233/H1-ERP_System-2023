@@ -29,7 +29,7 @@ namespace H1ERPSystem2023.Databasefiles
                     return saleOrder;
                 }
             }
-            return null;
+            return null!;
         }
 
         /// <summary>
