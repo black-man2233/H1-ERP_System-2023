@@ -18,6 +18,9 @@ namespace H1ERPSystem2023
             {
                 //Clear the screen at the start to avoid other text
                 Clear(this);
+                Console.WriteLine("F1 to create a new company");
+                Console.WriteLine("F2 to edit a exiting company");
+
                 ListPage<CompanyModel> compList = new();
 
                 foreach (CompanyModel compModel in Database.Instance.Companies)
@@ -27,8 +30,9 @@ namespace H1ERPSystem2023
                 compList.AddColumn("Country", "Country");
                 compList.AddColumn("Currency", "Currency");
 
+                compList.AddKey(ConsoleKey.F1, NewComp);
+                compList.AddKey(ConsoleKey.F2, Edit);
                 //Gives the user the option to Select between the companies when called, make sure to check for not null. That will tell it's been selected with enter
-                compList.AddKey(ConsoleKey.F1, Edit);
                 SelectedCompany = compList.Select();
                 if (SelectedCompany != null)
                     Screen.Display(new CompanyDetailScreen());
@@ -43,6 +47,10 @@ namespace H1ERPSystem2023
         {
             if (_input is CompanyModel company)
                 Screen.Display(new CompanyEditScreen(company));
+        }
+        void NewComp(Object O)
+        {
+            Display(new CompanyEditScreen());
         }
     }
 }
