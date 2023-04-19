@@ -4,7 +4,7 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        private List<SalesOrderModel> SalesOrders = new();
+        private List<SalesOrderModel> salesOrders = new();
 
         /// <summary>
         /// Adds temporary random sales orders
@@ -28,7 +28,7 @@ namespace H1ERPSystem2023.Databasefiles
                 }
 
                 // adds the randomised data to salesordersList
-                SalesOrders.Add(new SalesOrderModel(randomOrderId, $"{randomCustommerId}", Condition.Done, orderLines));
+                salesOrders.Add(new SalesOrderModel(randomOrderId, $"{randomCustommerId}", Condition.Done, orderLines));
             }
         }
 
@@ -38,7 +38,7 @@ namespace H1ERPSystem2023.Databasefiles
         /// <returns>The whole list of "SaleOrders"</returns>
         public List<SalesOrderModel> GetSalesOrder()
         {
-            return SalesOrders;
+            return salesOrders;
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace H1ERPSystem2023.Databasefiles
         /// <returns>The whole SaleOrder from the given ID</returns>
         public SalesOrderModel GetOrderID(int ID)
         {
-            foreach (SalesOrderModel saleOrder in SalesOrders)
+            foreach (SalesOrderModel saleOrder in salesOrders)
             {
                 if (saleOrder.OrderNumber == ID)
                 {
@@ -67,7 +67,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             if (salesOrder != null)
             {
-                SalesOrders.Add(salesOrder);
+                salesOrders.Add(salesOrder);
             }
         }
 
@@ -93,11 +93,11 @@ namespace H1ERPSystem2023.Databasefiles
         /// <param name="ID">The ID of the Order you want to delete</param>
         public void DeleteSaleOrder(int ID)
         {
-            foreach (SalesOrderModel saleOrder in SalesOrders)
+            foreach (SalesOrderModel saleOrder in salesOrders)
             {
                 if (saleOrder.OrderNumber == ID)
                 {
-                    SalesOrders.Remove(saleOrder);
+                    salesOrders.Remove(saleOrder);
                 }
             }
         }
