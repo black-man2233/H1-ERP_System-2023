@@ -51,11 +51,11 @@ namespace H1ERPSystem2023.Databasefiles
 
         //AddCompany essentially takes user input and uses that to add it to the company list.
         //It uses the parameters given of ID, CompanyName, etc, 
-        public void AddCompany(string id, string companyName, string street, string streetNumber, string postalCode,
-            string city, string country)
+ 
+        public void AddCompany(CompanyModel company)
         {
-            Companies.Add(new CompanyModel(id, companyName, street, streetNumber, postalCode, city, country,
-                Currency.DKK));
+            Companies.Add(company);
+
         }
 
         //UpdateCompany uses foreach and if to Identity the company, then updates it, 

@@ -28,6 +28,23 @@
           //Measure from Product Database is same as above!!
           // Missing SQL setup (Check bottom Company database)
 
+        public CompanyModel(CompanyModel company)
+        {
+            this.ID = company.ID;
+            this.CompanyName = company.CompanyName;
+            this.Street = company.Street;
+            this.StreetNumber = company.StreetNumber;
+            this.PostalCode = company.PostalCode;
+            this.City = company.City;
+            this.Country = company.Country;
+            this.Currency = company.Currency;
+
+        }
+        public CompanyModel()
+        {
+
+        }
+
     }
 }
 
