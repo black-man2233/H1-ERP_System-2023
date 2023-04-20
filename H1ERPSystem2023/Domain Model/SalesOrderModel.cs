@@ -1,3 +1,4 @@
+
 using H1ERPSystem2023.Databasefiles;
 using Org.BouncyCastle.Asn1.Esf;
 
@@ -46,7 +47,6 @@ namespace H1ERPSystem2023.DomainModel
             get => sum();
         }
 
-
         /// <summary>
         /// Gives a sum of Product
         /// </summary>
@@ -88,8 +88,8 @@ namespace H1ERPSystem2023.DomainModel
                 }
 
                 return sum;
-            }
 
+            }
 
             //returns 0 if the Orderlines is either empty or null
             return 0;

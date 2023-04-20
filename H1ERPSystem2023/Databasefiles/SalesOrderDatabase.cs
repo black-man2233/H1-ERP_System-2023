@@ -55,7 +55,7 @@ namespace H1ERPSystem2023.Databasefiles
                     return saleOrder;
                 }
             }
-
+          
             return null!;
         }
 
@@ -85,6 +85,7 @@ namespace H1ERPSystem2023.Databasefiles
                 salesOrder.CustomerID = updateOrder.CustomerID;
                 salesOrder.Condition = updateOrder.Condition;
             }
+
         }
 
         /// <summary>
