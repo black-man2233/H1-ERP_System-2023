@@ -1,23 +1,37 @@
 ﻿using H1ERPSystem2023.DomainModel;
-using MySqlX.XDevAPI.Relational;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ExceptionServices;
-using System.Text;
-using System.Threading.Tasks;
-using TECHCOOL.UI;
 
 namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        public List<CustomerModel> Customers = new List<CustomerModel>();
+        private List<CustomerModel> Customers = new List<CustomerModel>();
 
         public void _addCustomers()
         {
-            Customers.Add(new CustomerModel("1", "FirstName", "LastName", null, "12345678", "Email@Email.com", null));
-            Customers.Add(new CustomerModel("2", "AnotherGuy", "fafaf", null, "87654321", "AG@mail.com", null));
+
+            Random random = new Random();
+            string _rCustommerId = random.Next().ToString();
+
+            for (int i = 0; i < 5; i++)
+            {
+                string _personId = random.Next().ToString();
+
+                foreach (CustomerModel customer in Instance.GetAllCustomerModels())
+                {
+                    if (_personId == customer.PersonId)
+                    {
+                        _personId = random.Next().ToString();
+                    }
+
+                    if (_rCustommerId == customer.CustomerNumber)
+                    {
+                        _rCustommerId = random.Next().ToString();
+
+                    }
+                }
+
+                Customers.Add(new(_personId, "Mathias", "Matutu", null, "91428084", "mathias@techshit.dk", _rCustommerId, null));
+            }
         }
 
         public CustomerModel GetCustomer(string PersonID)
