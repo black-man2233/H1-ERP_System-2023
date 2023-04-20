@@ -18,7 +18,7 @@ namespace H1ERPSystem2023.Databasefiles
 
                 foreach (CustomerModel customer in Instance.GetAllCustomerModels())
                 {
-                    if (_personId == customer.PersonId)
+                    if (_personId == customer.PersonID)
                     {
                         _personId = random.Next().ToString();
                     }
@@ -34,17 +34,28 @@ namespace H1ERPSystem2023.Databasefiles
             }
         }
 
+        public void AddCustomer(CustomerModel customer)
+        {
+            Customers.Add(customer);
+        }
+
+        public void AddCustomer(string PersonID, string firstName, string lastName, AddressModel? address, string phoneNumber, string emailAddress,
+            string customerNumber, DateTime? lastPurchaseDate)
+        {
+            Customers.Add(new CustomerModel(PersonID, firstName, lastName, address, phoneNumber, emailAddress, customerNumber, lastPurchaseDate));
+        }
+
         public CustomerModel GetCustomer(string PersonID)
         {
             foreach (CustomerModel customer in Customers)
             {
-                if (customer.PersonId == PersonID)
+                if (customer.PersonID == PersonID)
                 {
                     return customer;
                 }
             }
 
-            Console.WriteLine("Id findes Ikke");
+            Console.WriteLine("ID findes Ikke");
             return null!;
         }
 
@@ -67,7 +78,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             foreach (CustomerModel customer in Customers)
             {
-                if (customer.PersonId == PersonID)
+                if (customer.PersonID == PersonID)
                 {
                     customer.FirstName = firstName;
                     customer.LastName = lastName;
@@ -82,7 +93,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             foreach (CustomerModel customer in Customers)
             {
-                if (customer.PersonId == PersonID)
+                if (customer.PersonID == PersonID)
                 {
                     Customers.Remove(customer);
                     break;

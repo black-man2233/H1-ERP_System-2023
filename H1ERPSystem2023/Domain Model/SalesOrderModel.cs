@@ -28,7 +28,7 @@ namespace H1ERPSystem2023.DomainModel
                 foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
                 {
                     //returns the customers name, if the this.CustomerId matches the customerid
-                    if (this.CustomerID == customer.PersonId)
+                    if (this.CustomerID == customer.PersonID)
                     {
                         return customer.FullName;
                     }
