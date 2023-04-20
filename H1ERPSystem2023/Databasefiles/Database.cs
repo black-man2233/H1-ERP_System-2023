@@ -19,9 +19,7 @@ namespace H1ERPSystem2023.Databasefiles
             Instance._addProducts();
             Instance._addCustomers();
             Instance._addSalesOrders();
-        } // !!Hvis jeg sætter metoden til privat får jeg fejl!!
-
-        //Constructor to add data
+        }
 
         private static SqlConnection GetConnection()
         {
