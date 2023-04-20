@@ -4,7 +4,7 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        public List<CompanyModel> Companies = new List<CompanyModel>();
+        private List<CompanyModel> Companies = new List<CompanyModel>();
 
         //AddCompany uses the company List above, and gives us 2 companies to work with along with a lot of information
         //about them
@@ -52,7 +52,7 @@ namespace H1ERPSystem2023.Databasefiles
 
         //AddCompany essentially takes user input and uses that to add it to the company list.
         //It uses the parameters given of ID, CompanyName, etc, 
- 
+
         public void AddCompany(CompanyModel company)
         {
             Companies.Add(company);
