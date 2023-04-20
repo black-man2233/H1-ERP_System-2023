@@ -15,7 +15,11 @@ namespace H1ERPSystem2023.Databasefiles
         static Database()
         {
             Instance = new Database();
-        }// !!Hvis jeg sætter metoden til privat får jeg fejl!!
+            Instance._addCompanies();
+            Instance._addProducts();
+            Instance._addCustomers();
+            Instance._addSalesOrders();
+        }
 
         private static SqlConnection GetConnection()
         {
@@ -30,6 +34,5 @@ namespace H1ERPSystem2023.Databasefiles
             SqlConnection connection = new(connectionString);
             return connection;
         }
-
     }
 }
