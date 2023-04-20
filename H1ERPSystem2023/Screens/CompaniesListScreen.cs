@@ -24,7 +24,7 @@ namespace H1ERPSystem2023
 
                 ListPage<CompanyModel> compList = new();
 
-                foreach (CompanyModel compModel in Database.Instance.Companies)
+                foreach (CompanyModel compModel in Database.Instance.GetAllCompanyModels())
                     compList.Add(compModel);
 
                 compList.AddColumn("Name", "CompanyName");

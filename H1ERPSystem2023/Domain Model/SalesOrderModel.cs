@@ -1,6 +1,5 @@
 
 using H1ERPSystem2023.Databasefiles;
-using Org.BouncyCastle.Asn1.Esf;
 
 #pragma warning disable
 namespace H1ERPSystem2023.DomainModel
@@ -29,7 +28,7 @@ namespace H1ERPSystem2023.DomainModel
                 foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
                 {
                     //returns the customers name, if the this.CustomerId matches the customerid
-                    if (this.CustomerID == customer.PersonID)
+                    if (this.CustomerID == customer.PersonId)
                     {
                         return customer.FullName;
                     }
