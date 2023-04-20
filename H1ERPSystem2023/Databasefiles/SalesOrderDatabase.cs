@@ -4,7 +4,7 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        private List<SalesOrderModel> salesOrders = new();
+        public List<SalesOrderModel> salesOrders = new();
 
         /// <summary>
         /// Adds temporary random sales orders

@@ -25,18 +25,18 @@ namespace H1ERPSystem2023.Screens
             for (int i = 0; i < Database.Instance.Customers.Count - 1; i++)
                 if (Database.Instance.Customers[i].PersonId == CustomerListScreen.SelectedCustomer.PersonId)
                 {
-                    customerList.Add(Database.Instance.Companies[i]);
+                    customerList.Add(Database.Instance.Customers[i]);
                 }
 
 
-            listPage.AddColumn("person Id", "PersonId");
-            listPage.AddColumn("First Name", "FirstName");
-            listPage.AddColumn("Middle Name", "MiddleName");
-            listPage.AddColumn("Last Name", "LastName");
-            listPage.AddColumn("Phone Number", "phoneNumber");
-            listPage.AddColumn("Email Address", "emailAddress");
-            listPage.AddColumn("Address", "Address");
-            listPage.AddColumn("Purchase Date", "PurchaseDate");
+            customerList.AddColumn("person Id", "PersonId");
+            customerList.AddColumn("First Name", "FirstName");
+            customerList.AddColumn("Middle Name", "MiddleName");
+            customerList.AddColumn("Last Name", "LastName");
+            customerList.AddColumn("Phone Number", "phoneNumber");
+            customerList.AddColumn("Email Address", "emailAddress");
+            customerList.AddColumn("Address", "Address");
+            customerList.AddColumn("Purchase Date", "PurchaseDate");
             // listPage.AddKey(Console
         }
     }
