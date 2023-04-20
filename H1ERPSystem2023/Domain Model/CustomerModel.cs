@@ -3,21 +3,16 @@ namespace H1ERPSystem2023.DomainModel
 {
     public class CustomerModel : PersonModel
     {
-        public string PersonID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public AddressModel Address { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
+        public string CustomerNumber { get; set; }
         public DateTime? LastPurchaseDate { get; set; }
-        public string CustomerFullName { get { return FirstName + " " +  LastName; } }
 
         /// <summary>
         /// Creates a new Customer With a Person Parameters
         /// </summary>
-        public CustomerModel(string PersonID, string firstName, string lastName, AddressModel? address, string phoneNumber, string emailAddress, DateTime? lastPurchaseDate) : base(PersonID, firstName, lastName, address, phoneNumber, emailAddress)
+        public CustomerModel(string personId, string firstName, string lastName, AddressModel address, string phoneNumber, string emailAddress, string customerNumber, DateTime? lastPurchaseDate) : base(personId, firstName, lastName, address, phoneNumber, emailAddress)
         {
             #region Person
+            this.PersonId = personId;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Address = address;
@@ -26,11 +21,16 @@ namespace H1ERPSystem2023.DomainModel
             #endregion
 
             #region Customer
-            this.PersonID = PersonID;
+            this.CustomerNumber = customerNumber;
             this.LastPurchaseDate = lastPurchaseDate;
             #endregion
         }
 
+
+        public CustomerModel(CustomerModel customer) : base(customer.PersonId, customer.FirstName, customer.LastName, customer.Address, customer.PhoneNumber, customer.EmailAddress)
+        {
+
+        }
 
     }
 }

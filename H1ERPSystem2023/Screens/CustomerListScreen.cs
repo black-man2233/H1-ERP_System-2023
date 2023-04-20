@@ -1,12 +1,5 @@
-﻿using H1ERPSystem2023;
-using H1ERPSystem2023.Databasefiles;
+﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity.Core.Mapping;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TECHCOOL.UI;
 #pragma warning disable
 namespace H1ERPSystem2023.Screens
@@ -26,14 +19,10 @@ namespace H1ERPSystem2023.Screens
                 foreach (CustomerModel customerModel in Database.Instance.GetAllCustomerModels())
                     customerList.Add(customerModel);
 
-
-                customerList.AddColumn("PersonId", "PersonID");
-                customerList.AddColumn("Name", "CustomerFullName");
+                customerList.AddColumn("personId", "PersonId");
+                customerList.AddColumn("Name", "FullName");
                 customerList.AddColumn("Phone Number", "PhoneNumber");
                 customerList.AddColumn("Email Address", "EmailAddress");
-
-                
-
 
                 SelectedCustomer = customerList.Select();
                 if (SelectedCustomer != null)
@@ -41,6 +30,7 @@ namespace H1ERPSystem2023.Screens
                 else
                 { Quit(); return; }
                 customerList.Draw();
+
             } while (Show);
         }
     }
