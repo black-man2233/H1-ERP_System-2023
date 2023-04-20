@@ -5,7 +5,7 @@ namespace H1ERPSystem2023.Screens
 {
     public class MenuScreen : Screen
     {
-        public override string Title { get; set; } = "Compnay Menu";
+        public override string Title { get; set; } = "Menu Screen";
 
         protected override void Draw()
         {
@@ -14,8 +14,9 @@ namespace H1ERPSystem2023.Screens
             Menu menu = new();
 
             menu.Add(new CompaniesListScreen());
-            menu.Add(new SalesOrderHeadersScreen());
+            menu.Add(new ProductListScreen());
             menu.Add(new CustomerListScreen());
+            menu.Add(new SalesOrderHeadersScreen());
 
             menu.Start(this);
         }

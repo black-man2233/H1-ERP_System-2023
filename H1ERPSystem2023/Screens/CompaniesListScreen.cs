@@ -7,7 +7,7 @@ namespace H1ERPSystem2023
 {
     public class CompaniesListScreen : Screen
     {
-        public override string Title { get; set; } = "List of Companies";
+        public override string Title { get; set; } = "Company List";
 
         //Made it a static field so it's accessible from the detail screen without instanciating
         public static CompanyModel SelectedCompany;

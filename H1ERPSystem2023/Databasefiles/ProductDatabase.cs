@@ -4,16 +4,16 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        private List<ProductModel> Products = new List<ProductModel>();
+        public List<ProductModel> Products = new List<ProductModel>();
 
 
         //AddProduct uses the product List above, and gives us 2 products to work with along with a lot of information
         //about them
         void _addProducts()
         {
-            Products.Add(new ProductModel(1, "Nesquick", "Chokolade Poo", 26, 18, "Lokation", 265, Measure.Liter));
+            Products.Add(new ProductModel(1, "Nesquick", "Chokolade Poo", 26, 18, "AFRIKA", 265.6f, Measure.Liter));
 
-            Products.Add(new ProductModel(2, "Virksomhed", "Vejej", 200, 18, "Aalborg,", 108, Measure.Meter));
+            Products.Add(new ProductModel(2, "BlackBeans", "BLACKMAN", 200, 18, "CONGO,", 108.2f, Measure.Meter));
         }
 
         // GetProduct gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
@@ -30,7 +30,7 @@ namespace H1ERPSystem2023.Databasefiles
             }
 
             //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
-            Console.WriteLine("Id findes Ikke");
+            Console.WriteLine("ID findes Ikke");
             return null!;
         }
 
@@ -48,18 +48,23 @@ namespace H1ERPSystem2023.Databasefiles
         }
 
         //AddProduct essentially takes User Input and uses that to add it to the product list.
-        //It uses the Parameters given of ID, ProductName, etc, 
-        public void AddProduct(int id, string productName, string description, int salePrice, int buyPrice,
-            string location, int quantity, Measure measure)
+        //It uses the Parameters given of ID, ProductName, etc
+        public void AddProduct(ProductModel product)
         {
-            Products.Add(new ProductModel(id, productName, description, salePrice, buyPrice, location, quantity,
+            Products.Add(product);
+
+        }
+        public void AddProduct(int id, string productName, string description, int salePrice, int buyPrice,
+            string location, float storageAmount, Measure measure)
+        {
+            Products.Add(new ProductModel(id, productName, description, salePrice, buyPrice, location, storageAmount,
                 Measure.Meter));
         }
 
         //UpdateProduct uses foreach and If to Identity the product, then updates it, 
         //Void is used to avoid method wanting a return
         public void UpdateProduct(int ID, string productName, string description, int salePrice, int buyPrice,
-            string location, int quantity, Measure measure)
+            string location, float storageAmount, Measure measure)
         {
             foreach (ProductModel product in Products)
             {
@@ -67,10 +72,10 @@ namespace H1ERPSystem2023.Databasefiles
                 {
                     product.ProductName = productName;
                     product.Description = description;
-                    product.SalePrice = salePrice;
+                    product.SellPrice = salePrice;
                     product.BuyPrice = buyPrice;
                     product.Location = location;
-                    product.Quantity = quantity;
+                    product.StorageAmount = storageAmount;
                     product.Measure = measure;
                 }
             }
