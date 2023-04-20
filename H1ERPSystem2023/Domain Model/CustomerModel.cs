@@ -1,4 +1,5 @@
-﻿namespace H1ERPSystem2023.DomainModel
+﻿#pragma warning disable
+namespace H1ERPSystem2023.DomainModel
 {
     public class CustomerModel : PersonModel
     {

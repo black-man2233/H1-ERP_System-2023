@@ -15,14 +15,7 @@ namespace H1ERPSystem2023.Databasefiles
 
             Companies.Add(new CompanyModel("2", "Virksomhed2", "Rørdalsvej", "Nummer2", "9411", "San Francisco",
                 " America", Currency.DKK));
-        }
 
-        //Constructor used for AddCompany
-        public Database()
-        {
-            _addCompanies();
-            _addProducts();
-            _addCustomers();
         }
 
         //GetCompany Gets an ID i program.cs (by the user), and uses that with the foreach to take all companies

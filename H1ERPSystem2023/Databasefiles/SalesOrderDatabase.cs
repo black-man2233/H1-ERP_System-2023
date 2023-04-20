@@ -4,7 +4,33 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        static List<SalesOrderModel> SalesOrders = new List<SalesOrderModel>();
+        private List<SalesOrderModel> salesOrders = new();
+
+        /// <summary>
+        /// Adds temporary random sales orders
+        /// </summary>
+        private void _addSalesOrders()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                //random Orderid
+                Random random = new Random();
+                int randomOrderId = random.Next();
+
+                //random Orderid
+                int randomCustommerId = random.Next(1, 3);
+
+                //orderlines list
+                List<OrderLineModel> orderLines = new();
+                for (int j = 0; j < Instance.Products.Count - 1; j++)
+                {
+                    orderLines.Add(new(Instance.Products[j]));
+                }
+
+                // adds the randomised data to salesordersList
+                salesOrders.Add(new SalesOrderModel(randomOrderId, $"{randomCustommerId}", Condition.Done, orderLines));
+            }
+        }
 
         /// <summary>
         /// Runs down the whole list and returns it
@@ -12,7 +38,7 @@ namespace H1ERPSystem2023.Databasefiles
         /// <returns>The whole list of "SaleOrders"</returns>
         public List<SalesOrderModel> GetSalesOrder()
         {
-            return SalesOrders;
+            return salesOrders;
         }
 
         /// <summary>
@@ -22,13 +48,14 @@ namespace H1ERPSystem2023.Databasefiles
         /// <returns>The whole SaleOrder from the given ID</returns>
         public SalesOrderModel GetOrderID(int ID)
         {
-            foreach (SalesOrderModel saleOrder in SalesOrders)
+            foreach (SalesOrderModel saleOrder in salesOrders)
             {
                 if (saleOrder.OrderNumber == ID)
                 {
                     return saleOrder;
                 }
             }
+          
             return null!;
         }
 
@@ -40,7 +67,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             if (salesOrder != null)
             {
-                SalesOrders.Add(salesOrder);
+                salesOrders.Add(salesOrder);
             }
         }
 
@@ -67,14 +94,13 @@ namespace H1ERPSystem2023.Databasefiles
         /// <param name="ID">The ID of the Order you want to delete</param>
         public void DeleteSaleOrder(int ID)
         {
-            foreach (SalesOrderModel saleOrder in SalesOrders)
+            foreach (SalesOrderModel saleOrder in salesOrders)
             {
                 if (saleOrder.OrderNumber == ID)
                 {
-                    SalesOrders.Remove(saleOrder);
+                    salesOrders.Remove(saleOrder);
                 }
             }
         }
-
     }
 }

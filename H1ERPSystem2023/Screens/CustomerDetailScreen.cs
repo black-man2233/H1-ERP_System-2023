@@ -22,15 +22,13 @@ namespace H1_ERP_System_2023.Screens
             ListPage<CompanyModel> customerList = new();
             Database customerDB = new();
 
-
-            for (int i = 0; i < Database.Instance.Customers.Count; i++)
+            for (int i = 0; i < Database.Instance.Customers.Count - 1; i++)
                 if (Database.Instance.Customers[i].PersonId == CustomerListScreen.SelectedCustomer.PersonId)
                 {
-                    customerList.Add(customerDB.Companies[i]);
+                    customerList.Add(Database.Instance.Companies[i]);
                 }
 
             ListPage<CustomerModel> listPage = new ListPage<CustomerModel>();
-
 
             listPage.AddColumn("person Id", "PersonId");
             listPage.AddColumn("First Name", "FirstName");

@@ -13,7 +13,8 @@ namespace H1ERPSystem2023.Screens
             Menu menu = new();
 
             menu.Add(new CompaniesListScreen());
-            //menu.Add(new CompanyEditScreen());
+            menu.Add(new CompanyEditScreen());
+            menu.Add(new SalesOrderHeadersScreen());
 
             menu.Start(this);
         }
