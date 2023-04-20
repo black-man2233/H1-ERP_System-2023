@@ -1,4 +1,5 @@
-﻿using TECHCOOL.UI;
+﻿using H1_ERP_System_2023.Screens;
+using TECHCOOL.UI;
 
 namespace H1ERPSystem2023.Screens
 {
@@ -14,6 +15,7 @@ namespace H1ERPSystem2023.Screens
 
             menu.Add(new CompaniesListScreen());
             menu.Add(new CompanyEditScreen());
+            menu.Add(new SalesOrderHeadersScreen());
 
             menu.Start(this);
         }
