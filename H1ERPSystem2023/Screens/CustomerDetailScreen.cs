@@ -7,7 +7,7 @@ namespace H1ERPSystem2023.Screens
 {
     public class CustomerDetailScreen : Screen
     {
-        public override string Title { get; set; } = "¨Customers";
+        public override string Title { get; set; } = "Customers";
 
 
         protected override void Draw()
@@ -17,25 +17,18 @@ namespace H1ERPSystem2023.Screens
             ListPage<CustomerModel> customerList = new();
             //Database customerDB = new();
 
-            for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count - 1; i++)
-            {
-                if (Database.Instance.GetAllCustomerModels()[i].PersonId == CustomerListScreen.SelectedCustomer.PersonId)
-                {
-                    customerList.Add((Database.Instance.GetAllCustomerModels()[i]));
-                }
-            }
+            for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count; i++)
+                if (Database.Instance.GetAllCustomerModels()[i].PersonID == CustomerListScreen.SelectedCustomer.PersonID)
+                    customerList.Add(Database.Instance.GetAllCustomerModels()[i]);
 
-            //ListPage<CustomerModel> listPage = new ListPage<CustomerModel>();
-
-            customerList.AddColumn("Person Id", "PersonId");
+            customerList.AddColumn("Person ID", "PersonID");
             customerList.AddColumn("Full Name", "FullName");
             customerList.AddColumn("Phone Number", "PhoneNumber");
             customerList.AddColumn("Email Address", "EmailAddress");
-            customerList.AddColumn("Address", "GetFullAdress");
+            customerList.AddColumn("Address", "Address");
             customerList.AddColumn("Purchase Date", "LastPurchaseDate");
 
             customerList.Draw();
-
         }
     }
 }

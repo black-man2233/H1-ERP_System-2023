@@ -40,7 +40,7 @@ namespace H1ERPSystem2023.DomainModel
                 foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
                 {
                     //returns the customers name, if the this.CustomerId matches the customerid
-                    if (this.CustomerID == customer.PersonId)
+                    if (this.CustomerID == customer.PersonID)
                     {
                         return customer.FullName;
                     }
@@ -95,7 +95,7 @@ namespace H1ERPSystem2023.DomainModel
                 decimal sum = 0;
                 foreach (OrderLineModel line in OrderLines)
                 {
-                    sum += line.Product.SalePrice;
+                    sum += line.Product.SellPrice;
                 }
 
                 return sum;

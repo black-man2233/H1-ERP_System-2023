@@ -10,15 +10,19 @@
 
   <ItemGroup>
     <Compile Remove="database\**" />
+    <Compile Remove="product\**" />
+    <Compile Remove="Sales\**" />
     <EmbeddedResource Remove="database\**" />
+    <EmbeddedResource Remove="product\**" />
+    <EmbeddedResource Remove="Sales\**" />
     <None Remove="database\**" />
+    <None Remove="product\**" />
+    <None Remove="Sales\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Costumer\" />
     <Folder Include="Company\" />
-    <Folder Include="product\" />
-    <Folder Include="Sales\" />
   </ItemGroup>
 
   <ItemGroup>

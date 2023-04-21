@@ -2,7 +2,7 @@
 {
     public abstract class PersonModel
     {
-        public string PersonId { get; set; }
+        public string PersonID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public AddressModel? Address { get; set; }
@@ -28,13 +28,15 @@
                 }
                 else
                     return string.Empty;
-
+        
             }
         }
 
+        public PersonModel() { }
+
         public PersonModel(string personId, string firstName, string lastName, AddressModel address, string phoneNumber, string emailAddress)
         {
-            this.PersonId = personId;
+            this.PersonID = personId;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Address = new(address);

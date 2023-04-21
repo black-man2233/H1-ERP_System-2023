@@ -9,9 +9,8 @@ namespace H1ERPSystem2023
         public static void Main(string[] args)
         {
 
-
             Screen.Display(new MenuScreen());
-
+            
         }
     }
 }

@@ -19,8 +19,9 @@ namespace H1ERPSystem2023.Screens
                 foreach (CustomerModel customerModel in Database.Instance.GetAllCustomerModels())
                     customerList.Add(customerModel);
 
-                customerList.AddColumn("personId", "PersonId");
-                customerList.AddColumn("Name", "FullName");
+
+                customerList.AddColumn("PersonId", "PersonID");
+                customerList.AddColumn("Full Name", "FullName");
                 customerList.AddColumn("Phone Number", "PhoneNumber");
                 customerList.AddColumn("Email Address", "EmailAddress");
 
