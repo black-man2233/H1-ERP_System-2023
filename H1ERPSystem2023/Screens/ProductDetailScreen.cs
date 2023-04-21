@@ -15,9 +15,9 @@ namespace H1ERPSystem2023
             ListPage<ProductModel> prodList = new();
 
             //Loops through the Product Database and matches the ID with the selected product ID
-            for (int i = 0; i < Database.Instance.Products.Count; i++)
-                if (Database.Instance.Products[i].ID == ProductListScreen.SelectedProduct.ID)
-                    prodList.Add(Database.Instance.Products[i]);
+            for (int i = 0; i < Database.Instance.GetAllProductModels().Count; i++)
+                if (Database.Instance.GetAllProductModels()[i].ID == ProductListScreen.SelectedProduct.ID)
+                    prodList.Add(Database.Instance.GetAllProductModels()[i]);
 
             prodList.AddColumn("Product ID", "ID");
             prodList.AddColumn("Name", "ProductName");

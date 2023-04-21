@@ -20,10 +20,11 @@ namespace H1ERPSystem2023.Screens
             Form<SalesOrderModel> editor = new();
             SalesOrderModel sales;
 
-            foreach (SalesOrderModel SalesModel in Database.Instance.salesOrders)
+            foreach (SalesOrderModel SalesModel in Database.Instance.GetSalesOrder())
                 SalesList.Add(SalesModel);
-            SalesList.AddColumn("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    name", "Name");
-            //compList.AddColumn("");
+
+            SalesList.AddColumn("name", "Name");
+
             sales = SalesList.Select();
 
             editor.TextBox("First Name", "Name");
@@ -36,10 +37,8 @@ namespace H1ERPSystem2023.Screens
             editor.TextBox("Email Address", "EmailAddress");
 
 
-
             editor.Edit(sales);
             Console.ReadLine();
-            
         }
     }
 }
