@@ -14,6 +14,12 @@ namespace H1_ERP_System_2023.Screens
             do
             {
                 Clear(this);
+                Console.Clear();
+
+                Console.WriteLine("F1 to create a new customer");
+                Console.WriteLine("F2 to edit a exiting customer");
+                Console.WriteLine("F5 to delete a customer");
+
                 ListPage<CustomerModel> customerList = new();
 
                 foreach (CustomerModel customerModel in Database.Instance.GetAllCustomerModels())

@@ -40,6 +40,11 @@ namespace H1ERPSystem2023.Screens
 
         protected override void Draw()
         {
+            Clear(this);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Press ESC twice to exit");
+            Console.ForegroundColor = ConsoleColor.White;
+
             if (IsCreate)
             {
                 Create();
@@ -47,7 +52,6 @@ namespace H1ERPSystem2023.Screens
             }
             else
             {
-                Clear(this);
 
                 Form<CompanyModel> editor = new();
 

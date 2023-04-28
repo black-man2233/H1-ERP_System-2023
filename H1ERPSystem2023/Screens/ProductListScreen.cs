@@ -21,6 +21,7 @@ namespace H1ERPSystem2023
                 Clear(this);
                 Console.WriteLine("F1 to create a new product");
                 Console.WriteLine("F2 to edit a exiting product");
+                Console.WriteLine("F5 to delete a product");
 
                 ListPage<ProductModel> prodList = new();
 
