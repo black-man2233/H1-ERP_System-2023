@@ -23,7 +23,7 @@ namespace H1ERPSystem2023.Screens
         }
 
 
-        void Create()
+        ProductModel Create()
         {
             Form<ProductModel> editor = new();
 

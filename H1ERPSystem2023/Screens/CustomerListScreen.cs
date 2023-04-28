@@ -43,6 +43,22 @@ namespace H1_ERP_System_2023.Screens
                 customerList.Draw();
 
             } while (Show);
+
+            void Edit(CustomerModel input)
+            {
+                if (input is CustomerModel customer)
+                    Screen.Display(new CustomerEditScreen(customer));
+            }
+            void NewCustomer(Object O)
+            {
+                Display(new CustomerEditScreen());
+            }
+            void Delete(CustomerModel input)
+            {
+
+                Database.Instance.RemoveCustomer(input.PersonID);
+                Draw();
+            }
         }
     }
 }

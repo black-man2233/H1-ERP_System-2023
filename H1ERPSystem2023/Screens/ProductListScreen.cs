@@ -49,14 +49,19 @@ namespace H1ERPSystem2023
             } while (Show);
 
         }
-        void Edit(ProductModel _input)
+        void Edit(ProductModel input)
         {
-            if (_input is ProductModel product)
+            if (input is ProductModel product)
                 Screen.Display(new ProductEditScreen(product));
         }
         void NewProd(Object O)
         {
             Display(new ProductEditScreen());
+        }
+        void Delete(ProductModel input)
+        {
+            Database.Instance.RemoveProduct(input.ID);
+            Draw();
         }
     }
 }
