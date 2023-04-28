@@ -31,6 +31,10 @@ namespace H1_ERP_System_2023.Screens
                 customerList.AddColumn("Phone Number", "PhoneNumber");
                 customerList.AddColumn("Email Address", "EmailAddress");
 
+                customerList.AddKey(ConsoleKey.F1, NewCustomer);
+                customerList.AddKey(ConsoleKey.F2, Edit);
+                customerList.AddKey(ConsoleKey.F5, Delete);
+
                 SelectedCustomer = customerList.Select();
                 if (SelectedCustomer != null)
                     Screen.Display(new CustomerDetailScreen());

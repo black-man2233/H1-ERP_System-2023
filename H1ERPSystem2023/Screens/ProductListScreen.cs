@@ -37,6 +37,7 @@ namespace H1ERPSystem2023
 
                 prodList.AddKey(ConsoleKey.F1, NewProd);
                 prodList.AddKey(ConsoleKey.F2, Edit);
+                prodList.AddKey(ConsoleKey.F5, Delete);
                 //Gives the user the option to Select between the products when called, make sure to check for not null. That will tell it's been selected with enter
                 SelectedProduct = prodList.Select();
                 if (SelectedProduct != null)
