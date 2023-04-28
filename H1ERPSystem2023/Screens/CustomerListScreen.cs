@@ -1,5 +1,6 @@
 ﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
+using H1ERPSystem2023.Screens;
 using TECHCOOL.UI;
 #pragma warning disable
 namespace H1_ERP_System_2023.Screens

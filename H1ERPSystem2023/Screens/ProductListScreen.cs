@@ -25,7 +25,7 @@ namespace H1ERPSystem2023
 
                 ListPage<ProductModel> prodList = new();
 
-                foreach (ProductModel prodModel in Database.Instance.Products)
+                foreach (ProductModel prodModel in Database.Instance.GetAllProductModels())
                     prodList.Add(prodModel);    
 
                 prodList.AddColumn("Product ID", "ID");
