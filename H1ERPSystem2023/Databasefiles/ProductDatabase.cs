@@ -4,7 +4,7 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        public List<ProductModel> Products = new List<ProductModel>();
+        private List<ProductModel> Products = new List<ProductModel>();
 
 
         //AddProduct uses the product List above, and gives us 2 products to work with along with a lot of information
