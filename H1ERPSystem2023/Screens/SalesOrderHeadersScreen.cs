@@ -25,17 +25,14 @@ namespace H1_ERP_System_2023.Screens
                 Console.WriteLine("F2 to edit a exiting company");
 
                 ListPage<SalesOrderModel?> salesOrderList = new();
-                foreach (SalesOrderModel saleOrder in Database.Instance.GetSalesOrder())
-                {
+                foreach (SalesOrderModel saleOrder in Database.Instance.GetAllSalesOrder())
                     salesOrderList.Add(saleOrder);
-                }
 
                 salesOrderList.AddColumn("Order Number", "OrderNumber");
                 salesOrderList.AddColumn("Date", "CreationDate");
-                salesOrderList.AddColumn("Customer Number", "CustomerID");
-                salesOrderList.AddColumn("First and Last Name", "CustomerName");
-                salesOrderList.AddColumn("Amount", "Amount");
-
+                salesOrderList.AddColumn("Customer Number", "OrderCustomerNumber");
+                salesOrderList.AddColumn("Full Name", "OrderFullName");
+                salesOrderList.AddColumn("Sum", "OrderSum");
 
                 salesOrderList.AddKey(ConsoleKey.F1, NewProd);
                 salesOrderList.AddKey(ConsoleKey.F2, Edit);

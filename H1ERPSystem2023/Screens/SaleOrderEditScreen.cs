@@ -11,7 +11,7 @@ namespace H1ERPSystem2023.Screens
 {
     public class SaleOrderEditScreen : Screen
     {
-        public override string Title { get; set; } = "Edit Sales Orders";
+        public override string Title { get; set; } = "Edit SalesOrders";
         public SalesOrderModel SalesOrder { get; set; } = new();
 
         public SaleOrderEditScreen(Object? O)
@@ -29,14 +29,14 @@ namespace H1ERPSystem2023.Screens
         {
             Form<SalesOrderModel> editor = new();
 
-            editor.TextBox("Name", "FirstName");
-            editor.TextBox("Last Name", "LastName");
+            editor.TextBox("Name", "CustomerName");
             editor.TextBox("Street", "Street");
             editor.TextBox("Street Number", "StreetNumber");
             editor.TextBox("ZipCode", "PostalCode");
             editor.TextBox("City", "City");
             editor.TextBox("Phone Number", "PhoneNumber");
             editor.TextBox("Email Address", "EmailAddress");
+            
             editor.Edit(SalesOrder);
         }
 
@@ -53,7 +53,7 @@ namespace H1ERPSystem2023.Screens
 
                 Form<SalesOrderModel> editor = new();
 
-                editor.TextBox("Name", "FullName");
+                editor.TextBox("Name", "CustomerName");
                 editor.TextBox("Street", "Street");
                 editor.TextBox("Street Number", "StreetNumber");
                 editor.TextBox("Postal Code", "PostalCode");

@@ -1,9 +1,11 @@
-﻿namespace H1ERPSystem2023.DomainModel
+﻿using System.Diagnostics;
+
+namespace H1ERPSystem2023.DomainModel
 {
     public class AddressModel
     {
         #region Properties
-        private int AdressId { get; set; }
+        private int AddressId { get; set; }
         public string Street { get; set; }
         public string StreetNumber { get; set; }
         public string City { get; set; }
@@ -31,7 +33,7 @@
             if (adress is not null)
             {
 
-                AdressId = adress.AdressId;
+                AddressId = adress.AddressId;
                 Street = adress.Street;
                 StreetNumber = adress.StreetNumber;
                 City = adress.City;
@@ -47,5 +49,7 @@
 
         }
         #endregion
+
+
     }
 }

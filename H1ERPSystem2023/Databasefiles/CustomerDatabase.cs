@@ -31,6 +31,7 @@ namespace H1ERPSystem2023.Databasefiles
                 }
 
                 Customers.Add(new(_personId, "Mathias", "Matutu", null, "91428084", "mathias@techshit.dk", _rCustommerId, null));
+                Customers.Add(new("7", "TEST", "TEST", null, "91428084", "TEST@TEST.dk", "7", null));
             }
         }
 
