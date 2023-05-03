@@ -1,7 +1,5 @@
-
 using H1_ERP_System_2023.Screens;
 using H1ERPSystem2023.Databasefiles;
-
 #pragma warning disable
 using Org.BouncyCastle.Asn1.Mozilla;
 
@@ -18,22 +16,28 @@ namespace H1ERPSystem2023.DomainModel
 
     public class SalesOrderModel
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        public int OrderNumber { get; set; }
-        public DateTime CreationDate { get; set; }
+        public int       OrderNumber  { get; set; }
+        public DateTime  CreationDate { get; set; }
         public DateTime? CompleteDate { get; set; }
-        public string CustomerID { get; set; }
+        public string    CustomerID   { get; set; }
 
+        public string CustomerName
+        {
+            get
+            {
+                //Loops through all the customers
+                foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
+                {
+                    //returns the customers name, if the this.CustomerId matches the customerid
+                    if (this.CustomerID == customer.PersonID)
+                    {
+                        return customer.FullName;
+                    }
+                }
 
-        public string CustomerName { get; set; }
-        public string Street { get; set; }
-        public string StreetNumber { get; set; }
-        public string PostalCode { get; set; }
-        public string City { get; set; }
-        public string PhoneNumbers { get; set; }
-        public string EmailAddress { get; set; }
+                return null!;
+            }
+        }
 
         public Condition Condition { get; set; }
         public List<OrderLineModel>? OrderLines { get; }
@@ -88,7 +92,6 @@ namespace H1ERPSystem2023.DomainModel
                 }
 
                 return sum;
-
             }
 
             //returns 0 if the Orderlines is either empty or null
