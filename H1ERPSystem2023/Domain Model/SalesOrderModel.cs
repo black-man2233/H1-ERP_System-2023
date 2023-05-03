@@ -83,7 +83,7 @@ namespace H1ERPSystem2023.DomainModel
                 decimal sum = 0;
                 foreach (OrderLineModel line in OrderLines)
                 {
-                    sum += line.Product.SellPrice;
+                    sum += line.Product.SalePrice;
                 }
 
                 return sum;
