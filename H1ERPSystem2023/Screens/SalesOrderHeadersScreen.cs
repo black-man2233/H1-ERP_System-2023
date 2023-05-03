@@ -1,4 +1,5 @@
-﻿using H1ERPSystem2023;
+﻿#pragma warning disable
+using H1ERPSystem2023;
 using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
 using H1ERPSystem2023.Screens;
