@@ -9,20 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Company\**" />
+    <Compile Remove="Costumer\**" />
     <Compile Remove="database\**" />
     <Compile Remove="product\**" />
     <Compile Remove="Sales\**" />
+    <EmbeddedResource Remove="Company\**" />
+    <EmbeddedResource Remove="Costumer\**" />
     <EmbeddedResource Remove="database\**" />
     <EmbeddedResource Remove="product\**" />
     <EmbeddedResource Remove="Sales\**" />
+    <None Remove="Company\**" />
+    <None Remove="Costumer\**" />
     <None Remove="database\**" />
     <None Remove="product\**" />
     <None Remove="Sales\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Costumer\" />
-    <Folder Include="Company\" />
   </ItemGroup>
 
   <ItemGroup>
