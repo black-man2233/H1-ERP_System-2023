@@ -1,4 +1,5 @@
 
+using H1_ERP_System_2023.Screens;
 using H1ERPSystem2023.Databasefiles;
 
 #pragma warning disable
@@ -17,38 +18,22 @@ namespace H1ERPSystem2023.DomainModel
 
     public class SalesOrderModel
     {
-        public string Name { get; set; }
-        public string Lastname { get; set; }
-        public string Road { get; set; }
-        public string HouseNumber { get; set; }
-        public string ZipCode { get; set; }
-        public string City { get; set; }
-        public string PhoneNumber { get; set; }
-        public string EmailAddress { get; set; }
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
         public int OrderNumber { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? CompleteDate { get; set; }
         public string CustomerID { get; set; }
 
-        public string CustomerName
-        {
-            get
-            {
-                //Loops through all the customers
-                foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
-                {
-                    //returns the customers name, if the this.CustomerId matches the customerid
-                    if (this.CustomerID == customer.PersonID)
-                    {
-                        return customer.FullName;
-                    }
-                }
 
-                return null!;
-            }
-        }
+        public string CustomerName { get; set; }
+        public string Street { get; set; }
+        public string StreetNumber { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string PhoneNumbers { get; set; }
+        public string EmailAddress { get; set; }
 
         public Condition Condition { get; set; }
         public List<OrderLineModel>? OrderLines { get; }
@@ -58,10 +43,10 @@ namespace H1ERPSystem2023.DomainModel
             get => sum();
         }
 
-        /// <summary>
-        /// Gives a sum of Product
-        /// </summary>
-        /// <returns>The sum of all the product chosen</returns>
+        // <summary>
+        // Gives a sum of Product
+        // </summary>
+        // <returns>The sum of all the product chosen</returns>
 
         #region Constructors
 
@@ -84,6 +69,10 @@ namespace H1ERPSystem2023.DomainModel
             this.CustomerID = customerId;
             this.Condition = condition;
             this.OrderLines = orderLines;
+        }
+
+        public SalesOrderModel()
+        {
         }
 
         #endregion

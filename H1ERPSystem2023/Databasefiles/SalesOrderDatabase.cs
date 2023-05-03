@@ -18,7 +18,7 @@ namespace H1ERPSystem2023.Databasefiles
                 int randomOrderId = random.Next();
 
                 //random Orderid
-                int randomCustommerId = random.Next(1, 3);
+                int randomCustommerId = random.Next();
 
                 //orderlines list
                 List<OrderLineModel> orderLines = new();
@@ -28,17 +28,40 @@ namespace H1ERPSystem2023.Databasefiles
                 }
 
                 // adds the randomised data to salesordersList
-                salesOrders.Add(new SalesOrderModel(randomOrderId, $"{randomCustommerId}", Condition.Done, orderLines));
+                salesOrders.Add(new SalesOrderModel(randomOrderId, DateTime.Now, GetCustomer("7")));
             }
+        }
+        public SalesOrderModel GetSalesOrder(int orderNumber)
+        {
+            foreach (SalesOrderModel salesOrder in salesOrders)
+            {
+                if (salesOrder.OrderNumber == orderNumber)
+                {
+                    return salesOrder;
+                }
+            }
+
+            //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
+            Console.WriteLine("Id findes Ikke");
+            return null!;
         }
 
         /// <summary>
         /// Runs down the whole list and returns it
         /// </summary>
         /// <returns>The whole list of "SaleOrders"</returns>
-        public List<SalesOrderModel> GetSalesOrder()
+        public List<SalesOrderModel> GetAllSalesOrder()
         {
-            return salesOrders;
+            List<SalesOrderModel> _allOrders = new();
+
+            foreach (SalesOrderModel Order in salesOrders)
+            {
+                _allOrders.Add(Order);
+            }
+
+            return _allOrders;
+
+            // SQL Connection thing -> SqlConnection SQLConn = getConnection(); <- touch at a later time
         }
 
         /// <summary>
@@ -82,7 +105,7 @@ namespace H1ERPSystem2023.Databasefiles
             {
                 salesOrder.CreationDate = updateOrder.CreationDate;
                 salesOrder.CompleteDate = updateOrder.CompleteDate;
-                salesOrder.CustomerID = updateOrder.CustomerID;
+                salesOrder.OrderCustomer.CustomerNumber = updateOrder.OrderCustomer.CustomerNumber;
                 salesOrder.Condition = updateOrder.Condition;
             }
 
