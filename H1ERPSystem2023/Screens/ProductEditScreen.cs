@@ -23,9 +23,10 @@ namespace H1ERPSystem2023.Screens
         }
 
 
-        void Create()
+        ProductModel Create()
         {
             Form<ProductModel> editor = new();
+            ProductModel newModel = new();
 
             editor.IntBox("Product ID", "ID");
             editor.TextBox("Name", "ProductName");
@@ -36,15 +37,15 @@ namespace H1ERPSystem2023.Screens
             editor.IntBox("Storage Amount", "StorageAmount");
             editor.TextBox("Measure Unit", "Measure");
 
-            editor.Edit(Product);
+            editor.Edit(newModel);
+            return newModel;
         }
 
         protected override void Draw()
         {
             if (IsCreate)
             {
-                Create();
-                Database.Instance.AddProduct(Product);
+                Database.Instance.AddProduct(Create());
             }
             else
             {

@@ -21,6 +21,7 @@ namespace H1ERPSystem2023
                 Clear(this);
                 Console.WriteLine("F1 to create a new product");
                 Console.WriteLine("F2 to edit a exiting product");
+                Console.WriteLine("F5 to delete a product");
 
                 ListPage<ProductModel> prodList = new();
 
@@ -36,6 +37,7 @@ namespace H1ERPSystem2023
 
                 prodList.AddKey(ConsoleKey.F1, NewProd);
                 prodList.AddKey(ConsoleKey.F2, Edit);
+                prodList.AddKey(ConsoleKey.F5, Delete);
                 //Gives the user the option to Select between the products when called, make sure to check for not null. That will tell it's been selected with enter
                 SelectedProduct = prodList.Select();
                 if (SelectedProduct != null)
@@ -47,14 +49,19 @@ namespace H1ERPSystem2023
             } while (Show);
 
         }
-        void Edit(ProductModel _input)
+        void Edit(ProductModel input)
         {
-            if (_input is ProductModel product)
+            if (input is ProductModel product)
                 Screen.Display(new ProductEditScreen(product));
         }
         void NewProd(Object O)
         {
             Display(new ProductEditScreen());
+        }
+        void Delete(ProductModel input)
+        {
+            Database.Instance.RemoveProduct(input.ID);
+            Draw();
         }
     }
 }

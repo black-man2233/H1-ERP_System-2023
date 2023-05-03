@@ -5,7 +5,7 @@ namespace H1ERPSystem2023.Screens
 {
     public class MenuScreen : Screen
     {
-        public override string Title { get; set; } = "Menu Screen";
+        public override string Title { get; set; } = "LNE Security A/S ";
 
         protected override void Draw()
         {
