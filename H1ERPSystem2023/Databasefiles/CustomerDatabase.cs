@@ -1,4 +1,5 @@
-﻿using H1ERPSystem2023.DomainModel;
+﻿#pragma warning disable
+using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {

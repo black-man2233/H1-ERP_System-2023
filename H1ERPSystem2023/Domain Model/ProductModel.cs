@@ -1,5 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
+﻿#pragma warning disable
 namespace H1ERPSystem2023.DomainModel
 {
 
