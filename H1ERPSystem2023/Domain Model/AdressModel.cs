@@ -1,3 +1,4 @@
+#pragma warning disable
 namespace H1ERPSystem2023.DomainModel
 {
     public class AddressModel
