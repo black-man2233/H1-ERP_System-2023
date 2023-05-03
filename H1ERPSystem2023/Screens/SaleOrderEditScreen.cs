@@ -34,7 +34,7 @@ namespace H1ERPSystem2023.Screens
             editor.TextBox("Street Number", "StreetNumber");
             editor.TextBox("ZipCode", "PostalCode");
             editor.TextBox("City", "City");
-            editor.TextBox("Phone Number", "PhoneNumber");
+            editor.TextBox("Phone Number", "PhoneNumbers");
             editor.TextBox("Email Address", "EmailAddress");
             
             editor.Edit(SalesOrder);

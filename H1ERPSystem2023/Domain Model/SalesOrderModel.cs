@@ -16,7 +16,7 @@ namespace H1ERPSystem2023.DomainModel
         Done
     }
 
-    public class SalesOrderModel 
+    public class SalesOrderModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -27,66 +27,13 @@ namespace H1ERPSystem2023.DomainModel
         public string CustomerID { get; set; }
 
 
-        public string CustomerName
-        {
-            get
-            {
-                //Loops through all the customers
-                foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
-                {
-                    //returns the customers name, if the this.CustomerId matches the customerid
-                    if (this.CustomerID == customer.PersonID)
-                    {
-                        return customer.FullName;
-                    }
-                }
-
-                return null!;
-            }
-        }
-
-        public string PhoneNumbers
-        {
-            get
-            {
-                foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
-                {
-                    if (this.CustomerID == customer.PersonID)
-                    {
-                        return customer.PhoneNumber;
-                    }
-                }
-                return null!;
-            }
-        }
-        public string FullAdress
-        {
-            get
-            {
-                foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
-                {
-                    if (this.CustomerID == customer.PersonID)
-                    {
-                        return customer.GetFullAdress;
-                    }
-                }
-                return null!;
-            }
-        }
-        public string email
-        {
-            get
-            {
-                foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
-                {
-                    if (this.CustomerID == customer.PersonID)
-                    {
-                        return customer.EmailAddress;
-                    }
-                }
-                return null!;
-            }
-        }
+        public string CustomerName { get; set; }
+        public string Street { get; set; }
+        public string StreetNumber { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string PhoneNumbers { get; set; }
+        public string EmailAddress { get; set; }
 
         public Condition Condition { get; set; }
         public List<OrderLineModel>? OrderLines { get; }
