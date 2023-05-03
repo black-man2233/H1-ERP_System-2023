@@ -28,7 +28,7 @@ namespace H1ERPSystem2023.Databasefiles
                 }
 
                 // adds the randomised data to salesordersList
-                salesOrders.Add(new SalesOrderModel(randomOrderId, DateTime.Now, GetCustomer("7")));
+                salesOrders.Add(new SalesOrderModel(new Random().Next(),new Random().Next(1,5).ToString(),Condition.Created,orderLines));
             }
         }
         public SalesOrderModel GetSalesOrder(int orderNumber)
@@ -105,7 +105,6 @@ namespace H1ERPSystem2023.Databasefiles
             {
                 salesOrder.CreationDate = updateOrder.CreationDate;
                 salesOrder.CompleteDate = updateOrder.CompleteDate;
-                salesOrder.OrderCustomer.CustomerNumber = updateOrder.OrderCustomer.CustomerNumber;
                 salesOrder.Condition = updateOrder.Condition;
             }
 
