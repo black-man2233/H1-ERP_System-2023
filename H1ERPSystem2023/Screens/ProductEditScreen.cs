@@ -31,8 +31,8 @@ namespace H1ERPSystem2023.Screens
             editor.IntBox("Product ID", "ID");
             editor.TextBox("Name", "ProductName");
             editor.TextBox("Description", "Description");
-            editor.IntBox ("Price To Buy", "BuyPrice");
-            editor.IntBox ("Price To Sell", "SellPrice");
+            editor.IntBox("Price To Buy", "BuyPrice");
+            editor.IntBox("Price To Sell", "SellPrice");
             editor.TextBox("Location", "Location");
             editor.IntBox("Storage Amount", "StorageAmount");
             editor.TextBox("Measure Unit", "Measure");

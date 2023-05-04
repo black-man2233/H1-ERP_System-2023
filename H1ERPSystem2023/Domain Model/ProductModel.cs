@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace H1ERPSystem2023.DomainModel
+﻿namespace H1ERPSystem2023.DomainModel
 {
 
     public enum Measure { Meter, Liter }
@@ -10,18 +8,18 @@ namespace H1ERPSystem2023.DomainModel
         public int ID { get; set; }
         public string ProductName { get; set; }
         public string Description { get; set; }
-        public int SellPrice { get; set; }
-        public int BuyPrice { get; set; }
+        public double SellPrice { get; set; }
+        public double BuyPrice { get; set; }
         public string Location { get; set; }
         public float StorageAmount { get; set; }
-        public int Avance { get; set; }
-        public int AvancePercent { get; set; }
+        public double Avance { get; set; }
+        public double AvancePercent { get; set; }
         public Measure Measure { get; set; }
 
         public ProductModel() { }
 
-        public ProductModel(ProductModel product) 
-        { 
+        public ProductModel(ProductModel product)
+        {
             ID = product.ID;
             ProductName = product.ProductName;
             Description = product.Description;
@@ -35,7 +33,7 @@ namespace H1ERPSystem2023.DomainModel
             AvancePercent = AvancePercentCalc(product.SellPrice - product.BuyPrice, product.SellPrice);
         }
 
-        public ProductModel(int id, string productName, string description, int sellPrice, int buyPrice, string location, float storageAmount, Measure measure)
+        public ProductModel(int id, string productName, string description, double sellPrice, double buyPrice, string location, float storageAmount, Measure measure)
         {
             ID = id;
             ProductName = productName;
@@ -51,11 +49,11 @@ namespace H1ERPSystem2023.DomainModel
 
         //Profit * 100 and divided by the price it sold for.
         //We * by 100 first to keep the number above 0 since it's an int.
-        public static int AvancePercentCalc(int a, int b) => a * 100 / b;
+        public static double AvancePercentCalc(double a, double b) => (a * 100 / b);
 
-        public static int Profit(int a, int b, int c) => (a + b) * c;
+        public static double Profit(double a, double b, double c) => ((a + b) * c);
 
-        
+
 
     }
 }
