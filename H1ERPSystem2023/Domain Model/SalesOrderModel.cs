@@ -41,7 +41,7 @@ namespace H1ERPSystem2023.DomainModel
         public Condition Condition { get; set; }
         public List<OrderLineModel>? OrderLines { get; }
 
-        public decimal Amount
+        public double Amount
         {
             get => sum();
         }
@@ -76,11 +76,11 @@ namespace H1ERPSystem2023.DomainModel
 
         #endregion
 
-        private decimal sum()
+        private double sum()
         {
             if (OrderLines is not null)
             {
-                decimal sum = 0;
+                double sum = 0;
                 foreach (OrderLineModel line in OrderLines)
                 {
                     sum += line.Product.SellPrice;
