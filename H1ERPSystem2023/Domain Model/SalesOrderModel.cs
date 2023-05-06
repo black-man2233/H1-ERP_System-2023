@@ -43,7 +43,19 @@ namespace H1ERPSystem2023.DomainModel
 
         public string CustomerStreet
         {
-            get => _customer.Address.Street;
+            get
+            {
+                try
+                {
+                   return _customer.Address.Street;
+                }
+                catch
+                {
+                    return "";
+                }
+                
+            } 
+                
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -60,7 +72,18 @@ namespace H1ERPSystem2023.DomainModel
 
         public string CustomerStreetNumber
         {
-            get => _customer.Address.StreetNumber;
+            get
+            {
+                try
+                {
+                    return _customer.Address.Street;
+                }
+                catch
+                {
+                    return "";
+                }
+                
+            } 
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -77,7 +100,18 @@ namespace H1ERPSystem2023.DomainModel
 
         public string CustomerPostalCode
         {
-            get => _customer.Address.PostalCode;
+            get
+            {
+                try
+                {
+                    return _customer.Address.PostalCode;
+                }
+                catch
+                {
+                    return "";
+                }
+                
+            } 
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -94,7 +128,18 @@ namespace H1ERPSystem2023.DomainModel
 
         public string CustomerCity
         {
-            get => _customer.Address.City;
+            get
+            {
+                try
+                {
+                    return _customer.Address.City;
+                }
+                catch
+                {
+                    return "";
+                }
+                
+            } 
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -111,7 +156,18 @@ namespace H1ERPSystem2023.DomainModel
 
         public string CustomerPhoneNumbers
         {
-            get => _customer.PhoneNumber;
+            get
+            {
+                try
+                {
+                    return _customer.PhoneNumber;
+                }
+                catch
+                {
+                    return "";
+                }
+                
+            } 
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -127,7 +183,18 @@ namespace H1ERPSystem2023.DomainModel
         }
         public string CustomerEmailAddress
         {
-            get => _customer.EmailAddress;
+            get
+            {
+                try
+                {
+                    return _customer.EmailAddress;
+                }
+                catch
+                {
+                    return "";
+                }
+                
+            } 
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
