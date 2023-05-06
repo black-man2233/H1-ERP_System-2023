@@ -43,6 +43,8 @@ namespace H1ERPSystem2023.Screens
 
         protected override void Draw()
         {
+            Clear();
+            Console.Clear();
             if (IsCreate)
             {
                 Create();
