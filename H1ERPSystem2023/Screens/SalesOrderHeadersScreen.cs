@@ -31,9 +31,9 @@ namespace H1_ERP_System_2023.Screens
 
                 salesOrderList.AddColumn("Order Number", "OrderNumber");
                 salesOrderList.AddColumn("Date", "CreationDate");
-                salesOrderList.AddColumn("Customer Number", "OrderCustomerNumber");
-                salesOrderList.AddColumn("Full Name", "OrderFullName");
-                salesOrderList.AddColumn("Sum", "OrderSum");
+                salesOrderList.AddColumn("Customer Number", "CustomerID");
+                salesOrderList.AddColumn("Full Name", "CustomerName");
+                salesOrderList.AddColumn("Sum", "Amount");
 
                 salesOrderList.AddKey(ConsoleKey.F1, NewProd);
                 salesOrderList.AddKey(ConsoleKey.F2, Edit);
