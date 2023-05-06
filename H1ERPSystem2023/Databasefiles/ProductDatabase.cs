@@ -54,7 +54,7 @@ namespace H1ERPSystem2023.Databasefiles
             Products.Add(product);
 
         }
-        public void AddProduct(int id, string productName, string description, int salePrice, int buyPrice,
+        public void AddProduct(int id, string productName, string description, double salePrice, double buyPrice,
             string location, float storageAmount, Measure measure)
         {
             Products.Add(new ProductModel(id, productName, description, salePrice, buyPrice, location, storageAmount,
@@ -63,7 +63,7 @@ namespace H1ERPSystem2023.Databasefiles
 
         //UpdateProduct uses foreach and If to Identity the product, then updates it, 
         //Void is used to avoid method wanting a return
-        public void UpdateProduct(int ID, string productName, string description, int salePrice, int buyPrice,
+        public void UpdateProduct(int ID, string productName, string description, double salePrice, double buyPrice,
             string location, float storageAmount, Measure measure)
         {
             foreach (ProductModel product in Products)
