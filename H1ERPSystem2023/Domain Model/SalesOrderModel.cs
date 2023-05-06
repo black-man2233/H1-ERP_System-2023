@@ -19,7 +19,9 @@ namespace H1ERPSystem2023.DomainModel
         public int       OrderNumber  { get; set; }
         public DateTime  CreationDate { get; set; }
         public DateTime? CompleteDate { get; set; }
-        public string    CustomerID   { get; set; }
+
+        private CustomerModel _customer;
+        public string CustomerID { get; set; }
 
         public string CustomerName
         {
@@ -39,6 +41,106 @@ namespace H1ERPSystem2023.DomainModel
             }
         }
 
+        public string CustomerStreet
+        {
+            get => _customer.Address.Street;
+            set
+            {
+                for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
+                {
+                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    {
+                        Database.Instance.GetAllCustomerModels()[i].Address.Street = value;
+                        this._customer.Address.Street = value;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public string CustomerStreetNumber
+        {
+            get => _customer.Address.StreetNumber;
+            set
+            {
+                for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
+                {
+                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    {
+                        Database.Instance.GetAllCustomerModels()[i].Address.StreetNumber = value;
+                        this._customer.Address.StreetNumber = value;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public string CustomerPostalCode
+        {
+            get => _customer.Address.PostalCode;
+            set
+            {
+                for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
+                {
+                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    {
+                        Database.Instance.GetAllCustomerModels()[i].Address.PostalCode = value;
+                        this._customer.Address.PostalCode = value;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public string CustomerCity
+        {
+            get => _customer.Address.City;
+            set
+            {
+                for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
+                {
+                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    {
+                        Database.Instance.GetAllCustomerModels()[i].Address.City = value;
+                        this._customer.Address.City = value;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public string CustomerPhoneNumbers
+        {
+            get => _customer.PhoneNumber;
+            set
+            {
+                for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
+                {
+                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    {
+                        Database.Instance.GetAllCustomerModels()[i].PhoneNumber = value;
+                        this._customer.PhoneNumber = value;
+                        break;
+                    }
+                }
+            }
+        }
+        public string CustomerEmailAddress
+        {
+            get => _customer.EmailAddress;
+            set
+            {
+                for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
+                {
+                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    {
+                        Database.Instance.GetAllCustomerModels()[i].EmailAddress = value;
+                        this._customer.EmailAddress = value;
+                        break;
+                    }
+                }
+            }
+        }
         public Condition Condition { get; set; }
         public List<OrderLineModel>? OrderLines { get; }
 
@@ -71,6 +173,7 @@ namespace H1ERPSystem2023.DomainModel
             this.CreationDate = DateTime.Today;
             this.CompleteDate = null;
             this.CustomerID = customerId;
+            this._customer = Database.Instance.GetCustomer(CustomerID);
             this.Condition = condition;
             this.OrderLines = orderLines;
         }
