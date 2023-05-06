@@ -22,8 +22,8 @@ namespace H1_ERP_System_2023.Screens
             {
                 //Clear the screen at the start to avoid other text
                 Clear(this);
-                Console.WriteLine("F1 to create a new company");
-                Console.WriteLine("F2 to edit a exiting company");
+                Console.WriteLine("F1 to create a new sale order");
+                Console.WriteLine("F2 to edit a exiting sale order");
 
                 ListPage<SalesOrderModel?> salesOrderList = new();
                 foreach (SalesOrderModel saleOrder in Database.Instance.GetAllSalesOrder())
