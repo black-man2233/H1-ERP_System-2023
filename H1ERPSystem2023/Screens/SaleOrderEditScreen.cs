@@ -30,12 +30,12 @@ namespace H1ERPSystem2023.Screens
             Form<SalesOrderModel> editor = new();
 
             editor.TextBox("Name", "CustomerName");
-            editor.TextBox("Street", "Street");
-            editor.TextBox("Street Number", "StreetNumber");
-            editor.TextBox("ZipCode", "PostalCode");
-            editor.TextBox("City", "City");
-            editor.TextBox("Phone Number", "PhoneNumbers");
-            editor.TextBox("Email Address", "EmailAddress");
+            editor.TextBox("Street", "CustomerStreet");
+            editor.TextBox("Street Number", "CustomerStreetNumber");
+            editor.TextBox("ZipCode", "CustomerPostalCode");
+            editor.TextBox("City", "CustomerCity");
+            editor.TextBox("Phone Number", "CustomerPhoneNumbers");
+            editor.TextBox("Email Address", "CustomerEmailAddress");
             
             editor.Edit(SalesOrder);
         }
@@ -54,12 +54,12 @@ namespace H1ERPSystem2023.Screens
                 Form<SalesOrderModel> editor = new();
 
                 editor.TextBox("Name", "CustomerName");
-                editor.TextBox("Street", "Street");
-                editor.TextBox("Street Number", "StreetNumber");
-                editor.TextBox("Postal Code", "PostalCode");
-                editor.TextBox("City", "City");
-                editor.TextBox("Phone Number", "PhoneNumber");
-                editor.TextBox("Email Address", "EmailAddress");
+                editor.TextBox("Street", "CustomerStreet");
+                editor.TextBox("Street Number", "CustomerStreetNumber");
+                editor.TextBox("ZipCode", "CustomerPostalCode");
+                editor.TextBox("City", "CustomerCity");
+                editor.TextBox("Phone Number", "CustomerPhoneNumbers");
+                editor.TextBox("Email Address", "CustomerEmailAddress");
 
                 editor.Edit(SalesOrder);
                 Database.Instance.UpdateSalesOrders(SalesOrder);
