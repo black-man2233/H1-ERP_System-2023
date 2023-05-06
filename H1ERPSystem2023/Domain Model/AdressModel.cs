@@ -45,7 +45,11 @@ namespace H1ERPSystem2023.DomainModel
 
         public AddressModel()
         {
-
+            this.Street = "";
+            this.Street = "";
+            this.City = "";
+            this.PostalCode = "";
+            this.Country = "";
         }
         #endregion
     }
