@@ -1,4 +1,6 @@
-﻿using H1ERPSystem2023.DomainModel;
+﻿#pragma warning disable
+using H1ERPSystem2023.DomainModel;
+using RandomNameGenerator;
 
 namespace H1ERPSystem2023.Databasefiles
 {
@@ -8,7 +10,6 @@ namespace H1ERPSystem2023.Databasefiles
 
         public void _addCustomers()
         {
-
             Random random = new Random();
             string _rCustommerId = random.Next().ToString();
 
@@ -26,11 +27,11 @@ namespace H1ERPSystem2023.Databasefiles
                     if (_rCustommerId == customer.CustomerNumber)
                     {
                         _rCustommerId = random.Next().ToString();
-
                     }
                 }
 
-                Customers.Add(new(_personId, "Mathias", "Matutu", null, "91428084", "mathias@techshit.dk", _rCustommerId, null));
+                Customers.Add(new(_personId, $"{NameGenerator.GenerateFirstName(Gender.Male)}", $"{NameGenerator.GenerateLastName()}", new(), $"{new Random().Next(10000000,int.MaxValue)}", "mathias@techshit.dk",
+                    _rCustommerId, null));
             }
         }
 
@@ -39,10 +40,12 @@ namespace H1ERPSystem2023.Databasefiles
             Customers.Add(customer);
         }
 
-        public void AddCustomer(string PersonID, string firstName, string lastName, AddressModel? address, string phoneNumber, string emailAddress,
+        public void AddCustomer(string PersonID, string firstName, string lastName, AddressModel? address,
+            string phoneNumber, string emailAddress,
             string customerNumber, DateTime? lastPurchaseDate)
         {
-            Customers.Add(new CustomerModel(PersonID, firstName, lastName, address, phoneNumber, emailAddress, customerNumber, lastPurchaseDate));
+            Customers.Add(new CustomerModel(PersonID, firstName, lastName, address, phoneNumber, emailAddress,
+                customerNumber, lastPurchaseDate));
         }
 
         public CustomerModel GetCustomer(string PersonID)

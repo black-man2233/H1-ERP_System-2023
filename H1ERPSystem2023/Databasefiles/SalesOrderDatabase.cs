@@ -17,9 +17,6 @@ namespace H1ERPSystem2023.Databasefiles
                 Random random = new Random();
                 int randomOrderId = random.Next();
 
-                //random Orderid
-                int randomCustommerId = random.Next(1, 3);
-
                 //orderlines list
                 List<OrderLineModel> orderLines = new();
                 for (int j = 0; j < Instance.Products.Count - 1; j++)
@@ -28,17 +25,40 @@ namespace H1ERPSystem2023.Databasefiles
                 }
 
                 // adds the randomised data to salesordersList
-                salesOrders.Add(new SalesOrderModel(randomOrderId, $"{randomCustommerId}", Condition.Done, orderLines));
+                salesOrders.Add(new SalesOrderModel(new Random().Next(), Database.Instance.GetAllCustomerModels()[new Random().Next(Database.Instance.GetAllCustomerModels().Count-1)].PersonID.ToString(),Condition.Created,orderLines));
             }
+        }
+        public SalesOrderModel GetSalesOrder(int orderNumber)
+        {
+            foreach (SalesOrderModel salesOrder in salesOrders)
+            {
+                if (salesOrder.OrderNumber == orderNumber)
+                {
+                    return salesOrder;
+                }
+            }
+
+            //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
+            Console.WriteLine("Id findes Ikke");
+            return null!;
         }
 
         /// <summary>
         /// Runs down the whole list and returns it
         /// </summary>
         /// <returns>The whole list of "SaleOrders"</returns>
-        public List<SalesOrderModel> GetSalesOrder()
+        public List<SalesOrderModel> GetAllSalesOrder()
         {
-            return salesOrders;
+            List<SalesOrderModel> _allOrders = new();
+
+            foreach (SalesOrderModel Order in salesOrders)
+            {
+                _allOrders.Add(Order);
+            }
+
+            return _allOrders;
+
+            // SQL Connection thing -> SqlConnection SQLConn = getConnection(); <- touch at a later time
         }
 
         /// <summary>
@@ -82,7 +102,6 @@ namespace H1ERPSystem2023.Databasefiles
             {
                 salesOrder.CreationDate = updateOrder.CreationDate;
                 salesOrder.CompleteDate = updateOrder.CompleteDate;
-                salesOrder.CustomerID = updateOrder.CustomerID;
                 salesOrder.Condition = updateOrder.Condition;
             }
 

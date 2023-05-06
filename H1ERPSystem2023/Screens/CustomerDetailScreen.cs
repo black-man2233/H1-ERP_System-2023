@@ -2,7 +2,8 @@
 using H1ERPSystem2023.DomainModel;
 using TECHCOOL.UI;
 
-namespace H1_ERP_System_2023.Screens
+
+namespace H1ERPSystem2023.Screens
 {
     public class CustomerDetailScreen : Screen
     {

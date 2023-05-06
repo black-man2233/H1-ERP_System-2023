@@ -1,9 +1,10 @@
-﻿namespace H1ERPSystem2023.DomainModel
+#pragma warning disable
+namespace H1ERPSystem2023.DomainModel
 {
     public class AddressModel
     {
         #region Properties
-        private int AdressId { get; set; }
+        private int AddressId { get; set; }
         public string Street { get; set; }
         public string StreetNumber { get; set; }
         public string City { get; set; }
@@ -31,7 +32,7 @@
             if (adress is not null)
             {
 
-                AdressId = adress.AdressId;
+                AddressId = adress.AddressId;
                 Street = adress.Street;
                 StreetNumber = adress.StreetNumber;
                 City = adress.City;
@@ -44,7 +45,11 @@
 
         public AddressModel()
         {
-
+            this.Street = "";
+            this.Street = "";
+            this.City = "";
+            this.PostalCode = "";
+            this.Country = "";
         }
         #endregion
     }
