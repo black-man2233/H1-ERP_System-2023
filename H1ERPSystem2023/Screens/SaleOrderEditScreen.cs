@@ -12,7 +12,7 @@ namespace H1ERPSystem2023.Screens
     public class SaleOrderEditScreen : Screen
     {
         public override string Title { get; set; } = "Edit SalesOrders";
-        public SalesOrderModel SalesOrder { get; set; } = new();
+        private SalesOrderModel SalesOrder { get; set; }
 
         public SaleOrderEditScreen(Object? O)
         {
@@ -25,7 +25,7 @@ namespace H1ERPSystem2023.Screens
         {
             IsCreate = true;
         }
-        void Create()
+        private void Create()
         {
             Form<SalesOrderModel> editor = new();
 
@@ -36,7 +36,8 @@ namespace H1ERPSystem2023.Screens
             editor.TextBox("City", "CustomerCity");
             editor.TextBox("Phone Number", "CustomerPhoneNumbers");
             editor.TextBox("Email Address", "CustomerEmailAddress");
-            
+
+            SalesOrder = new();
             editor.Edit(SalesOrder);
         }
 
