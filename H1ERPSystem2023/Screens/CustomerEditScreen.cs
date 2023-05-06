@@ -59,7 +59,7 @@ namespace H1ERPSystem2023.Screens
                 editor.IntBox("Postal Code", "PostalCode");
                 editor.TextBox("City", "City");
                 editor.IntBox("Phone Number", "PhoneNumber");
-                editor.TextBox("Email Address", "Email");
+                editor.TextBox("Email Address", "EmailAddress");
 
                 editor.Edit(Customer);
                 Database.Instance.UpdateCustomer(Customer.PersonID, Customer.FirstName, Customer.LastName, Customer.Address, 
