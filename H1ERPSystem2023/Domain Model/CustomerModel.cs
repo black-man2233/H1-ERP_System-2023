@@ -6,6 +6,29 @@ namespace H1ERPSystem2023.DomainModel
         public string CustomerNumber { get; set; }
         public DateTime? LastPurchaseDate { get; set; }
 
+        public string Street
+        {
+            get { return this.Address.Street; }
+            set { this.Address.Street = value; }
+        }
+
+        public string StreetNumber
+        {
+            get { return this.Address.StreetNumber; }
+            set { this.Address.StreetNumber = value; }
+        }
+
+        public string PostalCode
+        {
+            get { return this.Address.PostalCode; }
+            set { this.Address.PostalCode = value; }
+        }
+
+        public string City
+        {
+            get { return this.Address.City; }
+            set { this.Address.City = value; }
+        }
         public CustomerModel() : base() { }
 
         public CustomerModel(CustomerModel customer) : base(customer.PersonID, customer.FirstName, customer.LastName, customer.Address, customer.PhoneNumber, customer.EmailAddress)

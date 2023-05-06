@@ -34,7 +34,10 @@ namespace H1ERPSystem2023.DomainModel
             }
         }
 
-        public PersonModel() { }
+        public PersonModel()
+        {
+            this.Address = new AddressModel();
+        }
 
         public PersonModel(string personId, string firstName, string lastName, AddressModel address, string phoneNumber, string emailAddress)
         {
