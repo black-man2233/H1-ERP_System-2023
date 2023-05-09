@@ -1,6 +1,8 @@
-﻿using H1ERPSystem2023;
+﻿#pragma warning disable
+using H1ERPSystem2023;
 using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
+using H1ERPSystem2023.Screens;
 using TECHCOOL.UI;
 
 namespace H1_ERP_System_2023.Screens
@@ -20,20 +22,21 @@ namespace H1_ERP_System_2023.Screens
             {
                 //Clear the screen at the start to avoid other text
                 Clear(this);
+                Console.WriteLine("F1 to create a new sale order");
+                Console.WriteLine("F2 to edit a exiting sale order");
 
                 ListPage<SalesOrderModel?> salesOrderList = new();
-                foreach (SalesOrderModel saleOrder in Database.Instance.GetSalesOrder())
-                {
+                foreach (SalesOrderModel saleOrder in Database.Instance.GetAllSalesOrder())
                     salesOrderList.Add(saleOrder);
-                }
 
                 salesOrderList.AddColumn("Order Number", "OrderNumber");
                 salesOrderList.AddColumn("Date", "CreationDate");
                 salesOrderList.AddColumn("Customer Number", "CustomerID");
-                salesOrderList.AddColumn("First and Last Name", "CustomerName");
-                salesOrderList.AddColumn("Amount", "Amount");
+                salesOrderList.AddColumn("Full Name", "CustomerName");
+                salesOrderList.AddColumn("Sum", "Amount");
 
-
+                salesOrderList.AddKey(ConsoleKey.F1, NewProd);
+                salesOrderList.AddKey(ConsoleKey.F2, Edit);
                 //option to Select between SaleOrders,
                 //make sure to check for not null. That will tell it's been selected with enter
                 SelectedSaleOrder = salesOrderList.Select();
@@ -48,6 +51,15 @@ namespace H1_ERP_System_2023.Screens
                 salesOrderList.Draw();
                 Console.ReadLine();
             } while (Show);
+        }
+        void Edit(SalesOrderModel _input)
+        {
+            if (_input is SalesOrderModel salesOrder)
+                Screen.Display(new SaleOrderEditScreen(salesOrder));
+        }
+        void NewProd(Object O)
+        {
+            Display(new SaleOrderEditScreen());
         }
     }
 }

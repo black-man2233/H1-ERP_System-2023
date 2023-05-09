@@ -1,4 +1,6 @@
-﻿namespace H1ERPSystem2023.DomainModel
+﻿#pragma warning disable
+
+namespace H1ERPSystem2023.DomainModel
 {
     public enum Currency { DKK, USD }
     public class CompanyModel
