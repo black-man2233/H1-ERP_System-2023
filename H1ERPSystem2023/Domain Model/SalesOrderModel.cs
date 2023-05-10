@@ -1,3 +1,4 @@
+using Google.Protobuf.WellKnownTypes;
 using H1_ERP_System_2023.Screens;
 using H1ERPSystem2023.Databasefiles;
 #pragma warning disable
@@ -16,12 +17,23 @@ namespace H1ERPSystem2023.DomainModel
 
     public class SalesOrderModel
     {
-        public int       OrderNumber  { get; set; }
-        public DateTime  CreationDate { get; set; }
+        public int OrderNumber { get; set; }
+        public DateTime CreationDate { get; set; }
         public DateTime? CompleteDate { get; set; }
 
-        private CustomerModel _customer;
-        public string CustomerID { get; set; }
+        public CustomerModel OrderCustomer = new();
+
+        public string CustomerID
+        {
+            get
+            {
+                return OrderCustomer.PersonID;
+            }
+            set
+            {
+
+            }
+        }
 
         public string CustomerName
         {
@@ -31,13 +43,17 @@ namespace H1ERPSystem2023.DomainModel
                 foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
                 {
                     //returns the customers name, if the this.CustomerId matches the customerid
-                    if (this.CustomerID == customer.PersonID)
+                    if (this.OrderCustomer.PersonID == customer.PersonID)
                     {
                         return customer.FullName;
                     }
                 }
 
                 return null!;
+            }
+            set
+            {
+
             }
         }
 
@@ -47,23 +63,23 @@ namespace H1ERPSystem2023.DomainModel
             {
                 try
                 {
-                   return _customer.Address.Street;
+                    return OrderCustomer.Address.Street;
                 }
                 catch
                 {
                     return "";
                 }
-                
-            } 
-                
+
+            }
+
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
                     {
                         Database.Instance.GetAllCustomerModels()[i].Address.Street = value;
-                        this._customer.Address.Street = value;
+                        this.OrderCustomer.Address.Street = value;
                         break;
                     }
                 }
@@ -76,22 +92,22 @@ namespace H1ERPSystem2023.DomainModel
             {
                 try
                 {
-                    return _customer.Address.Street;
+                    return OrderCustomer.Address.Street;
                 }
                 catch
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
                     {
                         Database.Instance.GetAllCustomerModels()[i].Address.StreetNumber = value;
-                        this._customer.Address.StreetNumber = value;
+                        this.OrderCustomer.Address.StreetNumber = value;
                         break;
                     }
                 }
@@ -104,22 +120,22 @@ namespace H1ERPSystem2023.DomainModel
             {
                 try
                 {
-                    return _customer.Address.PostalCode;
+                    return OrderCustomer.Address.PostalCode;
                 }
                 catch
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
                     {
                         Database.Instance.GetAllCustomerModels()[i].Address.PostalCode = value;
-                        this._customer.Address.PostalCode = value;
+                        this.OrderCustomer.Address.PostalCode = value;
                         break;
                     }
                 }
@@ -132,22 +148,22 @@ namespace H1ERPSystem2023.DomainModel
             {
                 try
                 {
-                    return _customer.Address.City;
+                    return OrderCustomer.Address.City;
                 }
                 catch
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
                     {
                         Database.Instance.GetAllCustomerModels()[i].Address.City = value;
-                        this._customer.Address.City = value;
+                        this.OrderCustomer.Address.City = value;
                         break;
                     }
                 }
@@ -158,27 +174,11 @@ namespace H1ERPSystem2023.DomainModel
         {
             get
             {
-                try
-                {
-                    return _customer.PhoneNumber;
-                }
-                catch
-                {
-                    return "";
-                }
-                
-            } 
+                return OrderCustomer.PhoneNumber;
+            }
             set
             {
-                for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
-                {
-                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
-                    {
-                        Database.Instance.GetAllCustomerModels()[i].PhoneNumber = value;
-                        this._customer.PhoneNumber = value;
-                        break;
-                    }
-                }
+                //ValueSetter<string>(value, OrderCustomer, OrderCustomer.PhoneNumber);
             }
         }
         public string CustomerEmailAddress
@@ -187,22 +187,22 @@ namespace H1ERPSystem2023.DomainModel
             {
                 try
                 {
-                    return _customer.EmailAddress;
+                    return OrderCustomer.EmailAddress;
                 }
                 catch
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (CustomerID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
                     {
                         Database.Instance.GetAllCustomerModels()[i].EmailAddress = value;
-                        this._customer.EmailAddress = value;
+                        this.OrderCustomer.EmailAddress = value;
                         break;
                     }
                 }
@@ -228,19 +228,19 @@ namespace H1ERPSystem2023.DomainModel
             this.OrderNumber = salesOrder.OrderNumber;
             this.CreationDate = salesOrder.CreationDate;
             this.CompleteDate = salesOrder.CompleteDate;
-            this.CustomerID = salesOrder.CustomerID;
+            this.OrderCustomer.PersonID = salesOrder.OrderCustomer.PersonID;
             this.Condition = salesOrder.Condition;
             this.OrderLines = salesOrder.OrderLines;
         }
 
-        public SalesOrderModel(int orderNumber, string customerId, Condition condition,
+        public SalesOrderModel(int orderNumber, string personID, Condition condition,
             List<OrderLineModel>? orderLines)
         {
             this.OrderNumber = orderNumber;
             this.CreationDate = DateTime.Today;
             this.CompleteDate = null;
-            this.CustomerID = customerId;
-            this._customer = Database.Instance.GetCustomer(CustomerID);
+            this.OrderCustomer.PersonID = personID;
+            this.OrderCustomer = Database.Instance.GetCustomer(OrderCustomer.PersonID);
             this.Condition = condition;
             this.OrderLines = orderLines;
         }
@@ -267,5 +267,20 @@ namespace H1ERPSystem2023.DomainModel
             //returns 0 if the Orderlines is either empty or null
             return 0;
         }
+        /*
+        private void ValueSetter<T>(T value, CustomerModel customer, T property)
+        {
+
+            if (customer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+            {
+                //                                          EXAMPLE
+                Database.Instance.GetAllCustomerModels()[i].property = value;
+                //                 EXAMPLE
+                this.OrderCustomer.property = value;
+                break;
+            }
+
+        }
+        */
     }
 }
