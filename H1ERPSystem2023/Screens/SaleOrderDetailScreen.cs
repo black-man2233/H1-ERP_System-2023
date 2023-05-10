@@ -26,7 +26,7 @@ public class SaleOrderDetailScreen : Screen
             ListPage<DetailScreenModel> OrderDetail = new();
             OrderDetail.Add(new DetailScreenModel($"Creation Date : {saleOrder.CreationDate}"));
             OrderDetail.Add(new DetailScreenModel($"Completed Date : {saleOrder.CompleteDate}"));
-            OrderDetail.Add(new DetailScreenModel($"Costumer Number : {saleOrder.CustomerID}"));
+            OrderDetail.Add(new DetailScreenModel($"Costumer Number : {saleOrder.OrderCustomer.PersonID}"));
             OrderDetail.Add(new DetailScreenModel($"Costumer Name : {saleOrder.CustomerName}"));
 
             OrderDetail.AddColumn($"Order Number : {saleOrder.OrderNumber} ", "Title"); //Add column to the list
