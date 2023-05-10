@@ -10,6 +10,8 @@ namespace H1ERPSystem2023.Databasefiles
         //about them
         void _addCompanies()
         {
+            //Companies.Add(ReadData("Company"));
+
             Companies.Add(new CompanyModel("1", "Virksomhed", "Vejej", "Nummer", "9900", "Aalborg,", "Denmark",
                 Currency.DKK));
 

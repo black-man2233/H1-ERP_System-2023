@@ -27,9 +27,9 @@ Create Table SaleOrder(
 INSERT INTO dbo.OrderLines(ProductName, Descriptions, SalePrice, BuyPrice, Locations, Quantity, Measure)
 Values
 ('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter'),
-('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter'),
-('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter'),
-('kevin', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter');
+('zilas', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter'),
+('mathias', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter'),
+('lukas', 'kevin is butiful', 10000000, 1, 'congo', 1, 'meter');
 
 
 INSERT INTO SaleOrder(CreationDate, CompleteDate, CustomerID, Condition, OrderLineId)
@@ -39,8 +39,7 @@ values
 ('2022-03-15 14:45:00', '2022-03-15 14:45:00', 102,'GOOD', 1 ),
 ('2022-03-15 14:45:00', '2022-03-15 14:45:00', 103,'GOOD', 1 );
 
-SELECT *
-FROM SaleOrder
+SELECT ProductName FROM dbo.OrderLines
 INNER JOIN dbo.OrderLines ON SaleOrder.OrderLineId = dbo.OrderLines.ID
 INNER JOIN dbo.Customer ON SaleOrder.CustomerID= dbo.Customer.CustomerNumber;
 

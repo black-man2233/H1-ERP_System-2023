@@ -23,7 +23,7 @@ namespace H1ERPSystem2023.DomainModel
         {
             get
             {
-                return CreationDate.ToString("MM/dd/yyyy");
+                return CreationDate.ToString("dd/mm/yyyy");
             }
         }
         public DateTime? CompleteDate { get; set; }
