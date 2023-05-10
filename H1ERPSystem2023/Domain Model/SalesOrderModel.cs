@@ -17,6 +17,14 @@ namespace H1ERPSystem2023.DomainModel
     {
         public int OrderNumber { get; set; }
         public DateTime CreationDate { get; set; }
+
+        public string CreationDateString
+        {
+            get
+            {
+                return CreationDate.ToString("MM/dd/yyyy");
+            }
+        }
         public DateTime? CompleteDate { get; set; }
 
         public CustomerModel OrderCustomer = new();
@@ -235,7 +243,7 @@ namespace H1ERPSystem2023.DomainModel
             List<OrderLineModel>? orderLines)
         {
             this.OrderNumber = orderNumber;
-            this.CreationDate = DateTime.Today;
+            this.CreationDate = DateTime.Now;
             this.CompleteDate = null;
             this.OrderCustomer.PersonID = personID;
             this.OrderCustomer = Database.Instance.GetCustomer(OrderCustomer.PersonID);
