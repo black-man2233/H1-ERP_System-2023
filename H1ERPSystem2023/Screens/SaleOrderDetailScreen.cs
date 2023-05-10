@@ -12,8 +12,6 @@ public class SaleOrderDetailScreen : Screen
 
     private SalesOrderModel saleOrder { get; set; }
 
-    public SaleOrderDetailScreen() { }
-
     public SaleOrderDetailScreen(SalesOrderModel salesOrder)
     {
         this.saleOrder = new(salesOrder);

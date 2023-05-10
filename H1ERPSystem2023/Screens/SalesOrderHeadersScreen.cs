@@ -47,7 +47,7 @@ namespace H1_ERP_System_2023.Screens
                 {
                     SelectedSaleOrder = salesOrderList.Select();
                     if (SelectedSaleOrder != null)
-                        Screen.Display(new SaleOrderDetailScreen());
+                        Screen.Display(new SaleOrderDetailScreen(SelectedSaleOrder));
                     else
                     {
                         Quit();
