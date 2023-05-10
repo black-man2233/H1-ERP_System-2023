@@ -118,6 +118,7 @@ namespace H1ERPSystem2023.Databasefiles
                 if (saleOrder.OrderNumber == ID)
                 {
                     salesOrders.Remove(saleOrder);
+                    break;
                 }
             }
         }

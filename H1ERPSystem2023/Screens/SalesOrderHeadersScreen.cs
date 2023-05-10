@@ -13,7 +13,7 @@ namespace H1_ERP_System_2023.Screens
     public class SalesOrderHeadersScreen : Screen
     {
         public override string Title { get; set; } = "Sales Order Header";
-        private SalesOrderModel? SelectedSaleOrder { get; set; }
+        private SalesOrderModel SelectedSaleOrder;
 
         protected override void Draw()
         {
@@ -26,7 +26,8 @@ namespace H1_ERP_System_2023.Screens
                 Console.WriteLine("F2 to edit a exiting sale order");
                 Console.WriteLine("F5 to delete a exiting sale order");
 
-                ListPage<SalesOrderModel?> salesOrderList = new();
+                ListPage<SalesOrderModel> salesOrderList = new();
+
                 foreach (SalesOrderModel saleOrder in Database.Instance.GetAllSalesOrder())
                     salesOrderList.Add(saleOrder);
 
@@ -46,7 +47,7 @@ namespace H1_ERP_System_2023.Screens
                 {
                     SelectedSaleOrder = salesOrderList.Select();
                     if (SelectedSaleOrder != null)
-                        Screen.Display(new SaleOrderDetailScreen(SelectedSaleOrder));
+                        Screen.Display(new SaleOrderDetailScreen());
                     else
                     {
                         Quit();
@@ -78,12 +79,9 @@ namespace H1_ERP_System_2023.Screens
         {
             Display(new SaleOrderEditScreen());
         }
-        void DeleteProd(Object O)
+        void DeleteProd(SalesOrderModel thisSalesOrder)
         {
-            if (O is SalesOrderModel thisSaleOrder)
-            {
-                Database.Instance.RemoveSaleOrder(thisSaleOrder.OrderNumber);
-            }
+            Database.Instance.RemoveSaleOrder(thisSalesOrder.OrderNumber);
             Draw();
         }
     }
