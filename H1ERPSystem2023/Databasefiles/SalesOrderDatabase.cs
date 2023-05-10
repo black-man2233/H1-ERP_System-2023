@@ -25,7 +25,7 @@ namespace H1ERPSystem2023.Databasefiles
                 }
 
                 // adds the randomised data to salesordersList
-                salesOrders.Add(new SalesOrderModel(new Random().Next(), Database.Instance.GetAllCustomerModels()[new Random().Next(Database.Instance.GetAllCustomerModels().Count-1)].PersonID.ToString(),Condition.Created,orderLines));
+                salesOrders.Add(new SalesOrderModel(new Random().Next(), Database.Instance.GetAllCustomerModels()[new Random().Next(Database.Instance.GetAllCustomerModels().Count - 1)].PersonID.ToString(), Condition.Created, orderLines));
             }
         }
         public SalesOrderModel GetSalesOrder(int orderNumber)
@@ -111,7 +111,7 @@ namespace H1ERPSystem2023.Databasefiles
         /// Deletes a Order in the SaleOrder list, with the assigned ID
         /// </summary>
         /// <param name="ID">The ID of the Order you want to delete</param>
-        public void DeleteSaleOrder(int ID)
+        public void RemoveSaleOrder(int ID)
         {
             foreach (SalesOrderModel saleOrder in salesOrders)
             {

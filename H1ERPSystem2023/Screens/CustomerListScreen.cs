@@ -1,6 +1,5 @@
 ﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
-using H1ERPSystem2023.Screens;
 using TECHCOOL.UI;
 #pragma warning disable
 namespace H1ERPSystem2023.Screens
@@ -35,20 +34,32 @@ namespace H1ERPSystem2023.Screens
                 customerList.AddKey(ConsoleKey.F1, NewCustomer);
                 customerList.AddKey(ConsoleKey.F2, Edit);
                 customerList.AddKey(ConsoleKey.F5, Delete);
+                try
+                {
+                    SelectedCustomer = customerList.Select();
+                    if (SelectedCustomer != null)
+                        Screen.Display(new CustomerDetailScreen());
+                    else
+                    { Quit(); return; }
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Select a row above");
+                    Console.ForegroundColor = ConsoleColor.White;
 
-                SelectedCustomer = customerList.Select();
-                if (SelectedCustomer != null)
-                    Screen.Display(new CustomerDetailScreen());
-                else
-                { Quit(); return; }
+                    Console.ReadLine();
+                    Console.Clear();
+                    Display(new CustomerListScreen());
+                    Quit();
+                }
+
                 customerList.Draw();
-
             } while (Show);
 
             void Edit(CustomerModel input)
             {
-                if (input is CustomerModel customer)
-                    Screen.Display(new CustomerEditScreen(customer));
+                Display(new CustomerEditScreen(input));
             }
             void NewCustomer(Object O)
             {
@@ -56,7 +67,6 @@ namespace H1ERPSystem2023.Screens
             }
             void Delete(CustomerModel input)
             {
-
                 Database.Instance.RemoveCustomer(input.PersonID);
                 Draw();
             }

@@ -26,7 +26,7 @@ namespace H1ERPSystem2023
                 ListPage<ProductModel> prodList = new();
 
                 foreach (ProductModel prodModel in Database.Instance.GetAllProductModels())
-                    prodList.Add(prodModel);    
+                    prodList.Add(prodModel);
 
                 prodList.AddColumn("Product ID", "ID");
                 prodList.AddColumn("Name", "ProductName");
@@ -39,20 +39,34 @@ namespace H1ERPSystem2023
                 prodList.AddKey(ConsoleKey.F2, Edit);
                 prodList.AddKey(ConsoleKey.F5, Delete);
                 //Gives the user the option to Select between the products when called, make sure to check for not null. That will tell it's been selected with enter
-                SelectedProduct = prodList.Select();
-                if (SelectedProduct != null)
-                    Screen.Display(new ProductDetailScreen());
-                else
-                { Quit(); return; }
-                prodList.Draw();
 
+                try
+                {
+                    SelectedProduct = prodList.Select();
+                    if (SelectedProduct != null)
+                        Screen.Display(new ProductDetailScreen());
+                    else
+                    { Quit(); return; }
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Select a row above");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.ReadLine();
+                    Console.Clear();
+                    Display(new ProductListScreen());
+                    Quit();
+                }
+
+                prodList.Draw();
             } while (Show);
 
         }
         void Edit(ProductModel input)
         {
-            if (input is ProductModel product)
-                Screen.Display(new ProductEditScreen(product));
+            Display(new ProductEditScreen(input));
         }
         void NewProd(Object O)
         {

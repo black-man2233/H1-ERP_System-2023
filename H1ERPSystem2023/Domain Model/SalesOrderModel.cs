@@ -1,4 +1,3 @@
-using H1_ERP_System_2023.Screens;
 using H1ERPSystem2023.Databasefiles;
 #pragma warning disable
 using Org.BouncyCastle.Asn1.Mozilla;
@@ -16,8 +15,8 @@ namespace H1ERPSystem2023.DomainModel
 
     public class SalesOrderModel
     {
-        public int       OrderNumber  { get; set; }
-        public DateTime  CreationDate { get; set; }
+        public int OrderNumber { get; set; }
+        public DateTime CreationDate { get; set; }
         public DateTime? CompleteDate { get; set; }
 
         private CustomerModel _customer;
@@ -47,15 +46,15 @@ namespace H1ERPSystem2023.DomainModel
             {
                 try
                 {
-                   return _customer.Address.Street;
+                    return _customer.Address.Street;
                 }
                 catch
                 {
                     return "";
                 }
-                
-            } 
-                
+
+            }
+
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -82,8 +81,8 @@ namespace H1ERPSystem2023.DomainModel
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -110,8 +109,8 @@ namespace H1ERPSystem2023.DomainModel
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -138,8 +137,8 @@ namespace H1ERPSystem2023.DomainModel
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -166,8 +165,8 @@ namespace H1ERPSystem2023.DomainModel
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
@@ -193,8 +192,8 @@ namespace H1ERPSystem2023.DomainModel
                 {
                     return "";
                 }
-                
-            } 
+
+            }
             set
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
