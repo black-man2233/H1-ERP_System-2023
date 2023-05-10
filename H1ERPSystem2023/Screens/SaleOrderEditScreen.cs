@@ -1,10 +1,5 @@
 ﻿using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TECHCOOL.UI;
 
 namespace H1ERPSystem2023.Screens
@@ -31,8 +26,8 @@ namespace H1ERPSystem2023.Screens
 
             editor.TextBox("Name", "CustomerName");
             editor.TextBox("Street", "CustomerStreet");
-            editor.TextBox("Street Number", "CustomerStreetNumber");
-            editor.TextBox("ZipCode", "CustomerPostalCode");
+            editor.IntBox("Street Number", "CustomerStreetNumber");
+            editor.IntBox("ZipCode", "CustomerPostalCode");
             editor.TextBox("City", "CustomerCity");
             editor.TextBox("Phone Number", "CustomerPhoneNumbers");
             editor.TextBox("Email Address", "CustomerEmailAddress");
