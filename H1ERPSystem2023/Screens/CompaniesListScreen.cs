@@ -22,6 +22,7 @@ namespace H1ERPSystem2023
                 Clear(this);
                 Console.WriteLine("F1 to create a new company");
                 Console.WriteLine("F2 to edit a exiting company");
+                Console.WriteLine("F5 to delete a exiting company");
 
                 ListPage<CompanyModel> compList = new();
 
@@ -51,12 +52,12 @@ namespace H1ERPSystem2023
                 catch (Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("You are gay af");
+                    Console.WriteLine("Select a row above");
                     Console.ForegroundColor = ConsoleColor.White;
 
                     Console.ReadLine();
                     Console.Clear();
-                    Display(new MenuScreen());
+                    Display(new CompaniesListScreen());
                     Quit();
                 }
 
@@ -67,8 +68,7 @@ namespace H1ERPSystem2023
 
         void Edit(CompanyModel _input)
         {
-            if (_input is CompanyModel company)
-                Screen.Display(new CompanyEditScreen(company));
+            Display(new CompanyEditScreen(_input));
         }
 
         void NewComp(Object O)
@@ -82,13 +82,6 @@ namespace H1ERPSystem2023
             {
                 Database.Instance.RemoveCompany(thisCompany.ID);
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("You are gay af");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
             Draw();
         }
     }

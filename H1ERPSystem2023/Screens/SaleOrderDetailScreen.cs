@@ -4,7 +4,7 @@ using TECHCOOL.UI;
 namespace H1_ERP_System_2023.Screens;
 #pragma warning disable
 /// <summary>
-/// This screem displays the details of the selected saleorder from the Header
+/// This screen displays the details of the selected SaleOrder from the Header
 /// </summary>
 public class SaleOrderDetailScreen : Screen
 {
@@ -19,8 +19,6 @@ public class SaleOrderDetailScreen : Screen
 
     protected override void Draw()
     {
-        //Make sure to put in loop so user can always select
-        do
         {
             //Clear the screen at the start to avoid other text
             Clear(this);
@@ -35,7 +33,6 @@ public class SaleOrderDetailScreen : Screen
 
             OrderDetail.Draw();
 
-            Console.ReadLine();
-        } while (Show);
+        }
     }
 }

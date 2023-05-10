@@ -24,6 +24,7 @@ namespace H1_ERP_System_2023.Screens
                 Clear(this);
                 Console.WriteLine("F1 to create a new sale order");
                 Console.WriteLine("F2 to edit a exiting sale order");
+                Console.WriteLine("F5 to delete a exiting sale order");
 
                 ListPage<SalesOrderModel?> salesOrderList = new();
                 foreach (SalesOrderModel saleOrder in Database.Instance.GetAllSalesOrder())
@@ -37,29 +38,53 @@ namespace H1_ERP_System_2023.Screens
 
                 salesOrderList.AddKey(ConsoleKey.F1, NewProd);
                 salesOrderList.AddKey(ConsoleKey.F2, Edit);
+                salesOrderList.AddKey(ConsoleKey.F5, DeleteProd);
                 //option to Select between SaleOrders,
                 //make sure to check for not null. That will tell it's been selected with enter
-                SelectedSaleOrder = salesOrderList.Select();
-                if (SelectedSaleOrder != null)
-                    Screen.Display(new SaleOrderDetailScreen(SelectedSaleOrder));
-                else
+
+                try
                 {
+                    SelectedSaleOrder = salesOrderList.Select();
+                    if (SelectedSaleOrder != null)
+                        Screen.Display(new SaleOrderDetailScreen(SelectedSaleOrder));
+                    else
+                    {
+                        Quit();
+                        return;
+                    }
+                }
+                catch (Exception)
+                {
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Select a row above");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.ReadLine();
+                    Console.Clear();
+                    Display(new SalesOrderHeadersScreen());
                     Quit();
-                    return;
                 }
 
+
                 salesOrderList.Draw();
-                Console.ReadLine();
             } while (Show);
         }
         void Edit(SalesOrderModel _input)
         {
-            if (_input is SalesOrderModel salesOrder)
-                Screen.Display(new SaleOrderEditScreen(salesOrder));
+            Display(new SaleOrderEditScreen(_input));
         }
         void NewProd(Object O)
         {
             Display(new SaleOrderEditScreen());
+        }
+        void DeleteProd(Object O)
+        {
+            if (O is SalesOrderModel thisSaleOrder)
+            {
+                Database.Instance.RemoveSaleOrder(thisSaleOrder.OrderNumber);
+            }
+            Draw();
         }
     }
 }
