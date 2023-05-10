@@ -72,8 +72,7 @@ namespace H1_ERP_System_2023.Screens
         }
         void Edit(SalesOrderModel _input)
         {
-            if (_input is SalesOrderModel salesOrder)
-                Screen.Display(new SaleOrderEditScreen(salesOrder));
+            Display(new SaleOrderEditScreen(_input));
         }
         void NewProd(Object O)
         {
