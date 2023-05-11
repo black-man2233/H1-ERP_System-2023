@@ -1,4 +1,5 @@
-﻿using H1ERPSystem2023.Databasefiles;
+﻿#pragma warning disable
+using H1ERPSystem2023.Databasefiles;
 using H1ERPSystem2023.DomainModel;
 using TECHCOOL.UI;
 
