@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="H1ERPSystem2023.DomainModel.AddressModel" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAIIAAIAAAAAAIEAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Domain Model\AdressModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.DomainModel.CompanyModel" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAgAAIIAAIAAAACAIAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Domain Model\CompanyModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.DomainModel.CustomerModel" Collapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAACIIAAIAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Domain Model\CustomerModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.DomainModel.OrderLineModel" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain Model\OrderLineModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.DomainModel.PersonModel" Collapsed="true">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAEAAAAAAAIAAAAAAQAAAAAAEAAACAAAAAgAAAAg=</HashCode>
+      <FileName>Domain Model\PersonModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.DomainModel.ProductModel" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAggIQACAIAAAACAgQAQAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Domain Model\ProductModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.DomainModel.SalesOrderModel" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAARAIAEACAAAQwCAAACECAUAAAAAAAAABAAAAEAAA=</HashCode>
+      <FileName>Domain Model\SalesOrderModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Databasefiles.Database" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAABAAQgDQAEACQIIQACBAiAgNAAKQAAACBQBABQ=</HashCode>
+      <FileName>Databasefiles\CompanyDatabase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.CompaniesListScreen" Collapsed="true">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAkAAAAAAAAgQAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\CompaniesListScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.CompanyDetailScreen" Collapsed="true">
+    <Position X="4" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\CompanyDetailScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Screens.CompanyEditScreen" Collapsed="true">
+    <Position X="5.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAEAAAAAABAAAAAE=</HashCode>
+      <FileName>Screens\CompanyEditScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Screens.CustomerDetailScreen" Collapsed="true">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\CustomerDetailScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Screens.CustomerEditScreen" Collapsed="true">
+    <Position X="4" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAkAAAAAAAAAAAAAAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>Screens\CustomerEditScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Screens.CustomerListScreen" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Screens\CustomerListScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1_ERP_System_2023.Screens.DetailScreenModel" Collapsed="true">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\DetailScreenModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Screens.MenuScreen" Collapsed="true">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\MenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.ProductDetailScreen" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\ProductDetailScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Screens.ProductEditScreen" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAkAAAAAAAAAAAAAAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>Screens\ProductEditScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.ProductListScreen" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAkACAAAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\ProductListScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1_ERP_System_2023.Screens.SaleOrderDetailScreen" Collapsed="true">
+    <Position X="7.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\SaleOrderDetailScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Screens.SaleOrderEditScreen" Collapsed="true">
+    <Position X="7.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAABAAAAAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>Screens\SaleOrderEditScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1_ERP_System_2023.Screens.SalesOrderHeadersScreen" Collapsed="true">
+    <Position X="7.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkACAAAAAAAAAAAAABACAAAAAABAAAA=</HashCode>
+      <FileName>Screens\SalesOrderHeadersScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H1ERPSystem2023.Program" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="H1ERPSystem2023.DomainModel.Currency" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAEA=</HashCode>
+      <FileName>Domain Model\CompanyModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="H1ERPSystem2023.DomainModel.Measure" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAA=</HashCode>
+      <FileName>Domain Model\ProductModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="H1ERPSystem2023.DomainModel.Condition" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAgAAEAACA=</HashCode>
+      <FileName>Domain Model\SalesOrderModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
