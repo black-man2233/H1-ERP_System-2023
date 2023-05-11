@@ -21,28 +21,7 @@ namespace H1ERPSystem2023.Databasefiles
             Instance._addSalesOrders();
         }
 
-        public static void ReadData()
-        {
-            string queryString = "Customer";
-            switch (queryString)
-            {
-                case "Customer":
-                    queryString = "SELECT TOP(1000) * FROM dbo.Customer;";
-                    break;
-            }
-            SqlCommand cmd = new(queryString, GetConnection());
-            cmd.Connection.Open();
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    Console.WriteLine(string.Format("{0}", reader[0]));
-                }
-            }
-            //cmd.ExecuteNonQuery();
-        }
-
+     
         private static SqlConnection GetConnection()
         {
             SqlConnectionStringBuilder sb = new()
