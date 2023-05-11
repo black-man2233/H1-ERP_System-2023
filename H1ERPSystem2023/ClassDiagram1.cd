@@ -13,9 +13,6 @@
       <HashCode>AAAAQAAAAAAAgAAIIAAIAAAACAIAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Domain Model\CompanyModel.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Currency1" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="H1ERPSystem2023.DomainModel.CustomerModel" Collapsed="true">
     <Position X="5.75" Y="2.75" Width="1.5" />
@@ -41,23 +38,16 @@
   <Class Name="H1ERPSystem2023.DomainModel.ProductModel" Collapsed="true">
     <Position X="0.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAggIQACAIAAAACAgQAQAAAAAAAAABIAAA=</HashCode>
+      <HashCode>gAAAAAAAAAAggIQACAIAAAACAgQAQAAAAAAAAAAIAAA=</HashCode>
       <FileName>Domain Model\ProductModel.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Measure1" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="H1ERPSystem2023.DomainModel.SalesOrderModel" Collapsed="true">
     <Position X="7.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAARAIEEACAAAQwCAAACECAUAAABAAAAABAAAAEAAA=</HashCode>
+      <HashCode>QAAARAIAEACAAAQwCAAACECAUAAAAAAAAABAAAAEAAA=</HashCode>
       <FileName>Domain Model\SalesOrderModel.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Condition1" />
-      <Property Name="OrderLineModel" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="H1ERPSystem2023.Databasefiles.Database" Collapsed="true">
     <Position X="2.25" Y="3.5" Width="1.5" />
