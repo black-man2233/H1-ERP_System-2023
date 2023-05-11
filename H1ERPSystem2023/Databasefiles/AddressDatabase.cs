@@ -19,25 +19,33 @@ public partial class Database
     {
         using (connection)
         {
-            SqlCommand command = new SqlCommand("SELECT * FROM dbo.Addres", connection);
-
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                AddressModel address = new AddressModel();
-                address.AddressId = (int)reader["AddressId"];
-                address.Street = reader["Street"].ToString();
-                address.StreetNumber = reader["StreetNumber"].ToString();
-                address.City = reader["City"].ToString();
-                address.PostalCode = reader["PostalCode"].ToString();
-                address.Country = reader["Country"].ToString();
+                SqlCommand command = new SqlCommand("SELECT * FROM dbo.Addres", connection);
 
-                Addresses.Add(address);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    AddressModel address = new AddressModel();
+                    address.AddressId = (int)reader["AddressId"];
+                    address.Street = reader["Street"].ToString();
+                    address.StreetNumber = reader["StreetNumber"].ToString();
+                    address.City = reader["City"].ToString();
+                    address.PostalCode = reader["PostalCode"].ToString();
+                    address.Country = reader["Country"].ToString();
+
+                    Addresses.Add(address);
+                }
+
+                connection.Close();
             }
-
-            connection.Close();
+            catch (Exception e)
+            {
+                connection.Close();
+                Console.WriteLine("Something went wrong while trying to retrieve addesses from the database");
+            }
         }
     }
 
