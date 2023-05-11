@@ -34,7 +34,7 @@ namespace H1ERPSystem2023.DomainModel
         {
             get
             {
-                return OrderCustomer.PersonID;
+                return OrderCustomer.CustomerNumber;
             }
             set
             {
@@ -50,7 +50,7 @@ namespace H1ERPSystem2023.DomainModel
                 foreach (CustomerModel customer in Database.Instance.GetAllCustomerModels())
                 {
                     //returns the customers name, if the this.CustomerId matches the customerid
-                    if (this.OrderCustomer.PersonID == customer.PersonID)
+                    if (this.OrderCustomer.CustomerNumber == customer.CustomerNumber)
                     {
                         return customer.FullName;
                     }
@@ -83,7 +83,7 @@ namespace H1ERPSystem2023.DomainModel
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.CustomerNumber == Database.Instance.GetAllCustomerModels()[i].CustomerNumber)
                     {
                         Database.Instance.GetAllCustomerModels()[i].Address.Street = value;
                         this.OrderCustomer.Address.Street = value;
@@ -111,7 +111,7 @@ namespace H1ERPSystem2023.DomainModel
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.CustomerNumber == Database.Instance.GetAllCustomerModels()[i].CustomerNumber)
                     {
                         Database.Instance.GetAllCustomerModels()[i].Address.StreetNumber = value;
                         this.OrderCustomer.Address.StreetNumber = value;
@@ -139,7 +139,7 @@ namespace H1ERPSystem2023.DomainModel
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.CustomerNumber == Database.Instance.GetAllCustomerModels()[i].CustomerNumber)
                     {
                         Database.Instance.GetAllCustomerModels()[i].Address.PostalCode = value;
                         this.OrderCustomer.Address.PostalCode = value;
@@ -167,7 +167,7 @@ namespace H1ERPSystem2023.DomainModel
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.CustomerNumber == Database.Instance.GetAllCustomerModels()[i].CustomerNumber)
                     {
                         Database.Instance.GetAllCustomerModels()[i].Address.City = value;
                         this.OrderCustomer.Address.City = value;
@@ -206,7 +206,7 @@ namespace H1ERPSystem2023.DomainModel
             {
                 for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count() - 1; i++)
                 {
-                    if (OrderCustomer.PersonID == Database.Instance.GetAllCustomerModels()[i].PersonID)
+                    if (OrderCustomer.CustomerNumber == Database.Instance.GetAllCustomerModels()[i].CustomerNumber)
                     {
                         Database.Instance.GetAllCustomerModels()[i].EmailAddress = value;
                         this.OrderCustomer.EmailAddress = value;
@@ -235,7 +235,7 @@ namespace H1ERPSystem2023.DomainModel
             this.OrderNumber = salesOrder.OrderNumber;
             this.CreationDate = salesOrder.CreationDate;
             this.CompleteDate = salesOrder.CompleteDate;
-            this.OrderCustomer.PersonID = salesOrder.OrderCustomer.PersonID;
+            this.OrderCustomer.CustomerNumber = salesOrder.OrderCustomer.CustomerNumber;
             this.Condition = salesOrder.Condition;
             this.OrderLines = salesOrder.OrderLines;
         }
@@ -246,8 +246,8 @@ namespace H1ERPSystem2023.DomainModel
             this.OrderNumber = orderNumber;
             this.CreationDate = DateTime.Now;
             this.CompleteDate = null;
-            this.OrderCustomer.PersonID = personID;
-            this.OrderCustomer = Database.Instance.GetCustomer(OrderCustomer.PersonID);
+            this.OrderCustomer.CustomerNumber = personID;
+            this.OrderCustomer = Database.Instance.GetCustomer(OrderCustomer.CustomerNumber);
             this.Condition = condition;
             this.OrderLines = orderLines;
         }

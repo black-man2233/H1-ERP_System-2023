@@ -19,7 +19,7 @@ namespace H1ERPSystem2023.Databasefiles
 
                 foreach (CustomerModel customer in Instance.GetAllCustomerModels())
                 {
-                    if (_personId == customer.PersonID)
+                    if (_personId == customer.CustomerNumber)
                     {
                         _personId = random.Next().ToString();
                     }
@@ -30,7 +30,7 @@ namespace H1ERPSystem2023.Databasefiles
                     }
                 }
 
-                Customers.Add(new(_personId, $"{NameGenerator.GenerateFirstName(Gender.Male)}", $"{NameGenerator.GenerateLastName()}", new(), $"{new Random().Next(10000000,int.MaxValue)}", "mathias@techshit.dk",
+                Customers.Add(new($"{NameGenerator.GenerateFirstName(Gender.Male)}", $"{NameGenerator.GenerateLastName()}", new(), $"{new Random().Next(10000000,int.MaxValue)}", "mathias@techshit.dk",
                     _rCustommerId, null));
             }
         }
@@ -40,11 +40,11 @@ namespace H1ERPSystem2023.Databasefiles
             Customers.Add(customer);
         }
 
-        public void AddCustomer(string PersonID, string firstName, string lastName, AddressModel? address,
+        public void AddCustomer(string firstName, string lastName, AddressModel? address,
             string phoneNumber, string emailAddress,
             string customerNumber, DateTime? lastPurchaseDate)
         {
-            Customers.Add(new CustomerModel(PersonID, firstName, lastName, address, phoneNumber, emailAddress,
+            Customers.Add(new CustomerModel(firstName, lastName, address, phoneNumber, emailAddress,
                 customerNumber, lastPurchaseDate));
         }
 
@@ -52,7 +52,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             foreach (CustomerModel customer in Customers)
             {
-                if (customer.PersonID == PersonID)
+                if (customer.CustomerNumber == PersonID)
                 {
                     return customer;
                 }
@@ -81,7 +81,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             foreach (CustomerModel customer in Customers)
             {
-                if (customer.PersonID == PersonID)
+                if (customer.CustomerNumber == PersonID)
                 {
                     customer.FirstName = firstName;
                     customer.LastName = lastName;
@@ -96,7 +96,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             foreach (CustomerModel customer in Customers)
             {
-                if (customer.PersonID == PersonID)
+                if (customer.CustomerNumber == PersonID)
                 {
                     Customers.Remove(customer);
                     break;

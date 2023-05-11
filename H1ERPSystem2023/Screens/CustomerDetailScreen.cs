@@ -18,7 +18,7 @@ namespace H1ERPSystem2023.Screens
             //Database customerDB = new();
 
             for (int i = 0; i < Database.Instance.GetAllCustomerModels().Count; i++)
-                if (Database.Instance.GetAllCustomerModels()[i].PersonID == CustomerListScreen.SelectedCustomer.PersonID)
+                if (Database.Instance.GetAllCustomerModels()[i].CustomerNumber == CustomerListScreen.SelectedCustomer.CustomerNumber)
                     customerList.Add(Database.Instance.GetAllCustomerModels()[i]);
 
             customerList.AddColumn("Person ID", "PersonID");

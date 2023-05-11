@@ -25,7 +25,7 @@ namespace H1ERPSystem2023.Databasefiles
                 }
 
                 // adds the randomised data to salesordersList
-                salesOrders.Add(new SalesOrderModel(new Random().Next(), Database.Instance.GetAllCustomerModels()[new Random().Next(Database.Instance.GetAllCustomerModels().Count - 1)].PersonID.ToString(), Condition.Created, orderLines));
+                salesOrders.Add(new SalesOrderModel(new Random().Next(), Database.Instance.GetAllCustomerModels()[new Random().Next(Database.Instance.GetAllCustomerModels().Count - 1)].CustomerNumber.ToString(), Condition.Created, orderLines));
             }
         }
         public SalesOrderModel GetSalesOrder(int orderNumber)
