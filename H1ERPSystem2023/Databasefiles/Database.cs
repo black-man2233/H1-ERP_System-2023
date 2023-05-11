@@ -1,10 +1,12 @@
-﻿using System;
+﻿#pragma warning disable
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {
@@ -15,13 +17,22 @@ namespace H1ERPSystem2023.Databasefiles
         static Database()
         {
             Instance = new Database();
-            Instance._addCompanies();
-            Instance._addProducts();
-            Instance._addCustomers();
-            Instance._addSalesOrders();
+            GetAllData(GetConnection());
         }
 
-     
+        
+        private static void GetAllData(SqlConnection connection)
+        {
+            try
+            {
+                GetAddressesFromDB(connection);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong while trying to retrieve addesses from the database");
+            }
+        }
+
         private static SqlConnection GetConnection()
         {
             SqlConnectionStringBuilder sb = new()
