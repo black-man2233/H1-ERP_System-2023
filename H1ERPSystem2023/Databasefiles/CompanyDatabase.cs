@@ -21,11 +21,14 @@ namespace H1ERPSystem2023.Databasefiles
 
                 while (reader.Read())
                 {
-                    CompanyModel company = new();
-                    company.ID = (string)reader["AddressId"];
-                    company.CompanyName = reader["CompanyName"].ToString();
-                    // company.Currency = reader["Currency"].ToString();
-                    
+                    CompanyModel company = new()
+                    {
+                        ID = reader.GetInt32(0),
+                        CompanyName = reader.GetString(1),
+                        Currency = Currency.DKK,
+                    };
+
+                    company.Address = new(Database.Instance.GetAddress(reader.GetInt32(3).ToString()));
 
                     Companies.Add(company);
                 }
