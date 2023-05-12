@@ -5,24 +5,46 @@ namespace H1ERPSystem2023.DomainModel
     public enum Currency { DKK, USD }
     public class CompanyModel
     {
-        public string ID { get; set; }
-        public string CompanyName { get; set; }
-        public string Street { get; set; }
-        public string StreetNumber { get; set; }
-        public string PostalCode { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
+        public string       ID          { get; set; }
+        public string       CompanyName { get; set; }
+        public AddressModel Address     { get; set; }
+        public string Street
+        {
+            get => Address.Street;
+            set => Address.Street = value;
+        }
+        public string StreetNumber
+        {
+            get => Address.StreetNumber;
+            set { Address.StreetNumber = value; }
+        }
+        public string PostalCode
+        {
+            get => Address.PostalCode;
+            set { Address.PostalCode = value; }
+        }
+        public string City
+        {
+            get => Address.City;
+            set { Address.City = value; }
+        }
+        public string Country
+        {
+            get => Address.Country;
+            set { Address.Country = value; }
+        }
         public Currency Currency { get; set; }
 
         public CompanyModel(string id, string companyName, string street, string streetNumber, string postalCode, string city, string country, Currency currency)
         {
             ID = id;
             CompanyName = companyName;
-            Street = street;
-            StreetNumber = streetNumber;
-            PostalCode = postalCode;
-            City = city;
-            Country = country;
+            Address = new();
+            Address.Street = street;
+            Address.StreetNumber = streetNumber;
+            Address.PostalCode = postalCode;
+            Address.City = city;
+            Address.Country = country;
             Currency = currency;
 
 
@@ -34,17 +56,18 @@ namespace H1ERPSystem2023.DomainModel
         {
             this.ID = company.ID;
             this.CompanyName = company.CompanyName;
-            this.Street = company.Street;
-            this.StreetNumber = company.StreetNumber;
-            this.PostalCode = company.PostalCode;
-            this.City = company.City;
-            this.Country = company.Country;
+            this.Address = new();
+            this.Address.Street = company.Address.Street;
+            this.Address.StreetNumber = company.Address.StreetNumber;
+            this.Address.PostalCode = company.Address.PostalCode;
+            this.Address.City = company.Address.City;
+            this.Address.Country = company.Address.Country;
             this.Currency = company.Currency;
 
         }
         public CompanyModel()
         {
-
+            this.Address = new();
         }
 
     }
