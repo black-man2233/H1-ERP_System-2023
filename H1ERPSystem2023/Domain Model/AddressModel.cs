@@ -12,7 +12,7 @@ namespace H1ERPSystem2023.DomainModel
         public string Country { get; set; }
 
         public string GetFullAdress { get => $"{Street} {StreetNumber}, {City} {PostalCode}, {Country} "; }
-    
+
         #endregion
 
 
@@ -30,7 +30,6 @@ namespace H1ERPSystem2023.DomainModel
         {
             if (adress is not null)
             {
-
                 AddressId = adress.AddressId;
                 Street = adress.Street;
                 StreetNumber = adress.StreetNumber;
