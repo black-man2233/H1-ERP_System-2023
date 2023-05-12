@@ -21,7 +21,7 @@ public partial class Database
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM dbo.Addres", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM dbo.Addresses", connection);
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -44,7 +44,7 @@ public partial class Database
             catch (Exception e)
             {
                 connection.Close();
-                Console.WriteLine("Something went wrong while trying to retrieve addesses from the database");
+                Console.WriteLine("Couldn't Retrieve Address");
             }
         }
     }
