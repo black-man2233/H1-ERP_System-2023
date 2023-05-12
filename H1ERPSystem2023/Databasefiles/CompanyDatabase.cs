@@ -97,14 +97,26 @@ namespace H1ERPSystem2023.Databasefiles
                 }
             }
         }
-        // /// //// ///// //// /// // /// //// ///// //// /// // /// //// ///// //// /// // /// //// ///// //// /// //
-        /* SQL Update VERSION af Lærke, skal gerne implementeres senere sammen med SQL
-     
-        public void AddCompany(CompanyModel company)
-        {
-            Companies.Add(company);
-       // Denne er et reference til SQL, og ikke Direkte kode -> sql = "insert into(name, adress) values (company.name, company.adress)"
 
+        private static void _removeCompanyFromDB(string companyId)
+        {
+            try
+            {
+                using (SqlConnection connection = GetConnection())
+                {
+                    connection.Open();
+                    SqlCommand command =
+                        new SqlCommand("DELETE FROM dbo.Company WHERE ID = @companyId", connection);
+                    command.Parameters.AddWithValue("@companyId", companyId);
+                    command.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something Went Wrong trying to delete this company");
+            }
         }
     }
 }
