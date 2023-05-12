@@ -23,14 +23,8 @@ namespace H1ERPSystem2023.Databasefiles
         
         private static void GetAllData(SqlConnection connection)
         {
-            try
-            {
-                GetAddressesFromDB(connection);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Something went wrong while trying to retrieve addesses from the database");
-            }
+            GetAddressesFromDB(connection);
+            GetCompaniesFromDB(connection);
         }
 
         private static SqlConnection GetConnection()
