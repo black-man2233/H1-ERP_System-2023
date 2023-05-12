@@ -22,7 +22,7 @@ namespace H1ERPSystem2023
 
             Console.ReadLine();
 
-            //Screen.Display(new MenuScreen());
+            Screen.Display(new MenuScreen());
         }
     }
 }

@@ -35,7 +35,7 @@ namespace H1ERPSystem2023.Databasefiles
             catch (Exception e)
             {
                 connection.Close();
-                Console.WriteLine($@"Something went wrong while trying to retrieve Companiees from the database \n {e.Message}");
+                Console.WriteLine($"Something went wrong while trying to retrieve Companiees from the database \n {e.Message}");
             }   
         }
       
