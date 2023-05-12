@@ -6,21 +6,39 @@ namespace H1ERPSystem2023.Databasefiles
 {
     public partial class Database
     {
-        private List<CompanyModel> Companies = new List<CompanyModel>();
+        private static List<CompanyModel> Companies = new List<CompanyModel>();
 
         //AddCompany uses the company List above, and gives us 2 companies to work with along with a lot of information
         //about them
-        void _addCompanies()
+        private static void GetCompaniesFromDB(SqlConnection connection)
         {
-            //Companies.Add(ReadData("Company"));
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM dbo.Company", connection);
 
-            Companies.Add(new CompanyModel("1", "Virksomhed", "Vejej", "Nummer", "9900", "Aalborg,", "Denmark",
-                Currency.DKK));
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
 
-            Companies.Add(new CompanyModel("2", "Virksomhed2", "Rørdalsvej", "Nummer2", "9411", "San Francisco",
-                " America", Currency.DKK));
+                while (reader.Read())
+                {
+                    CompanyModel company = new();
+                    company.ID = (string)reader["AddressId"];
+                    company.CompanyName = reader["CompanyName"].ToString();
+                    // company.Currency = reader["Currency"].ToString();
+                    
 
+                    Companies.Add(company);
+                }
+
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Console.WriteLine($@"Something went wrong while trying to retrieve Companiees from the database \n {e.Message}");
+            }   
         }
+      
 
         //GetCompany Gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
         //and check whichever one has a matching ID, so it can return the information.
@@ -60,7 +78,6 @@ namespace H1ERPSystem2023.Databasefiles
         public void AddCompany(CompanyModel company)
         {
             Companies.Add(company);
-
         }
 
         //UpdateCompany uses foreach and if to Identity the company, then updates it, 
@@ -92,6 +109,7 @@ namespace H1ERPSystem2023.Databasefiles
             {
                 if (company.ID == ID)
                 {
+                    _removeCompanyFromDB(ID);
                     Companies.Remove(company);
                     break;
                 }
