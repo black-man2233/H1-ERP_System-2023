@@ -17,14 +17,14 @@ namespace H1ERPSystem2023.Databasefiles
         static Database()
         {
             Instance = new Database();
-            GetAllData(GetConnection());
+            GetAllData();
         }
 
         
-        private static void GetAllData(SqlConnection connection)
+        private static void GetAllData()
         {
-            GetAddressesFromDB(connection);
-            GetCompaniesFromDB(connection);
+            GetAddressesFromDB(GetConnection());
+            GetCompaniesFromDB(GetConnection());
         }
 
         private static SqlConnection GetConnection()
