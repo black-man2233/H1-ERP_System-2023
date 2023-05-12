@@ -104,20 +104,5 @@ namespace H1ERPSystem2023.Databasefiles
        // Denne er et reference til SQL, og ikke Direkte kode -> sql = "insert into(name, adress) values (company.name, company.adress)"
 
         }
-          
-        public void UpdateCompany(CompanyModel companyToUpdate)
-        {
-            foreach (CompanyModel company in Companies)
-            {
-                if (company.ID == ID)
-                {
-                    company.CompanyName = companyName;
-                    company.Street = street;
-                    company.StreetNumber = streetNumber;
-                    company.PostalCode = postalCode;
-                    company.City = city;
-                    company.Country = country;
-                    company.Currency = Currency.
-        */
     }
 }
