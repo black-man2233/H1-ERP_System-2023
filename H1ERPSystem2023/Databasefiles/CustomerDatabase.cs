@@ -10,29 +10,7 @@ namespace H1ERPSystem2023.Databasefiles
 
         public void _addCustomers()
         {
-            Random random = new Random();
-            string _rCustommerId = random.Next().ToString();
-
-            for (int i = 0; i < 5; i++)
-            {
-                string _personId = random.Next().ToString();
-
-                foreach (CustomerModel customer in Instance.GetAllCustomerModels())
-                {
-                    if (_personId == customer.CustomerNumber)
-                    {
-                        _personId = random.Next().ToString();
-                    }
-
-                    if (_rCustommerId == customer.CustomerNumber)
-                    {
-                        _rCustommerId = random.Next().ToString();
-                    }
-                }
-
-                Customers.Add(new($"{NameGenerator.GenerateFirstName(Gender.Male)}", $"{NameGenerator.GenerateLastName()}", new(), $"{new Random().Next(10000000,int.MaxValue)}", "mathias@techshit.dk",
-                    _rCustommerId, null));
-            }
+           
         }
 
         public void AddCustomer(CustomerModel customer)
