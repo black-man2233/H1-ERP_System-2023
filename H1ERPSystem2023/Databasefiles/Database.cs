@@ -1,10 +1,12 @@
-﻿using System;
+﻿#pragma warning disable
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {
@@ -15,32 +17,14 @@ namespace H1ERPSystem2023.Databasefiles
         static Database()
         {
             Instance = new Database();
-            Instance._addCompanies();
-            Instance._addProducts();
-            Instance._addCustomers();
-            Instance._addSalesOrders();
+            GetAllData(GetConnection());
         }
 
-        public static void ReadData()
+        
+        private static void GetAllData(SqlConnection connection)
         {
-            string queryString = "Customer";
-            switch (queryString)
-            {
-                case "Customer":
-                    queryString = "SELECT TOP(1000) * FROM dbo.Customer;";
-                    break;
-            }
-            SqlCommand cmd = new(queryString, GetConnection());
-            cmd.Connection.Open();
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    Console.WriteLine(string.Format("{0}", reader[0]));
-                }
-            }
-            //cmd.ExecuteNonQuery();
+            GetAddressesFromDB(connection);
+            GetCompaniesFromDB(connection);
         }
 
         private static SqlConnection GetConnection()

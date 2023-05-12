@@ -10,11 +10,19 @@ namespace H1ERPSystem2023
        
         public static void Main(string[] args)
         {
+            try
+            {
             Database db = new();
 
-            Database.ReadData();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-            //Screen.Display(new MenuScreen());
+            Console.ReadLine();
+
+            Screen.Display(new MenuScreen());
         }
     }
 }

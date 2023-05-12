@@ -4,7 +4,7 @@ namespace H1ERPSystem2023.DomainModel
     public class AddressModel
     {
         #region Properties
-        private int AddressId { get; set; }
+        public int AddressId { get; set; }
         public string Street { get; set; }
         public string StreetNumber { get; set; }
         public string City { get; set; }
@@ -12,8 +12,7 @@ namespace H1ERPSystem2023.DomainModel
         public string Country { get; set; }
 
         public string GetFullAdress { get => $"{Street} {StreetNumber}, {City} {PostalCode}, {Country} "; }
-
-
+    
         #endregion
 
 
