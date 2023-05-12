@@ -49,20 +49,21 @@ public partial class Database
         }
     }
 
-    // public AddressModel GetAddress(string ID)
-    // {
-    //     foreach (AddressModel address in Addresses)
-    //     {
-    //         if (address.AddressId == int.Parse(ID))
-    //         {
-    //             return address;
-    //         }
-    //     }
-    //
-    //     //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
-    //     Console.WriteLine("Id findes Ikke");
-    //     return null!;
-    // }
+    public AddressModel GetAddress(string ID)
+    {
+        for (int i = 0; i < Addresses.Count - 1; i++)
+        {
+            if (Addresses[i].AddressId == int.Parse(ID))
+            {
+                return Addresses[i];
+            }
+        }
+
+        //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
+        Console.WriteLine("Id findes Ikke");
+        return null!;
+    }
+
     //
     // public void AddCAddress(AddressModel address)
     // {
