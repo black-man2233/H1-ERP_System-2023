@@ -35,10 +35,11 @@ namespace H1ERPSystem2023.Databasefiles
             catch (Exception e)
             {
                 connection.Close();
-                Console.WriteLine($"Something went wrong while trying to retrieve Companiees from the database \n {e.Message}");
-            }   
+                Console.WriteLine(
+                    $"Something went wrong while trying to retrieve Companiees from the database \n {e.Message}");
+            }
         }
-      
+
 
         //GetCompany Gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
         //and check whichever one has a matching ID, so it can return the information.
@@ -46,7 +47,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             foreach (CompanyModel company in Companies)
             {
-                if (company.ID == ID)
+                if (company.ID == int.Parse(ID))
                 {
                     return company;
                 }
@@ -87,7 +88,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             foreach (CompanyModel company in Companies)
             {
-                if (company.ID == ID)
+                if (company.ID == int.Parse(ID))
                 {
                     company.CompanyName = companyName;
                     company.Street = street;
@@ -107,7 +108,7 @@ namespace H1ERPSystem2023.Databasefiles
         {
             foreach (CompanyModel company in Companies)
             {
-                if (company.ID == ID)
+                if (company.ID == int.Parse(ID))
                 {
                     _removeCompanyFromDB(ID);
                     Companies.Remove(company);

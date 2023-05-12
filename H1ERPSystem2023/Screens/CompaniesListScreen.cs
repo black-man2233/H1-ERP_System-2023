@@ -80,7 +80,7 @@ namespace H1ERPSystem2023
         {
             if (O is CompanyModel thisCompany)
             {
-                Database.Instance.RemoveCompany(thisCompany.ID);
+                Database.Instance.RemoveCompany(thisCompany.ID.ToString());
             }
             Draw();
         }

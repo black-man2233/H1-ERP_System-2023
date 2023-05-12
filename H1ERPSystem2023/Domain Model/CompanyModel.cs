@@ -5,9 +5,9 @@ namespace H1ERPSystem2023.DomainModel
     public enum Currency { DKK, USD }
     public class CompanyModel
     {
-        public string       ID          { get; set; }
-        public string       CompanyName { get; set; }
-        public AddressModel Address     { get; set; }
+        public int ID { get; set; }
+        public string CompanyName { get; set; }
+        public AddressModel Address { get; set; }
         public string Street
         {
             get => Address.Street;
@@ -37,7 +37,7 @@ namespace H1ERPSystem2023.DomainModel
 
         public CompanyModel(string id, string companyName, string street, string streetNumber, string postalCode, string city, string country, Currency currency)
         {
-            ID = id;
+            ID = int.Parse(id);
             CompanyName = companyName;
             Address = new();
             Address.Street = street;
