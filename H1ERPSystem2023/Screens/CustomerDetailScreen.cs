@@ -25,7 +25,7 @@ namespace H1ERPSystem2023.Screens
             customerList.AddColumn("Full Name", "FullName");
             customerList.AddColumn("Phone Number", "PhoneNumber");
             customerList.AddColumn("Email Address", "EmailAddress");
-            customerList.AddColumn("Address", "Address");
+            customerList.AddColumn("Address", "GetFullAddress");
             customerList.AddColumn("Purchase Date", "LastPurchaseDate");
 
             customerList.Draw();
