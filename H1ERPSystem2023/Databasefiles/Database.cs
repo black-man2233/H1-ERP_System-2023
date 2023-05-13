@@ -23,8 +23,8 @@ namespace H1ERPSystem2023.Databasefiles
         
         private static void GetAllData()
         {
-            GetAddressesFromDB(GetConnection());
-            GetCompaniesFromDB(GetConnection());
+            Instance.GetAddressesFromDB(GetConnection());
+            Instance.GetCompaniesFromDB(GetConnection());
         }
 
         private static SqlConnection GetConnection()

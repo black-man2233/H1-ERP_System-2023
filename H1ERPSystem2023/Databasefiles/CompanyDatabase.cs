@@ -10,7 +10,7 @@ namespace H1ERPSystem2023.Databasefiles
 
         //AddCompany uses the company List above, and gives us 2 companies to work with along with a lot of information
         //about them
-        private static void GetCompaniesFromDB(SqlConnection connection)
+        private void GetCompaniesFromDB(SqlConnection connection)
         {
             try
             {
@@ -55,9 +55,6 @@ namespace H1ERPSystem2023.Databasefiles
                     return company;
                 }
             }
-
-            //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
-            Console.WriteLine("Id findes Ikke");
             return null!;
         }
 

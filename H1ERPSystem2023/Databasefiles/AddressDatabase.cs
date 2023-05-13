@@ -15,7 +15,7 @@ public partial class Database
 {
     private static List<AddressModel> Addresses = new();
 
-    private static void GetAddressesFromDB(SqlConnection connection)
+    private void GetAddressesFromDB(SqlConnection connection)
     {
         using (connection)
         {
