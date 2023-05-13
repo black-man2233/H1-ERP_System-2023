@@ -67,7 +67,7 @@ namespace H1ERPSystem2023.Screens
             }
             void Delete(CustomerModel input)
             {
-                Database.Instance.RemoveCustomer(input.CustomerNumber);
+                Database.Instance.RemoveCustomer(input.CustomerNumber.ToString());
                 Draw();
             }
         }
