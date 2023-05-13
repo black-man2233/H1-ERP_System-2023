@@ -3,7 +3,7 @@ namespace H1ERPSystem2023.DomainModel
 {
     public class CustomerModel : PersonModel
     {
-        public string CustomerNumber { get; set; }
+        public int CustomerNumber { get; set; }
         public DateTime? LastPurchaseDate { get; set; }
 
         public string Street
@@ -45,7 +45,7 @@ namespace H1ERPSystem2023.DomainModel
         /// <summary>
         /// Creates a new Customer With a Person Parameters
         /// </summary>
-        public CustomerModel(string firstName, string lastName, AddressModel address, string phoneNumber, string emailAddress, string customerNumber, DateTime? lastPurchaseDate) 
+        public CustomerModel(string firstName, string lastName, AddressModel address, string phoneNumber, string emailAddress, int customerNumber, DateTime? lastPurchaseDate) 
             : base(firstName, lastName, address, phoneNumber, emailAddress)
         {
             #region Person

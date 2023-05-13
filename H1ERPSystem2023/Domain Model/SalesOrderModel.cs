@@ -30,7 +30,7 @@ namespace H1ERPSystem2023.DomainModel
 
         public CustomerModel OrderCustomer = new();
 
-        public string CustomerID
+        public int CustomerID
         {
             get
             {
@@ -246,8 +246,8 @@ namespace H1ERPSystem2023.DomainModel
             this.OrderNumber = orderNumber;
             this.CreationDate = DateTime.Now;
             this.CompleteDate = null;
-            this.OrderCustomer.CustomerNumber = personID;
-            this.OrderCustomer = Database.Instance.GetCustomer(OrderCustomer.CustomerNumber);
+            this.OrderCustomer.CustomerNumber = int.Parse(personID);
+            this.OrderCustomer = Database.Instance.GetCustomer(OrderCustomer.CustomerNumber.ToString());
             this.Condition = condition;
             this.OrderLines = orderLines;
         }

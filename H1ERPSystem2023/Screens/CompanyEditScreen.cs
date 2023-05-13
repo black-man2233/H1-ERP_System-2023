@@ -64,7 +64,7 @@ namespace H1ERPSystem2023.Screens
                 editor.TextBox("Currency", "Currency");
 
                 editor.Edit(Company);
-                Database.Instance.UpdateCompany(Company.ID, Company.CompanyName, Company.Street, Company.StreetNumber, Company.PostalCode, Company.City, Company.Country);
+                Database.Instance.UpdateCompany(Company.ID.ToString(), Company.CompanyName, Company.Street, Company.StreetNumber, Company.PostalCode, Company.City, Company.Country);
             }
         }
     }

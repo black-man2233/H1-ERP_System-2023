@@ -26,7 +26,7 @@ namespace H1ERPSystem2023.Screens
                     customerList.Add(customerModel);
 
 
-                customerList.AddColumn("PersonId", "PersonID");
+                customerList.AddColumn("PersonId", "CustomerNumber");
                 customerList.AddColumn("Full Name", "FullName");
                 customerList.AddColumn("Phone Number", "PhoneNumber");
                 customerList.AddColumn("Email Address", "EmailAddress");
@@ -67,7 +67,7 @@ namespace H1ERPSystem2023.Screens
             }
             void Delete(CustomerModel input)
             {
-                Database.Instance.RemoveCustomer(input.CustomerNumber);
+                Database.Instance.RemoveCustomer(input.CustomerNumber.ToString());
                 Draw();
             }
         }

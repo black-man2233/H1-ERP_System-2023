@@ -15,13 +15,13 @@ public partial class Database
 {
     private static List<AddressModel> Addresses = new();
 
-    private static void GetAddressesFromDB(SqlConnection connection)
+    private void GetAddressesFromDB(SqlConnection connection)
     {
         using (connection)
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM dbo.Addres", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM dbo.Addresses", connection);
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -44,25 +44,26 @@ public partial class Database
             catch (Exception e)
             {
                 connection.Close();
-                Console.WriteLine("Something went wrong while trying to retrieve addesses from the database");
+                Console.WriteLine("Couldn't Retrieve Address");
             }
         }
     }
 
-    // public AddressModel GetAddress(string ID)
-    // {
-    //     foreach (AddressModel address in Addresses)
-    //     {
-    //         if (address.AddressId == int.Parse(ID))
-    //         {
-    //             return address;
-    //         }
-    //     }
-    //
-    //     //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
-    //     Console.WriteLine("Id findes Ikke");
-    //     return null!;
-    // }
+    public AddressModel GetAddress(string ID)
+    {
+        for (int i = 0; i < Addresses.Count - 1; i++)
+        {
+            if (Addresses[i].AddressId == int.Parse(ID))
+            {
+                return Addresses[i];
+            }
+        }
+
+        //If the ID given doesn't exist, the return is "ID doesn't exist" and null, otherwise it would give issues 
+        Console.WriteLine("Id findes Ikke");
+        return null!;
+    }
+
     //
     // public void AddCAddress(AddressModel address)
     // {

@@ -5,16 +5,12 @@ CREATE TABLE Company
 (
     ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     CompanyName VARCHAR(30),
-    Street VARCHAR(30),
-    StreetNumber INT,
-    PostalCode INT,
-    City VARCHAR(30),
-    Country VARCHAR(30),
-    Currency VARCHAR(3)
+    Currency VARCHAR(3),
+    AddressId int NOT NULL FOREIGN KEY references dbo.Addresses(AddressId),
 );
 
-INSERT INTO Company (CompanyName, Street, StreetNumber, PostalCode, City, Country, Currency)
-VALUES ('FiskeKutter', 'Fiskegade', 20, 9900, 'Frederikshavn', 'Denmark', 'DKK'),
-('dårligtTalene', 'djævlegade', 900, 1050, 'Djævleøen', 'Denmark', 'DKK');
+INSERT INTO Company (CompanyName, Currency,AddressId)
+VALUES ('FiskeKutter','DKK',1),
+       ('dårligtTalene','DKK',3);
 
 SELECT * FROM Company

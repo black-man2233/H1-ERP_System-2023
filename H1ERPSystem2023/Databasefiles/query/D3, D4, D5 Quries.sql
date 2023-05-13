@@ -1,57 +1,51 @@
 ----� Kevin Bamwesa 2023,  Feel free to use it
 
---Drop Table Addres;
---Drop Table Customer;
---Drop Table Person;
-
+-- Drop Table IF EXISTS Customers;
+-- Drop Table If EXISTS Addresses;
 
 ----// Address
-Create Table Addres(
-    AddressId int Primary Key Not NUll,
-    Street varChar(20),
-    City varChar(20),
-    PostalCode varChar(20),
-    Country varChar(20),
-);
-----// Customer
-CREATE TABLE Customer (
-    CustomerNumber int NOT NULL Primary Key,
-    LastPurchaseDate datetime NULL,
-);
----- // Person 
-Create table Person(
-    PersonId int NOT NULL Primary Key,
-    FirstName varChar(20),
-    LastName varChar(20),
-    PhoneNumber varchar(15),
-    EmailAddress varChar(20),
-    Addres int NOT NULL FOREIGN KEY REFERENCES dbo.Addres(AddressId),
-    CustomerNumber int NOT NULL FOREIGN KEY REFERENCES dbo.Customer(CustomerNumber),
+Create Table Addresses
+(
+    AddressId    int Primary Key IDENTITY (1,1) Not NUll,
+    Street       varChar(20),
+    StreetNumber varChar(20),
+    City         varChar(20),
+    PostalCode   varChar(20),
+    Country      varChar(20),
 );
 
+----// Customer
+CREATE TABLE Customers
+(
+    CustomerNumber   int Primary Key IDENTITY (1,1) NOT NULL,
+    LastPurchaseDate datetime NULL,
+    FirstName        varChar(20),
+    LastName         varChar(20),
+    PhoneNumber      varchar(15),
+    EmailAddress     varChar(20),
+    AddressID        int NOT NULL FOREIGN KEY REFERENCES dbo.Addresses (AddressId)
+);
 
 ----//Insertation of Items
---Customer
-INSERT INTO Customer (CustomerNumber, LastPurchaseDate) 
-VALUES 
-(101, '2022-02-01 10:30:00'),
-(102, '2022-03-15 14:45:00'),
-(103, NULL);
+-- Addesses
+Insert into Addresses (Street, StreetNumber, City, PostalCode, Country)
+Values ('Main Street', '900', 'New York', '10001', 'USA'),
+       ('Java Lane', '1858', 'Copenhagen', '900', 'DK'),
+       ('Oxford Street', '513', 'London', '8965', 'UK'),
+       ('Horizon Circle', '2946', 'London', '865', 'UK'),
+       ('Champs-Élysées', '865', 'Paris', '75008', 'France');
 
---Adress
-INSERT INTO Addres (AddressId, Street, City, PostalCode, Country)
+--Customers
+INSERT INTO dbo.Customers
+(LastPurchaseDate, FirstName, LastName, PhoneNumber, EmailAddress, AddressId)
 VALUES
-(1, 'Main Street', 'New York', '10001', 'USA'),
-(2, 'Oxford Street', 'London', 'W1D 1BS', 'UK'),
-(3, 'Champs-Élysées', 'Paris', '75008', 'France');
-
---Persons
-Insert Into Person (PersonId,FirstName,LastName,PhoneNumber,EmailAddress,Addres,CustomerNumber )
-Values(1, 'John', 'Doe', '123-456-7890', 'johndoe@example.com', 1, 101),
-(2, 'Jane', 'Doe', '987-654-3210', 'janedoe@example.com', 2, 102),
-(3, 'Bob', 'Smith', '555-123-4567', 'bobsmith@example.com', 3, 103);
+    ('2023-02-01 10:30:00', 'John', 'Nig', '123-456-7890', 'johndoe@example.com', 1),
+    ('2022-01-10 14:45:00', 'Jane', 'Ga', '987-654-3210', 'janedoe@example.com', 2),
+    ('2022-03-5 14:45:00', 'Mathias', 'Schaltz', '987-654-3210', 'janedoe@example.com', 3),
+    ('2022-05-25 14:45:00', 'Kevin', 'Doe', '987-654-3210', 'janedoe@example.com', 4),
+    (NULL, 'Zilas', 'Smith', '555-123-4567', 'bobsmith@example.com', 5);
 
 
 SELECT *
-FROM Person
-INNER JOIN dbo.Addres ON Person.Addres = dbo.Addres.AddressId;
+FROM Customers
+         INNER JOIN dbo.Addresses ON Customers.AddressID = dbo.Addresses.AddressId;

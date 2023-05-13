@@ -21,7 +21,7 @@ namespace H1ERPSystem2023.Screens
                 if (Database.Instance.GetAllCustomerModels()[i].CustomerNumber == CustomerListScreen.SelectedCustomer.CustomerNumber)
                     customerList.Add(Database.Instance.GetAllCustomerModels()[i]);
 
-            customerList.AddColumn("Person ID", "PersonID");
+            customerList.AddColumn("Person ID", "CustomerNumber");
             customerList.AddColumn("Full Name", "FullName");
             customerList.AddColumn("Phone Number", "PhoneNumber");
             customerList.AddColumn("Email Address", "EmailAddress");

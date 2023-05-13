@@ -62,7 +62,7 @@ namespace H1ERPSystem2023.Screens
                 editor.TextBox("Email Address", "EmailAddress");
 
                 editor.Edit(Customer);
-                Database.Instance.UpdateCustomer(Customer.CustomerNumber, Customer.FirstName, Customer.LastName, Customer.Address, 
+                Database.Instance.UpdateCustomer(Customer.CustomerNumber.ToString(), Customer.FirstName, Customer.LastName, Customer.Address, 
                     Customer.PhoneNumber, Customer.EmailAddress, Customer.LastPurchaseDate);
             }
         }
