@@ -8,7 +8,7 @@ namespace H1ERPSystem2023.DomainModel
 
         public OrderLineModel(ProductModel product)
         {
-            this.Product = new(product.ID, product.ProductName, product.Description, product.SellPrice,
+            this.Product = new(product.ID, product.ProductName, product.Description, product.SalePrice,
                 product.BuyPrice, product.Location, product.StorageAmount, product.Measure);
         }
     }
