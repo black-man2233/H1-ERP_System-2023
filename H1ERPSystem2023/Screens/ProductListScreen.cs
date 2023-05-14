@@ -32,7 +32,7 @@ namespace H1ERPSystem2023
                 prodList.AddColumn("Name", "ProductName");
                 prodList.AddColumn("Storage Amount", "StorageAmount");
                 prodList.AddColumn("Price To Buy", "BuyPrice");
-                prodList.AddColumn("Price To Sell", "SellPrice");
+                prodList.AddColumn("Price To Sell", "SalePrice");
                 prodList.AddColumn("Avance in %", "AvancePercent");
 
                 prodList.AddKey(ConsoleKey.F1, NewProd);

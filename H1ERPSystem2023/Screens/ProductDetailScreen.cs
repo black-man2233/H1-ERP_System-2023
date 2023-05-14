@@ -23,7 +23,7 @@ namespace H1ERPSystem2023
             prodList.AddColumn("Name", "ProductName");
             prodList.AddColumn("Description", "Description");
             prodList.AddColumn("Price To Buy", "BuyPrice");
-            prodList.AddColumn("Price To Sell", "SellPrice");
+            prodList.AddColumn("Price To Sell", "SalePrice");
             prodList.AddColumn("Location", "Location");
             prodList.AddColumn("Storage Amount", "StorageAmount");
             prodList.AddColumn("Measure Unit", "Measure");
