@@ -1,4 +1,6 @@
-﻿using H1ERPSystem2023.DomainModel;
+﻿using System.Data;
+using System.Data.SqlClient;
+using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {
@@ -9,11 +11,45 @@ namespace H1ERPSystem2023.Databasefiles
 
         //AddProduct uses the product List above, and gives us 2 products to work with along with a lot of information
         //about them
-        void _addProducts()
+        private void GetPoductsFromDB(SqlConnection connection)
         {
-            Products.Add(new ProductModel(1, "Nesquick", "Chokolade Poo", 26, 18, "AFRIKA", 265.6f, Measure.Liter));
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM dbo.Products", connection);
 
-            Products.Add(new ProductModel(2, "BlackBeans", "BLACKMAN", 200, 18, "CONGO,", 108.2f, Measure.Meter));
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    double salePrice = (double)reader.GetDecimal(3);
+                    double buyPrice = (double)reader.GetDecimal(4);
+                    float storageAmount = (float)reader.GetDouble(6);
+                    double avance = (double)reader.GetDecimal(7);
+
+                    ProductModel product = new ProductModel
+                    {
+                        ID = reader.GetInt32(0),
+                        ProductName = reader.GetString(1),
+                        Description = reader.GetString(2),
+                        Location = reader.GetString(5),
+                        SalePrice = salePrice,
+                        BuyPrice = buyPrice,
+                        StorageAmount = storageAmount,
+                        Avance = avance
+                    };
+
+                    Products.Add(product);
+                }
+
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Console.WriteLine(
+                    $"Something went wrong while trying to retrieve Products from the database \n {e.Message}");
+            }
         }
 
         // GetProduct gets an ID i program.cs (by the user), and uses that with the foreach to take all companies
@@ -52,8 +88,8 @@ namespace H1ERPSystem2023.Databasefiles
         public void AddProduct(ProductModel product)
         {
             Products.Add(product);
-
         }
+
         public void AddProduct(int id, string productName, string description, double salePrice, double buyPrice,
             string location, float storageAmount, Measure measure)
         {
@@ -72,7 +108,7 @@ namespace H1ERPSystem2023.Databasefiles
                 {
                     product.ProductName = productName;
                     product.Description = description;
-                    product.SellPrice = salePrice;
+                    product.SalePrice = salePrice;
                     product.BuyPrice = buyPrice;
                     product.Location = location;
                     product.StorageAmount = storageAmount;
