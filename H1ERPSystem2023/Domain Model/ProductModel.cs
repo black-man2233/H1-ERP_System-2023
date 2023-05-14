@@ -14,7 +14,15 @@ namespace H1ERPSystem2023.DomainModel
         public string Location { get; set; }
         public float StorageAmount { get; set; }
         public double Avance { get; set; }
-        public double AvancePercent { get; set; }
+
+        public double AvancePercent
+        {
+            get
+            {
+                return (SalePrice - BuyPrice) / (BuyPrice * 100);
+            }
+        }
+
         public Measure Measure { get; set; }
 
         public ProductModel() { }
@@ -34,7 +42,7 @@ namespace H1ERPSystem2023.DomainModel
             AvancePercent = AvancePercentCalc(product.SellPrice - product.BuyPrice, product.SellPrice);
         }
 
-        public ProductModel(int id, string productName, string description, double sellPrice, double buyPrice, string location, float storageAmount, Measure measure)
+        public ProductModel(int id, string productName, string description, double salePrice, double buyPrice, string location, float storageAmount, Measure measure)
         {
             ID = id;
             ProductName = productName;
