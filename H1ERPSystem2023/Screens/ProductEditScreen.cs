@@ -32,7 +32,7 @@ namespace H1ERPSystem2023.Screens
             editor.TextBox("Name", "ProductName");
             editor.TextBox("Description", "Description");
             editor.IntBox("Price To Buy", "BuyPrice");
-            editor.IntBox("Price To Sell", "SalePrice");
+            editor.IntBox("Price To Sell", "SellPrice");
             editor.TextBox("Location", "Location");
             editor.IntBox("Storage Amount", "StorageAmount");
             editor.TextBox("Measure Unit", "Measure");
@@ -57,13 +57,13 @@ namespace H1ERPSystem2023.Screens
                 editor.TextBox("Name", "ProductName");
                 editor.TextBox("Description", "Description");
                 editor.IntBox("Price To Buy", "BuyPrice");
-                editor.IntBox("Price To Sell", "SalePrice");
+                editor.IntBox("Price To Sell", "SellPrice");
                 editor.TextBox("Location", "Location");
                 editor.IntBox("Storage Amount", "StorageAmount");
                 editor.TextBox("Measure Unit", "Measure");
 
                 editor.Edit(Product);
-                Database.Instance.UpdateProduct(Product.ID, Product.ProductName, Product.Description, Product.SalePrice, Product.BuyPrice, Product.Location, Product.StorageAmount, Product.Measure);
+                Database.Instance.UpdateProduct(Product.ID, Product.ProductName, Product.Description, Product.SellPrice, Product.BuyPrice, Product.Location, Product.StorageAmount, Product.Measure);
             }
         }
     }

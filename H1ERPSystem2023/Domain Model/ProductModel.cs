@@ -9,7 +9,7 @@ namespace H1ERPSystem2023.DomainModel
         public int ID { get; set; }
         public string ProductName { get; set; }
         public string Description { get; set; }
-        public double SalePrice { get; set; }
+        public double SellPrice { get; set; }
         public double BuyPrice { get; set; }
         public string Location { get; set; }
         public float StorageAmount { get; set; }
@@ -24,13 +24,14 @@ namespace H1ERPSystem2023.DomainModel
             ID = product.ID;
             ProductName = product.ProductName;
             Description = product.Description;
-            SalePrice = product.SalePrice;
+            SellPrice = product.SellPrice;
             BuyPrice = product.BuyPrice;
             Location = product.Location;
             StorageAmount = product.StorageAmount;
             Measure = product.Measure;
-            Avance = product.SalePrice - product.BuyPrice;
-            
+            Avance = product.SellPrice - product.BuyPrice;
+            //Sell Price - Buy Price is to get the Profit (avance)
+            AvancePercent = AvancePercentCalc(product.SellPrice - product.BuyPrice, product.SellPrice);
         }
 
         public ProductModel(int id, string productName, string description, double sellPrice, double buyPrice, string location, float storageAmount, Measure measure)
@@ -38,13 +39,13 @@ namespace H1ERPSystem2023.DomainModel
             ID = id;
             ProductName = productName;
             Description = description;
-            SalePrice = salePrice;
+            SellPrice = sellPrice;
             BuyPrice = buyPrice;
             Location = location;
             StorageAmount = storageAmount;
             Measure = measure;
-            Avance = salePrice - buyPrice;
-           
+            Avance = sellPrice - buyPrice;
+            AvancePercent = AvancePercentCalc(sellPrice - buyPrice, sellPrice);
         }
 
         //Profit * 100 and divided by the price it sold for.
