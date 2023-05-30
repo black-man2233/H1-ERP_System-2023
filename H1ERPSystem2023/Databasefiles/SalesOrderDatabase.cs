@@ -1,4 +1,5 @@
-﻿using H1ERPSystem2023.DomainModel;
+﻿using System.Data.SqlClient;
+using H1ERPSystem2023.DomainModel;
 
 namespace H1ERPSystem2023.Databasefiles
 {
@@ -9,25 +10,49 @@ namespace H1ERPSystem2023.Databasefiles
         /// <summary>
         /// Adds temporary random sales orders
         /// </summary>
-        private void _addSalesOrders()
+        private void _addSalesOrders(SqlConnection connection)
         {
-            for (int i = 0; i < 5; i++)
+            try
             {
-                //random Orderid
-                Random random = new Random();
-                int randomOrderId = random.Next();
+                SqlCommand command = new SqlCommand("SELECT * FROM dbo.SaleOrder", connection);
 
-                //orderlines list
-                List<OrderLineModel> orderLines = new();
-                for (int j = 0; j < Instance.Products.Count - 1; j++)
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    orderLines.Add(new(Instance.Products[j]));
+                    double salePrice = (double)reader.GetDecimal(3);
+                    double buyPrice = (double)reader.GetDecimal(4);
+                    float storageAmount = (float)reader.GetDouble(6);
+                    double avance = (double)reader.GetDecimal(7);
+
+                    ProductModel product = new ProductModel
+                    {
+                        ID = reader.GetInt32(0),
+                        ProductName = reader.GetString(1),
+                        Description = reader.GetString(2),
+                        Location = reader.GetString(5),
+                        SalePrice = salePrice,
+                        BuyPrice = buyPrice,
+                        StorageAmount = storageAmount,
+                        Avance = avance
+                    };
+
+                    Products.Add(product);
                 }
 
-                // adds the randomised data to salesordersList
-                salesOrders.Add(new SalesOrderModel(new Random().Next(), Database.Instance.GetAllCustomerModels()[new Random().Next(Database.Instance.GetAllCustomerModels().Count - 1)].CustomerNumber.ToString(), Condition.Created, orderLines));
+                connection.Close();
             }
+            catch (Exception e)
+            {
+                connection.Close();
+                Console.WriteLine(
+                    $"Something went wrong while trying to retrieve Products from the database \n {e.Message}");
+            }
+
+            salesOrders.Add(new SalesOrderModel());
         }
+
         public SalesOrderModel GetSalesOrder(int orderNumber)
         {
             foreach (SalesOrderModel salesOrder in salesOrders)
@@ -104,7 +129,6 @@ namespace H1ERPSystem2023.Databasefiles
                 salesOrder.CompleteDate = updateOrder.CompleteDate;
                 salesOrder.Condition = updateOrder.Condition;
             }
-
         }
 
         /// <summary>
