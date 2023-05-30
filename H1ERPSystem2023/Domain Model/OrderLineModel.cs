@@ -11,5 +11,10 @@ namespace H1ERPSystem2023.DomainModel
             this.Product = new(product.ID, product.ProductName, product.Description, product.SalePrice,
                 product.BuyPrice, product.Location, product.StorageAmount, product.Measure);
         }
+
+        public OrderLineModel()
+        {
+            //Empty Constructor
+        }
     }
 }
