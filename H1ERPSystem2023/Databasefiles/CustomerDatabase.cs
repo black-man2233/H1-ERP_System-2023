@@ -21,26 +21,35 @@ namespace H1ERPSystem2023.Databasefiles
                 {
                     CustomerModel customer = new()
                     {
-                        CustomerNumber = reader.GetInt32(0),
-                        LastPurchaseDate = reader.GetDateTime(1),
-                        FirstName = reader.GetString(2),
-                        LastName = reader.GetString(3),
-                        PhoneNumber = reader.GetString(4),
-                        EmailAddress = reader.GetString(5),
-                        Address = new(Database.Instance.GetAddress(reader.GetInt32(6).ToString()))
+                        Address = new(Database.Instance.GetAddress(reader.GetInt32(6).ToString())),
 
+                        CustomerNumber = reader["CustomerNumber"] != DBNull.Value ? (int)reader["CustomerNumber"] : 0,
+                        LastPurchaseDate = reader["LastPurchaseDate"] != DBNull.Value
+                            ? (DateTime)reader["LastPurchaseDate"]
+                            : DateTime.MinValue,
+                        FirstName = reader["FirstName"] != DBNull.Value ? (string)reader["FirstName"] : string.Empty,
+                        LastName = reader["LastName"] != DBNull.Value ? (string)reader["LastName"] : string.Empty,
+                        PhoneNumber = reader["PhoneNumber"] != DBNull.Value
+                            ? (string)reader["PhoneNumber"]
+                            : string.Empty,
+                        EmailAddress = reader["EmailAddress"] != DBNull.Value
+                            ? (string)reader["EmailAddress"]
+                            : string.Empty
                     };
                     
                     Customers.Add(customer);
                 }
-
-                connection.Close();
             }
             catch (Exception e)
             {
-                connection.Close();
                 Console.WriteLine(
-                    $"Something went wrong while trying to retrieve Customer from the database \n {e.Message}");
+                    $"Something went wrong while trying to retrieve Customer from the database",
+                    Console.ForegroundColor = ConsoleColor.Red);
+                Console.ReadKey();
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
