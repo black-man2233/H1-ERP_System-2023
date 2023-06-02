@@ -37,8 +37,6 @@ namespace H1ERPSystem2023.DomainModel
                 PostalCode = adress.PostalCode;
                 Country = adress.Country;
             }
-
-            return;
         }
 
         public AddressModel()
